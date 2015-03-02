@@ -64,7 +64,7 @@ if (!$db) {
 // route the request
 $method = array_ifexists('requestType',$_POST);
 $result = array('requestType'=>$method);
-error_log("running method=$method");
+//error_log("running method=$method");
 switch($method) {
   /* unused */
   case 'account-login':
@@ -81,56 +81,44 @@ switch($method) {
     $result['username']=array_ifexists('username',$_POST,'George');
     break;
   /* add a new item to the cart */
-  case 'cart-add-product':
-    $products = array_ifexists('products',$_POST);
-    if (is_array($products)) {
-      $pids = array();
-      foreach ($products as $k=>$v) {
-        $code = $db->real_escape_string(array_ifexists('code',$v));
-        $source = $db->real_escape_string(array_ifexists('source',$v));
-        $qty = (int)$db->real_escape_string(array_ifexists('qty',$v));
-        $idx = "{$code}{$source}";
-        if (!array_key_exists($idx,$pids)) {
-          $pids[$idx] = array('code'=>$code,'source'=>$source,'newqty'=>$qty,'oldqty'=>0);
-        } else {
-          $pids[$idx]['newqty'] += $qty;
-        }
-      }
-      $q = "SELECT id, code, source, qty FROM cart_items;";
-      error_log("Search query: $q");
+  case 'cart-update':
+    $itemdata = array_ifexists('itemdata',$_POST,array());
+    $code = $db->real_escape_string(array_ifexists('prodcode',$itemdata));
+    $tid = (int)$db->real_escape_string(array_ifexists('id',$itemdata));
+    $qty = (int)$db->real_escape_string(array_ifexists('quantity',$itemdata));
+    $src = $db->real_escape_string(array_ifexists('source',$itemdata));
+    if (!$tid) {
+      $q = "SELECT id FROM cart_items WHERE code='$code' AND source='$src';";
       if ($r = $db->query($q)) {
-        while ($rr = $r->fetch_assoc()) {
-          $idx = "{$rr['code']}{$rr['source']}";
-          if (!array_key_exists($idx,$pids)) { $pids[$idx] = array(); }
-          $pids[$idx] = array('id'=>(int)$rr['id'],
-                              'code'=>$rr['code'],
-                              'source'=>$rr['source'],
-                              'newqty'=>array_ifexists('newqty',$pids[$idx],0),
-                              'oldqty'=>(int)$rr['qty']);
-        }
-        $r->free();
+        $rr=$r->fetch_assoc();
+        $tid = (int)$db->real_escape_string($rr['id']);
       }
-      error_log("All items:\n".print_r($pids,1));
-      $values = array();
-      foreach ($pids as $k=>$v) {
-        $values[] = "('{$v['code']}','Ottomanelli Certified Black Angus','Filet Mignon Steak, " .
-                    "Thick Cut, approx 8 oz, 1 steak',18.59," . ($v['oldqty']+$v['newqty']) .
-                    ",'sample-product.png', 'ea','{$v['source']}')";
-      }
-      error_log("All values:\n".print_r($values,1));
-      if ($values) {
-        erase_cart();
-        // the INSERT should actually draw from a product table for more info
+    }
+    $q = '';
+    if ($tid) {
+      $q = $qty
+           ? "UPDATE cart_items SET qty=$qty,source='$src' WHERE id=$tid;"
+           : "DELETE FROM cart_items WHERE id=$tid;";
+    } else {
+      if ($code && $qty) {
         $q = "INSERT INTO cart_items (code,name,descript,price,qty,img,priceunit,source) " .
-               "VALUES " . implode(',',$values) . ";";error_log('final query: '.$q);
-        $r = $db->query($q);
+             "SELECT '$code','Ottomanelli Certified Black Angus','Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak', " .
+             "'18.59',$qty,'sample-product.png','ea','$src';";
       }
+    }
+    if ($q) {
+      $r = $db->query($q);
+      $result['rows']=$db->affected_rows;
+      $result['query']=$q;
+    } else {
+      $result['rows']=0;
+      $result['query']='no query';
     }
     break;
   /* for clearing the cart */
   case 'cart-clear':
     erase_cart();
-    error_log('cleared');
+    //error_log('cleared');
     break;
   /* for all cart items & totals, and product suggestions */
   case 'cart-content':
@@ -161,6 +149,10 @@ switch($method) {
     $result['cart_count']=0;
     $result['cart_total']=0;
     $result = array_merge($result, get_cart_totals());
+    break;
+  /* for saving the state of the cart flyout */
+  case 'flyout-state':
+    $result['state'] = (bool)array_ifexists('flyout_state',$_POST,false);
     break;
   /* auto-suggest word list based on $_POST['fragment'] */
   case 'wordlist':

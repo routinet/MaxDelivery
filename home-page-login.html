@@ -14,15 +14,17 @@
     <link rel="stylesheet" href="/css/nivo-lightbox-theme-delivery.css" />
     <link rel="stylesheet" href="/css/main.css" type="text/css" />
     <link rel="stylesheet" href="/css/carousel-contents.css" type="text/css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <script src="//cdn.jsdelivr.net/jquery.slick/1.4.0/slick.min.js"></script>
-    <script src="/js/nivo-lightbox.js"></script>
-
-    <script src="/js/carousel.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.0/slick.min.js"></script>
+    <script type="text/javascript" src="/js/nivo-lightbox.js"></script>
+    <script type="text/javascript" src="/js/carousel.js"></script>
     <script type="text/javascript" src="/js/DJQ.js"></script>
-    <script type="text/javascript" src="/js/CartCheckoutModal.js"></script>
+    <script type="text/javascript" src="/js/CartPlugin.js"></script>
+    <!-- begin custom session script - server side scripts run before page init -->
+    <script type="text/javascript">MaxCart.flyout_state=false;</script>
+    <!-- end custom session script -->
     <script type="text/javascript" src="/js/main.js"></script>
   </head>
   <body class="is-logged-in">
@@ -77,85 +79,100 @@
         </div>
       </header>
       <section id="main-navigation-bar">
+        <div id="main-navigation-cart-bar" class="feature-log-in">
+          <div id="cart-checkout-button-wrapper" class="cart-bar-item">
+            <div id="cart-bar-checkout-button" class="orange-grade cart-checkout-button">
+              <span id="cart-bar-cart-total-items" class="cart-total-items sprite">0</span>
+              <span id="cart-bar-cart-total-amt" class="cart-total-amt">0.00</span>
+              <span id="cart-bar-slide-button" class="sprite"></span>
+            </div>
+          </div>
+          <a href="#lightbox-reorder" data-lightbox-type="inline" id="cart-reorder-button-wrapper" class="has-lightbox cart-bar-item">
+            <div class="cart-bar-reorder-button sprite"></div>
+          </a>
+          <a href="#wishlist-lightbox" data-lightbox-type="inline" id="wishlist-button-wrapper" class="has=lightbox cart-bar-item">
+            <div class="cart-bar-wishlist-button sprite"></div>
+          </a>
+        </div>
         <nav id="main-navigation-menu">
           <ul>
             <li id="main-nav-supermarket" class="flyout-menu">
-              <div class="main-navigation-item-text">Supermarket</div>
+              <a class="main-navigation-item-text">Supermarket</a>
               <ul class="category-items flyout-panel">
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow-120">
+                  <div class="lift-shadow">
                     <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
                   </div>
                   <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow-120">
+                  <div class="lift-shadow">
                     <img src="/images/items/supermarket/drinks.png" alt="Drinks" />
                   </div>
                   <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow-120">
+                  <div class="lift-shadow">
                     <img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" />
                   </div>
                   <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow-120">
+                  <div class="lift-shadow">
                     <img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" />
                   </div>
                   <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow-120">
+                  <div class="lift-shadow">
                     <img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" />
                   </div>
                   <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow-120">
+                  <div class="lift-shadow">
                     <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
                   </div>
                   <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow-120">
+                  <div class="lift-shadow">
                     <img src="/images/items/supermarket/drinks.png" alt="Drinks" />
                   </div>
                   <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow-120">
+                  <div class="lift-shadow">
                     <img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" />
                   </div>
                   <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow-120">
+                  <div class="lift-shadow">
                     <img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" />
                   </div>
                   <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow-120">
+                  <div class="lift-shadow">
                     <img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" />
                   </div>
                   <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow-120">
+                  <div class="lift-shadow">
                     <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
                   </div>
                   <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
                 </li>
               </ul>
             </li>
-            <li id="main-nav-bestny"><div class="main-navigation-item-text">Best of NY</div></li>
-            <li id="main-nav-organic"><div class="main-navigation-item-text">Organic</div></li>
-            <li id="main-nav-drugstore"><div class="main-navigation-item-text">Drug Store</div></li>
-            <li id="main-nav-household"><div class="main-navigation-item-text">Household</div></li>
-            <li id="main-nav-salesnew"><div class="main-navigation-item-text">Sales &amp; New</div></li>
-            <li id="main-nav-forwork"><div class="main-navigation-item-text">For Work</div></li>
+            <li id="main-nav-bestny"><a class="main-navigation-item-text">Best of NY</a></li>
+            <li id="main-nav-organic"><a class="main-navigation-item-text">Organic</a></li>
+            <li id="main-nav-drugstore"><a class="main-navigation-item-text">Drug Store</a></li>
+            <li id="main-nav-household"><a class="main-navigation-item-text">Household</a></li>
+            <li id="main-nav-salesnew"><a class="main-navigation-item-text">Sales &amp; New</a></li>
+            <li id="main-nav-forwork"><a class="main-navigation-item-text">For Work</a></li>
           </ul>
         </nav>
         <div id="main-navigation-service-check" class="feature-no-log-in">
@@ -163,21 +180,6 @@
             <label for="service-check-zip">Check if we service<br />your address</label>
             <input type="text" placeholder="Enter ZIP" size="12" /><img src="/images/zip-location.png" alt="Search" />
           </form>
-        </div>
-        <div id="main-navigation-cart-bar" class="feature-log-in">
-          <a href="#cart-lightbox" data-lightbox-type="inline" id="cart-checkout-button-wrapper" class="has-lightbox">
-            <div id="cart-bar-checkout-button" class="orange-grade cart-checkout-button">
-              <span id="cart-bar-cart-total-items" class="cart-total-items sprite">0</span>
-              <span id="cart-bar-cart-total-amt" class="cart-total-amt">0.00</span>
-              <span id="cart-bar-slide-button" class="sprite"></span>
-            </div>
-          </a>
-          <a href="#lightbox-reorder" data-lightbox-type="inline" id="cart-reorder-button-wrapper" class="has-lightbox">
-            <div class="cart-bar-reorder-button sprite"></div>
-          </a>
-          <a href="#wishlist-lightbox" data-lightbox-type="inline" id="wishlist-button-wrapper" class="has=lightbox">
-            <div class="cart-bar-wishlist-button sprite"></div>
-          </a>
         </div>
       </section>
       <main id="main-content">
@@ -196,37 +198,15 @@
             <div class="carousel inner-carousel">
               <div id="inner-slide-1">
                 <div id="inner-slide-1-content">
-                  <div data-prodcode="prod1" class="is-cart-item ui-front">
-                    <div class="slideshow-product-wrapper">
-                      <div class="product-thumbnail-wrapper">
-                        <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                      </div>
-                      <div class="product-name">Ottomanelli Certified Black Angus</div>
-                      <div class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</div>
-                      <div class="product-price">18.59/ea.</div>
-                      <div class="cart-item-controls">
-                        <div class="cart-item-wish cart-item-icon sprite"></div>
-                        <div class="cart-item-icon-sep"></div>
-                        <div class="cart-item-add cart-item-icon sprite"></div>
-                        <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                      </div>
-                    </div>
+                  <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                       data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                       data-imgpath="sample-product.png" data-quantity="2"
+                       class="is-page-item">
                   </div>
-                  <div data-prodcode="prod1" class="is-cart-item ui-front">
-                    <div class="slideshow-product-wrapper">
-                      <div class="product-thumbnail-wrapper">
-                        <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                      </div>
-                      <span class="product-name">Ottomanelli Certified Black Angus</span>
-                      <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                      <span class="product-price">18.59/ea.</span>
-                      <div class="cart-item-controls">
-                        <div class="cart-item-wish cart-item-icon sprite"></div>
-                        <div class="cart-item-icon-sep"></div>
-                        <div class="cart-item-add cart-item-icon sprite"></div>
-                        <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                      </div>
-                    </div>
+                  <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                       data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                       data-imgpath="sample-product.png"
+                       class="is-page-item">
                   </div>
                 </div>
               </div>
@@ -239,12 +219,12 @@
           <div id="slide-2">outer slide 2 content</div>
         </section>
         <section id="featured-tabs">
-          <div class="featured-tab lift-shadow-300" id="artesian-wines">
+          <div class="featured-tab lift-shadow" id="artesian-wines">
             <img src="/images/artesian-wine-selection.png" alt="Artesian Wines" />
             <div class="caption-overlay overlay-bottom">Check out our selection of
             artesian wines, premium liquers, and craft beers</div>
           </div>
-          <div class="featured-tab lift-shadow-300" id="testimonials">
+          <div class="featured-tab lift-shadow" id="testimonials">
             <div class="feature-tab-header">
               <span class="feature-tab-head-text">Testimonials</span>
               <span class="feature-tab-all-link">&lt; All</span>
@@ -259,338 +239,208 @@
               <span class="testimonial-rating"><img src="/images/yelp-stars-logo.png" alt="5 stars" /></span>
             </div>
           </div>
-          <div class="featured-tab lift-shadow-300" id="today-on-sale">
+          <div class="featured-tab lift-shadow" id="today-on-sale">
             <div class="feature-tab-header">
               <span class="feature-tab-head-text">Today on Sale</span>
               <a data-lightbox-type="inline" href="#today-on-sale-lightbox" class="feature-tab-all-link has-lightbox">&lt; All</a>
             </div>
-            <div class="feature-tab-content today-on-sale-content ui-front is-cart-item" data-prodcode="prod1">
-              <div class="product-thumbnail-wrapper">
-                <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-              </div>
-              <span class="product-name">Ottomanelli Certified Black Angus</span>
-              <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-              <span class="product-price">18.59/ea.</span>
-              <div class="cart-item-controls">
-                <div class="cart-item-wish cart-item-icon sprite"></div>
-                <div class="cart-item-icon-sep"></div>
-                <div class="cart-item-add cart-item-icon sprite"></div>
-                <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-              </div>
+            <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                 data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                 data-imgpath="sample-product.png"
+                 class="feature-tab-content today-on-sale-content is-page-item">
             </div>
           </div>
         </section>
         <section id="category-tabs">
           <div id="section-reorder" class="feature-log-in">
-            <div class="category-section-title">
+            <div class="category-section-title no-collapse">
               <div class="category-chevron-down sprite"></div>
               <div class="reorder-icon-big sprite"></div> Reorder
-              <div class="category-click-to-view">Click to View</div>
+              <div class="category-click-to-view">View All</div>
             </div>
             <div class="category-items">
-              <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-                <div class="product-thumbnail-wrapper">
-                  <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                </div>
-                <div class="product-property-wrapper">
-                  <span class="product-name">Ottomanelli Certified Black Angus</span>
-                  <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                  <span class="product-price">18.59/ea.</span>
-                </div>
-                <div class="cart-item-controls">
-                  <div class="cart-item-wish cart-item-icon sprite"></div>
-                  <div class="cart-item-icon-sep"></div>
-                  <div class="cart-item-add cart-item-icon sprite"></div>
-                  <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png" data-quantity="2"
+                   class="category-item reorder-item is-page-item">
               </div>
-              <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-                <div class="product-thumbnail-wrapper">
-                  <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                </div>
-                <div class="product-property-wrapper">
-                  <span class="product-name">Ottomanelli Certified Black Angus</span>
-                  <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                  <span class="product-price">18.59/ea.</span>
-                </div>
-                <div class="cart-item-controls">
-                  <div class="cart-item-wish cart-item-icon sprite"></div>
-                  <div class="cart-item-icon-sep"></div>
-                  <div class="cart-item-add cart-item-icon sprite"></div>
-                  <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="category-item reorder-item is-page-item">
               </div>
-              <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-                <div class="product-thumbnail-wrapper">
-                  <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                </div>
-                <div class="product-property-wrapper">
-                  <span class="product-name">Ottomanelli Certified Black Angus</span>
-                  <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                  <span class="product-price">18.59/ea.</span>
-                </div>
-                <div class="cart-item-controls">
-                  <div class="cart-item-wish cart-item-icon sprite"></div>
-                  <div class="cart-item-icon-sep"></div>
-                  <div class="cart-item-add cart-item-icon sprite"></div>
-                  <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="category-item reorder-item is-page-item">
               </div>
-              <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-                <div class="product-thumbnail-wrapper">
-                  <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                </div>
-                <div class="product-property-wrapper">
-                  <span class="product-name">Ottomanelli Certified Black Angus</span>
-                  <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                  <span class="product-price">18.59/ea.</span>
-                </div>
-                <div class="cart-item-controls">
-                  <div class="cart-item-wish cart-item-icon sprite"></div>
-                  <div class="cart-item-icon-sep"></div>
-                  <div class="cart-item-add cart-item-icon sprite"></div>
-                  <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="category-item reorder-item is-page-item">
               </div>
-              <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-                <div class="product-thumbnail-wrapper">
-                  <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                </div>
-                <div class="product-property-wrapper">
-                  <span class="product-name">Ottomanelli Certified Black Angus</span>
-                  <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                  <span class="product-price">18.59/ea.</span>
-                </div>
-                <div class="cart-item-controls">
-                  <div class="cart-item-wish cart-item-icon sprite"></div>
-                  <div class="cart-item-icon-sep"></div>
-                  <div class="cart-item-add cart-item-icon sprite"></div>
-                  <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="category-item reorder-item is-page-item">
               </div>
-              <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-                <div class="product-thumbnail-wrapper">
-                  <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                </div>
-                <div class="product-property-wrapper">
-                  <span class="product-name">Ottomanelli Certified Black Angus</span>
-                  <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                  <span class="product-price">18.59/ea.</span>
-                </div>
-                <div class="cart-item-controls">
-                  <div class="cart-item-wish cart-item-icon sprite"></div>
-                  <div class="cart-item-icon-sep"></div>
-                  <div class="cart-item-add cart-item-icon sprite"></div>
-                  <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="category-item reorder-item is-page-item">
               </div>
-              <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-                <div class="product-thumbnail-wrapper">
-                  <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                </div>
-                <div class="product-property-wrapper">
-                  <span class="product-name">Ottomanelli Certified Black Angus</span>
-                  <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                  <span class="product-price">18.59/ea.</span>
-                </div>
-                <div class="cart-item-controls">
-                  <div class="cart-item-wish cart-item-icon sprite"></div>
-                  <div class="cart-item-icon-sep"></div>
-                  <div class="cart-item-add cart-item-icon sprite"></div>
-                  <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="category-item reorder-item is-page-item">
               </div>
-              <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-                <div class="product-thumbnail-wrapper">
-                  <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                </div>
-                <div class="product-property-wrapper">
-                  <span class="product-name">Ottomanelli Certified Black Angus</span>
-                  <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                  <span class="product-price">18.59/ea.</span>
-                </div>
-                <div class="cart-item-controls">
-                  <div class="cart-item-wish cart-item-icon sprite"></div>
-                  <div class="cart-item-icon-sep"></div>
-                  <div class="cart-item-add cart-item-icon sprite"></div>
-                  <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="category-item reorder-item is-page-item">
               </div>
-              <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-                <div class="product-thumbnail-wrapper">
-                  <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                </div>
-                <div class="product-property-wrapper">
-                  <span class="product-name">Ottomanelli Certified Black Angus</span>
-                  <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                  <span class="product-price">18.59/ea.</span>
-                </div>
-                <div class="cart-item-controls">
-                  <div class="cart-item-wish cart-item-icon sprite"></div>
-                  <div class="cart-item-icon-sep"></div>
-                  <div class="cart-item-add cart-item-icon sprite"></div>
-                  <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="category-item reorder-item is-page-item">
               </div>
-              <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-                <div class="product-thumbnail-wrapper">
-                  <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                </div>
-                <div class="product-property-wrapper">
-                  <span class="product-name">Ottomanelli Certified Black Angus</span>
-                  <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                  <span class="product-price">18.59/ea.</span>
-                </div>
-                <div class="cart-item-controls">
-                  <div class="cart-item-wish cart-item-icon sprite"></div>
-                  <div class="cart-item-icon-sep"></div>
-                  <div class="cart-item-add cart-item-icon sprite"></div>
-                  <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="category-item reorder-item is-page-item">
               </div>
-              <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-                <div class="product-thumbnail-wrapper">
-                  <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-                </div>
-                <div class="product-property-wrapper">
-                  <span class="product-name">Ottomanelli Certified Black Angus</span>
-                  <span class="product-description">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</span>
-                  <span class="product-price">18.59/ea.</span>
-                </div>
-                <div class="cart-item-controls">
-                  <div class="cart-item-wish cart-item-icon sprite"></div>
-                  <div class="cart-item-icon-sep"></div>
-                  <div class="cart-item-add cart-item-icon sprite"></div>
-                  <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel">
-                </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="category-item reorder-item is-page-item">
               </div>
             </div>
           </div>
           <div id="section-supermarket">
-            <div class="category-section-title">
+            <a class="category-section-title">
               <div class="category-chevron-down sprite"></div> Supermarket
               <div class="category-click-to-view">Click to View</div>
-            </div>
+            </a>
             <div class="category-items">
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow-200"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
+                <div class="lift-shadow"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow-200"><img src="/images/items/supermarket/drinks.png" alt="Drinks" /></div>
+                <div class="lift-shadow"><img src="/images/items/supermarket/drinks.png" alt="Drinks" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow-200"><img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" /></div>
+                <div class="lift-shadow"><img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow-200"><img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" /></div>
+                <div class="lift-shadow"><img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow-200"><img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" /></div>
+                <div class="lift-shadow"><img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow-200"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
+                <div class="lift-shadow"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow-200"><img src="/images/items/supermarket/drinks.png" alt="Drinks" /></div>
+                <div class="lift-shadow"><img src="/images/items/supermarket/drinks.png" alt="Drinks" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow-200"><img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" /></div>
+                <div class="lift-shadow"><img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow-200"><img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" /></div>
+                <div class="lift-shadow"><img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow-200"><img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" /></div>
+                <div class="lift-shadow"><img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow-200"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
+                <div class="lift-shadow"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
               </div>
             </div>
           </div>
           <div id="section-best-of-nyc">
-            <div class="category-section-title">
+            <a class="category-section-title">
               <div class="category-chevron-down sprite"></div> Best of NYC
               <div class="category-click-to-view">Click to View</div>
-            </div>
+            </a>
             <div class="category-items">
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow-200"><img src="/images/items/best-of-nyc/balthazar-bakery.png" alt="Balthazar Bakery" /></div>
+                <div class="lift-shadow"><img src="/images/items/best-of-nyc/balthazar-bakery.png" alt="Balthazar Bakery" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Balthazar Bakery</div>
               </div>
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow-200"><img src="/images/items/best-of-nyc/balthazar-bread.png" alt="Balthazar Bread" /></div>
+                <div class="lift-shadow"><img src="/images/items/best-of-nyc/balthazar-bread.png" alt="Balthazar Bread" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Balthazar BRead</div>
               </div>
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow-200"><img src="/images/items/best-of-nyc/cassinelli-pasta.png" alt="Cassinelli Fresh Pasta" /></div>
+                <div class="lift-shadow"><img src="/images/items/best-of-nyc/cassinelli-pasta.png" alt="Cassinelli Fresh Pasta" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Cassinelli Fresh Pasta</div>
               </div>
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow-200"><img src="/images/items/best-of-nyc/doughnut-plant.png" alt="Doughnut Plant" /></div>
+                <div class="lift-shadow"><img src="/images/items/best-of-nyc/doughnut-plant.png" alt="Doughnut Plant" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Doughnut Plant</div>
               </div>
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow-200"><img src="/images/items/best-of-nyc/eileens-cheesecake.png" alt="Eileen's Special Cheesecake" /></div>
+                <div class="lift-shadow"><img src="/images/items/best-of-nyc/eileens-cheesecake.png" alt="Eileen's Special Cheesecake" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Eileen's Special Cheesecake</div>
               </div>
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow-200"><img src="/images/items/best-of-nyc/jacques-torres-chocolate.png" alt="Jacques Torres Chocolates" /></div>
+                <div class="lift-shadow"><img src="/images/items/best-of-nyc/jacques-torres-chocolate.png" alt="Jacques Torres Chocolates" /></div>
                 <div data-prodcode="prod1" class="category-item-caption">Jacques Torres Chocolates</div>
               </div>
             </div>
           </div>
           <div id="section-organic">
-            <div class="category-section-title">
+            <a class="category-section-title">
               <div class="category-chevron-down sprite"></div> Organic
               <div class="category-click-to-view">Click to View</div>
-            </div>
+            </a>
             <div class="category-items">
               No items to see here.
             </div>
           </div>
           <div id="section-drugstore">
-            <div class="category-section-title">
+            <a class="category-section-title">
               <div class="category-chevron-down sprite"></div> Drugstore
               <div class="category-click-to-view">Click to View</div>
-            </div>
+            </a>
             <div class="category-items">
               No items to see here.
             </div>
           </div>
           <div id="section-household">
-            <div class="category-section-title">
+            <a class="category-section-title">
               <div class="category-chevron-down sprite"></div> Household
               <div class="category-click-to-view">Click to View</div>
-            </div>
+            </a>
             <div class="category-items">
               No items to see here.
             </div>
           </div>
           <div id="section-for-work">
-            <div class="category-section-title">
+            <a class="category-section-title">
               <div class="category-chevron-down sprite"></div> For Work
               <div class="category-click-to-view">Click to View</div>
-            </div>
+            </a>
             <div class="category-items">
               No items to see here.
             </div>
           </div>
           <div id="section-sales-new">
-            <div class="category-section-title">
+            <a class="category-section-title">
               <div class="category-chevron-down sprite"></div> Sales and New
               <div class="category-click-to-view">Click to View</div>
-            </div>
+            </a>
             <div class="category-items">
               No items to see here.
             </div>
@@ -671,317 +521,8 @@
     	  </form>
     	</div>
     </div>
-    <div id="lightbox-reorder" class="reorder-lightbox-content lightbox-content feature-log-in">
-      <div class="lightbox-reorder-wrapper">
-        <div class="lightbox-title"><div class="reorder-icon-big sprite"></div> Reorder</div>
-        <div class="reorder-filter-bar">
-          <select name="sortorder">
-            <option value="1">By most frequently ordered</option>
-            <option value="2">By order (most recent first)</option>
-            <option value="3">By brand</option>
-          </select>
-          <input type="text" id="reorder-search-term" class="search-autosuggest" name="reorder-search-term" placeholder="Search by keyword" />
-        </div>
-        <div class="reorder-modal-items"></div>
-        <div class="reorder-modal-addtocart-wrapper">
-          <div class="reorder-modal-addtocart orange-grade"><div class="reorder-modal-addtocart-icon"></div>Add to Cart</div>
-        </div>
-      </div>
-    </div>
-    <div id="wishlist-lightbox" class="wishlist-lightbox-content lightbox-content">
-      <div id="modal-wishlist">
-        <div class="category-section-title">Wishlist</div>
-        <div class="category-items">
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="today-on-sale-lightbox" class="todaysale-lightbox-content lightbox-content">
-      <div id="modal-supermarket">
-        <div class="category-section-title">Supermarket</div>
-        <div class="category-items">
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="modal-best-of-nyc">
-        <div class="category-section-title">Best of NYC</div>
-        <div class="category-items">
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-          <div data-prodcode="prod1" class="category-item reorder-item is-cart-item ui-front">
-            <div class="product-thumbnail-wrapper">
-              <img src="/images/sample-product.png" alt="Sample Product" class="product-thumbnail" />
-            </div>
-            <div class="product-name">Ottomanelli Certified Black Angus</div>
-            <div class="product-price">18.59/ea.</div>
-            <div class="cart-item-controls">
-              <input type="text" name="quantity" placeholder="1" class="cart-item-qtysel" />
-              <div class="cart-item-add cart-item-icon sprite"></div>
-              <div class="cart-item-wish cart-item-icon sprite"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div id="cart-bar-flyout">
+      <div id="cart-bar-flyout-link" class="orange-grade">Checkout<div id="cart-bar-flyout-link-arrow" class="sprite"></div></div>
     </div>
   </body>
 </html>

@@ -7,5 +7,5 @@ $(function () {
       //$(this).append(index);
     });
   });
-  carousel.slick({dots:true, arrows:false});
+  carousel.slick({dots:false, arrows:false});
 });

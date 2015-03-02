@@ -9,99 +9,134 @@
   /* onReady necessities */
   $(document).ready(function() {
 
+
+    /* *********************************
+     * Hooks and events
+     ********************************* */
+
     /* Hook for category tabs click & slide, with UI changes */
     $('body').on('click','#category-tabs .category-section-title',function(e){
-      var nt='', cb=null, i=$(this).parent().find('.category-items'), bgp='', thisobj=this;
-      if (i.is(':visible')) {
-        nt='View';     cb='slideUp';   bgp='';
-        $(this).removeClass('is-open');
-      } else {
-        nt="Collapse"; cb='slideDown'; bgp='-181px';
-        $('#category-tabs .category-section-title.is-open').trigger('click');
-        $(this).addClass('is-open')
+      if (!$(this).hasClass('no-collapse')) {
+        var nt='', cb=null, i=$(this).parent().find('.category-items'), bgp='', thisobj=this, dir=null;
+        if (i.is(':visible')) {
+          nt='View'; cb='slideUp'; bgp=''; dir='removeClass';
+          //$(this).removeClass('is-open');
+        } else {
+          nt="Collapse"; cb='slideDown'; bgp='-181px'; dir='addClass';
+          /* OBSOLETE - for accordian style auto-close */
+          //$('#category-tabs .category-section-title.is-open').trigger('click');
+        }
+        $(this)[dir]('is-open')
                .find('.category-chevron-down')
                .css('background-position-x',bgp);
+        i[cb](DJQ.category_slide_duration,
+              function(){
+                $(thisobj).find('.category-click-to-view').html('Click to '+nt);
+              });
       }
-      i[cb](DJQ.category_slide_duration,
-            function(){
-              $(thisobj).find('.category-click-to-view').html('Click to '+nt);
-            });
     });
 
     /* Hook for navigation menus' mouseenter/mouseleave flyouts */
     $('body').on('mouseenter mouseleave', '.flyout-menu', function(e){ DJQ.handlerNavFlyout(this,e.type); } );
 
-    /* Lightbox for the sign-in/sign-up modal */
+    /* Hook to show the sign-in/sign-up modal lightbox */
     $('body').on('click','.cs-menu-account-button', function(e){
       var t = '#' + e.target.id.replace('cs-menu-','') + '-tab';
       DJQ.showLightbox(e,this,t);
     });
 
-    /* Lightbox for Today on Sale modal */
-    $('body').on('click','#today-on-sale a.has-lightbox',function(e){
-      e.preventDefault();
-      DJQ.showLightbox(e,this);
-    });
-
-    /* Lightbox for Today on Sale modal */
-    $('body').on('click','#wishlist-button-wrapper',function(e){
-      e.preventDefault();
-      DJQ.showLightbox(e,this);
-    });
-
-    /* Lightbox for the show/cart checkout modal */
+    /* Hook on the navbar cart button, show the fly-out and save the state */
     $('body').on('click','#cart-checkout-button-wrapper',function(e){
-      DJQ.Cart.getContents(DJQ.populateCartPopOut);
-      /*DJQ.Cart.getContents(DJQ.populateCartModal);
-      DJQ.showLightbox(e,this,'cart');*/
-    });
-
-    /* Lightbox for the reorder modal */
-    $('body').on('click','#cart-reorder-button-wrapper',function(e){
-      DJQ.showLightbox(e,this);
-      DJQ.Cart.getReorder(DJQ.populateReorderModal);
-      $('.search-autosuggest').autocomplete({
-  		      	minLength: 1,
-  		      	source: function( req, resp ) {
-  		      	  $.ajax({
-  		      	           url : DJQ.ajax_url,
-  		      	           dataType: "json",
-  		      	           type:'POST',
-  		      	           data: $.param({ fragment:req.term, requestType:'wordlist' }),
-  		      	           success: function(d) {
-  		      	             resp( $.map(d.words,function(i) { return i; }) );
-  		      	           }
-  		          });
-  		      	}
-      });
-    });
-
-    /* Hook for bag selection on checkout modal */
-    $('body').on('click','#checkout-cart-tab .checkout-modal-bag-type', function(e){
-      $('#checkout-cart-tab .checkout-modal-bag-type').css('background-position','').removeClass('is-selected');
-      $(this).addClass('is-selected').css('background-position','-1px -1px');
-    });
-
-    /* Hook for order details accordian on checkout modal */
-    $('body').on('click', '#checkout-tab-items th.checkout-summary-full-descript, #checkout-cart-tab .checkout-modal-item-detail-toggle', function(e){
-      var tg = $(e.target);
-      if (tg.hasClass('checkout-modal-item-detail-toggle')) {
-        tg.css('font-size','0')
-          .closest('.checkout-modal-item-detail')
-          .find('.show-cart-tab-wrapper')
-          .slideDown();
+      var tgt = $('#cart-bar-flyout').maxCartFlyOut(),
+          $el = $(this),
+          st = false
+      ;
+      if ($el.hasClass('slide-out')) {
+        $el.removeClass('slide-out');
       } else {
-        tg.closest('.show-cart-tab-wrapper')
-          .slideUp()
-          .closest('.checkout-modal-item-detail')
-          .find('.checkout-modal-item-detail-toggle')
-          .css('font-size','');
+        tgt.data('maxCartFlyOut').populate();
+        $el.addClass('slide-out');
+        st = true;
+      }
+      tgt.toggle('slide', {direction:'right',duration:0,complete:$.proxy(tgt.data('maxCartFlyOut').resize,tgt.data('maxCartFlyOut'))});
+      MaxCart.saveFlyoutState(st);
+    });
+
+    /* Hook on window resize or document scroll, resize cart flyout */
+    $( window ).resize(function() { $('#cart-bar-flyout').maxCartFlyOut().data('maxCartFlyOut').resize(); });
+    /* OBSOLETE - for partial-fixed header */
+    /*$(document).scroll(function() {
+      DJQ.resizeFlyout();
+      var doccls = ($(this).scrollTop() > 99) ? 'addClass' : 'removeClass';
+      $('#main-navigation-bar')[doccls]('sticky');
+    });*/
+
+    /* Hook on the quantity selector, show the update icon */
+    $('body').on('focusin focusout', '.cart-item-qtysel', function(e){
+      var dir = e.type=='focusin' ? 'addClass' : 'removeClass';
+      $(e.target).closest('.cart-item-qtyctl')[dir]('is-editing');
+    });
+
+    /* Hook on in-page cart icons, show the quantity textbox as update icon */
+    $('body').on('click', '.is-page-item .cart-item-cart-icon, .is-page-item .cart-item-qtytext', function(e) {
+      $(e.target).closest('.cart-item-qtyctl')
+                 .addClass('is-editing')
+                 .children('.cart-item-qtysel')
+                 .show()
+                 .focus();
+    });
+
+    /* Add hook for quantity add/delete button clicks.
+       This will submit the product via AJAX for insert/update.
+       */
+    $('body').on('click','.cart-item-quantity-add, .cart-item-quantity-del', function(e){
+      var $et = $(e.target),
+          t = $et.siblings('.cart-item-qtysel');
+      if (t.length) {
+        var count=parseInt(t.val());
+        count += ($et.hasClass('cart-item-quantity-add') ? 1 : -1);
+        if (count < 0) { count = 0; }
+        t.val(count).trigger('change');
       }
     });
 
-    /* Populate totals for the checkout modal */
-    $('body').on('click','a[href="#checkout-cart-tab"]',function(e){
-      DJQ.Cart.getContents(DJQ.populateCheckoutModal);
+    /* Add hook to update text version quantity when textbox changes */
+    $('body').on('change','.cart-item-qtysel', function(e){
+      var t = $(this).siblings('.cart-item-qtytext'),
+          c = $(this).val(),
+          cl = parseInt(c) ? 'addClass' : 'removeClass';
+      if (t.length) {
+        t.html(c);
+      }
+      $(this).closest('.is-page-item,.is-cart-item')[cl]('is-selected').data('maxCart').update();
+    });
+
+    /* Add hook for clearing the cart
+       This was for testing/debugging purposes and can be removed if unneeded
+       */
+    $('body').on('click','#account-menu-clear-cart', function(e){
+      MaxCart.submitClearCart();
+      MaxCart.updateIcon();
+      alert('Your cart has been cleared');
+    });
+
+    /* Add hook for deleting a single item from the cart */
+    $('body').on('click','.cart-item-remove-button', function(e){
+      DJQ.Cart.deleteItem($(this));
+      $(e.target).closest('.cart-list-item').remove();
+      MaxCart.updateIcon();
+    });
+
+
+    /* *********************************
+     * Page initialization
+     ********************************* */
+
+    /* populate the page items with controls */
+    $('.is-page-item').each(function(k,v){
+      var ctl = $(v).maxCart({fields:['image','name','description','fullprice','pagectl']});
+      ctl.data('maxCart').populate();
+      ctl[(ctl.data('maxCart').data.quantity > 0)?'addClass':'removeClass']('is-selected');
     });
 
     /* add the auto-suggest box
@@ -123,82 +158,17 @@
 		      	}
     });
 
-
-    /* Add the cart quantity autocomplete box on initial click.
-       This also hooks into the focus event to trigger the suggestion box.
-       */
-    $('body').on('click','input.cart-item-qtysel',function(e){
-      if (!$(e.target).data('ui-autocomplete')) {
-        $(e.target).autocomplete({ minLength: 0,
-                               source: function(rq,rp){ rp(['1','2','3','4','5','6','7','8','9','10']); },
-                               position:{ my: "right top", at: "right bottom", collision: "none" }
-                             })
-               .on('focus',function(){$(this).autocomplete('search','');})
-               .trigger('focus');
-      }
-    });
-
-    /* For tab-level quantity selectors, modify the add-to-cart icon on change.
-       This hooks the standard onChange, as well as autocomplete's custom
-       autocompletechange event.
-       */
-    $('body').on('change autocompletechange','.is-cart-item input.cart-item-qtysel',function(){
-        var m = Number(this.value)>0 ? 'addClass' : 'removeClass';
-        $(this).siblings('.cart-item-add')[m]('is-selected');
-      });
-
-    /* For cart/checkout modal, update the cart when quantity changes.
-       This hooks the standard onChange, as well as autocomplete's custom
-       autocompletechange event.
-       */
-    $('body').on('change autocompletechange','#show-cart-tab .is-cart-item input.cart-item-qtysel',function(){
-        var count = Number(this.value);
-        if (count) {
-          DJQ.submitProductToCart($(this).closest('.is-cart-item'));
-        } else {
-          $(this).closest('tr').find('.cart-item-remove-button').click();
-        }
-      });
-
-    /* Add hook for tab-level add-to-cart button clicks.
-       This will submit the product via AJAX, and clear the quantity selector
-       and add-to-cart icon.
-       */
-    $('body').on('click','.is-cart-item .cart-item-add.is-selected', function(e){
-      var count=Number($(this).siblings('.cart-item-qtysel').val()).toFixed(0);
-      if (count) { DJQ.submitProductToCart($(this).closest('.is-cart-item')); }
-    });
-
-    /* Add hook for reorder modal add-to-cart button click
-       This will submit all products via AJAX.
-       */
-    $('body').on('click','.reorder-modal-addtocart', function(e) {
-      DJQ.submitProductToCart($(this).closest('.lightbox-reorder-wrapper').find('table'));
-      DJQ.closeLightboxes();
-      $('#cart-checkout-button-wrapper').click();
-    });
-
-    /* Add hook for clearing the cart
-       This was for testing/debugging purposes and can be removed if unneeded
-       */
-    $('body').on('click','#account-menu-clear-cart', function(e){
-      DJQ.submitClearCart();
-      DJQ.Cart.updateIcon();
-      alert('Your cart has been cleared');
-    });
-
-    /* Add hook for deleting a single item from the cart */
-    $('body').on('click','td .cart-item-remove-button', function(e){
-      DJQ.Cart.deleteItem($(this));
-      DJQ.Cart.updateIcon();
-    });
-
     /* if logged in, update the cart icon and expand the reorder section */
     if ($('body').hasClass('is-logged-in')) {
-      DJQ.Cart.updateIcon();
+      MaxCart.updateIcon();
       if ($('#section-reorder').length && (!$('#section-reorder .is-open').length)) {
         $('#section-reorder .category-section-title').click();
       }
+    }
+
+    /* Set the cart flyout state */
+    if (MaxCart.flyout_state) {
+      $('#cart-checkout-button-wrapper').click();
     }
 
   });

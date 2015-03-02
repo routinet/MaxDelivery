@@ -60,6 +60,9 @@
   padding: 0px 10px;
   text-align: left;
   font-size:9pt;
+  height:180px;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 .inner-carousel .slideshow-product-wrapper {
   padding: 5px;

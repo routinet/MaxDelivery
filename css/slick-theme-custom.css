@@ -169,7 +169,7 @@
   box-shadow: 0px 5px 8px -1px rgba(0,0,0,.6);
 }
 .inner-carousel .slick-slide {
-  height: 170px;
+  height: 180px;
 }
 .inner-carousel .slick-dots button {
   background-image: url('/images/sprites.png');
