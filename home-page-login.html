@@ -23,7 +23,7 @@
     <script type="text/javascript" src="/js/DJQ.js"></script>
     <script type="text/javascript" src="/js/CartPlugin.js"></script>
     <!-- begin custom session script - server side scripts run before page init -->
-    <script type="text/javascript">MaxCart.flyout_state=false;</script>
+    <script type="text/javascript">MaxCart.flyout_state=false;run_control_init='.is-page-item';</script>
     <!-- end custom session script -->
     <script type="text/javascript" src="/js/main.js"></script>
   </head>
@@ -33,12 +33,12 @@
         <nav id="header-cs-menu">
           <div id="account-navigation-menu-wrapper" class="cs-menu-button feature-log-in flyout-menu">
             <ul id="account-navigation-menu" class="flyout-panel">
-              <li id="account-menu-my-account">My Account</li>
-              <li id="account-menu-my-orders">My Orders</li>
-              <li id="account-menu-my-favorites">My Favorites</li>
-              <li id="account-menu-refer">Refer a Friend</li>
-              <li id="account-menu-fastshop">Fast Shop</li>
-              <li id="account-menu-clear-cart">Clear Cart (debug)</li>
+              <li id="account-menu-my-account"><a href="#">My Account</a></li>
+              <li id="account-menu-my-orders"><a href="#">My Orders</a></li>
+              <li id="account-menu-my-favorites"><a href="#">My Favorites</a></li>
+              <li id="account-menu-refer"><a href="#">Refer a Friend</a></li>
+              <li id="account-menu-fastshop"><a href="#">Fast Shop</a></li>
+              <li id="account-menu-clear-cart"><a href="#">Clear Cart (debug)</a></li>
               <li id="account-menu-logout"><a href="home-page-plain.html">Logout</a></li>
             </ul>
             <a href="#" id="cs-menu-my-account">Hello <span id="cs-menu-my-account-name">User</span></a>
@@ -97,82 +97,104 @@
         <nav id="main-navigation-menu">
           <ul>
             <li id="main-nav-supermarket" class="flyout-menu">
-              <a class="main-navigation-item-text">Supermarket</a>
+              <a href="#" class="main-navigation-item-text">Supermarket</a>
               <ul class="category-items flyout-panel">
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow">
-                    <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
-                  </div>
-                  <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                  </a>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow">
-                    <img src="/images/items/supermarket/drinks.png" alt="Drinks" />
-                  </div>
-                  <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/drinks.png" alt="Drinks" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                  </a>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow">
-                    <img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" />
-                  </div>
-                  <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                  </a>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow">
-                    <img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" />
-                  </div>
-                  <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                  </a>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow">
-                    <img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" />
-                  </div>
-                  <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                  </a>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow">
-                    <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
-                  </div>
-                  <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                  </a>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow">
-                    <img src="/images/items/supermarket/drinks.png" alt="Drinks" />
-                  </div>
-                  <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/drinks.png" alt="Drinks" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                  </a>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow">
-                    <img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" />
-                  </div>
-                  <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                  </a>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow">
-                    <img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" />
-                  </div>
-                  <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                  </a>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow">
-                    <img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" />
-                  </div>
-                  <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                  </a>
                 </li>
                 <li data-prodcode="prod1" class="category-item supermarket-item">
-                  <div class="lift-shadow">
-                    <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
-                  </div>
-                  <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                  </a>
                 </li>
               </ul>
             </li>
-            <li id="main-nav-bestny"><a class="main-navigation-item-text">Best of NY</a></li>
-            <li id="main-nav-organic"><a class="main-navigation-item-text">Organic</a></li>
-            <li id="main-nav-drugstore"><a class="main-navigation-item-text">Drug Store</a></li>
-            <li id="main-nav-household"><a class="main-navigation-item-text">Household</a></li>
-            <li id="main-nav-salesnew"><a class="main-navigation-item-text">Sales &amp; New</a></li>
-            <li id="main-nav-forwork"><a class="main-navigation-item-text">For Work</a></li>
+            <li id="main-nav-bestny"><a href="#" class="main-navigation-item-text">Best of NY</a></li>
+            <li id="main-nav-organic"><a href="#" class="main-navigation-item-text">Organic</a></li>
+            <li id="main-nav-drugstore"><a href="#" class="main-navigation-item-text">Drug Store</a></li>
+            <li id="main-nav-household"><a href="#" class="main-navigation-item-text">Household</a></li>
+            <li id="main-nav-salesnew"><a href="#" class="main-navigation-item-text">Sales &amp; New</a></li>
+            <li id="main-nav-forwork"><a href="#" class="main-navigation-item-text">For Work</a></li>
           </ul>
         </nav>
         <div id="main-navigation-service-check" class="feature-no-log-in">
@@ -184,7 +206,7 @@
       </section>
       <main id="main-content">
         <section id="home-slideshow" class="carousel outer-carousel">
-          <div id="slide-1">
+          <div id="slide-1" style="background-image:url('../images/backgrounds/slide-1.png');">
             <div id="slide-1-intro-content">
               <div id="slide-1-intro-title"><b>MaxDelivery</b> Brings You the Best of New York</div>
               <div id="slide-1-intro-text">
@@ -216,7 +238,7 @@
             <div id="slide-1-were-open"></div>
             <div id="slide-1-free-delivery"></div>
           </div>
-          <div id="slide-2">outer slide 2 content</div>
+          <div id="slide-2" style="background-image:url('../images/backgrounds/slide-1.png');">outer slide 2 content</div>
         </section>
         <section id="featured-tabs">
           <div class="featured-tab lift-shadow" id="artesian-wines">
@@ -242,12 +264,14 @@
           <div class="featured-tab lift-shadow" id="today-on-sale">
             <div class="feature-tab-header">
               <span class="feature-tab-head-text">Today on Sale</span>
-              <a data-lightbox-type="inline" href="#today-on-sale-lightbox" class="feature-tab-all-link has-lightbox">&lt; All</a>
+              <a href="#" class="feature-tab-all-link">&lt; All</a>
             </div>
-            <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-                 data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-                 data-imgpath="sample-product.png"
-                 class="feature-tab-content today-on-sale-content is-page-item">
+            <div class="feature-tab-content">
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="today-on-sale-content is-page-item">
+              </div>
             </div>
           </div>
         </section>
@@ -264,6 +288,31 @@
                    data-imgpath="sample-product.png" data-quantity="2"
                    class="category-item reorder-item is-page-item">
               </div>
+<!-- what the javascript will render
+
+<div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus"
+     data-price="18.59" data-priceunit="ea"
+     data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+     data-imgpath="sample-product.png" data-quantity="2" class="category-item reorder-item is-page-item is-selected">
+  <div class="cart-item-image-path"><img src="/images/sample-product.png"></div>
+  <div class="cart-item-name">Ottomanelli Certified Black Angus</div>
+  <div class="cart-item-descript">Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak</div>
+  <div class="cart-item-full-price">
+    <div class="cart-item-price">18.59</div>
+    <div class="cart-item-priceunit">ea</div>
+  </div>
+  <div class="cart-item-qtyctl">
+    <div class="cart-item-cart-icon sprite"></div>
+      <div class="cart-item-quantity-add sprite"></div>
+      <div class="cart-item-quantity-del sprite"></div>
+      <div class="cart-item-quantity-upd sprite"></div>
+      <input type="text" name="quantity" value="2" class="cart-item-qtysel"><div class="cart-item-qtytext">2</div>
+      <div class="cart-item-icon-sep sprite"></div>
+      <div class="cart-item-wish sprite"></div>
+    </div>
+  </div>
+-->
+
               <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
                    data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
                    data-imgpath="sample-product.png"
@@ -323,48 +372,70 @@
             </a>
             <div class="category-items">
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow"><img src="/images/items/supermarket/drinks.png" alt="Drinks" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/supermarket/drinks.png" alt="Drinks" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow"><img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow"><img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow"><img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow"><img src="/images/items/supermarket/drinks.png" alt="Drinks" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/supermarket/drinks.png" alt="Drinks" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow"><img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow"><img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow"><img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item supermarket-item">
-                <div class="lift-shadow"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                </a>
               </div>
             </div>
           </div>
@@ -375,28 +446,40 @@
             </a>
             <div class="category-items">
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow"><img src="/images/items/best-of-nyc/balthazar-bakery.png" alt="Balthazar Bakery" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Balthazar Bakery</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/best-of-nyc/balthazar-bakery.png" alt="Balthazar Bakery" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Balthazar Bakery</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow"><img src="/images/items/best-of-nyc/balthazar-bread.png" alt="Balthazar Bread" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Balthazar BRead</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/best-of-nyc/balthazar-bread.png" alt="Balthazar Bread" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Balthazar BRead</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow"><img src="/images/items/best-of-nyc/cassinelli-pasta.png" alt="Cassinelli Fresh Pasta" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Cassinelli Fresh Pasta</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/best-of-nyc/cassinelli-pasta.png" alt="Cassinelli Fresh Pasta" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Cassinelli Fresh Pasta</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow"><img src="/images/items/best-of-nyc/doughnut-plant.png" alt="Doughnut Plant" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Doughnut Plant</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/best-of-nyc/doughnut-plant.png" alt="Doughnut Plant" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Doughnut Plant</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow"><img src="/images/items/best-of-nyc/eileens-cheesecake.png" alt="Eileen's Special Cheesecake" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Eileen's Special Cheesecake</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/best-of-nyc/eileens-cheesecake.png" alt="Eileen's Special Cheesecake" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Eileen's Special Cheesecake</div>
+                </a>
               </div>
               <div data-prodcode="prod1" class="category-item best-of-nyc-item">
-                <div class="lift-shadow"><img src="/images/items/best-of-nyc/jacques-torres-chocolate.png" alt="Jacques Torres Chocolates" /></div>
-                <div data-prodcode="prod1" class="category-item-caption">Jacques Torres Chocolates</div>
+                <a href="#">
+                  <div class="lift-shadow"><img src="/images/items/best-of-nyc/jacques-torres-chocolate.png" alt="Jacques Torres Chocolates" /></div>
+                  <div data-prodcode="prod1" class="category-item-caption">Jacques Torres Chocolates</div>
+                </a>
               </div>
             </div>
           </div>
@@ -450,13 +533,13 @@
       <footer id="footer">
         <nav id="footer-nav">
           <ul>
-            <li>Our new UrbanFetch brand</li>
-            <li>FAQs</li>
-            <li>Privacy Policy</li>
-            <li>DVD Rental Agreement</li>
-            <li>Terms and Conditions of Use</li>
-            <li>Work for Max Delivery</li>
-            <li>Contact Us</li>
+            <li><a href="#">Our new UrbanFetch brand</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">DVD Rental Agreement</a></li>
+            <li><a href="#">Terms and Conditions of Use</a></li>
+            <li><a href="#">Work for Max Delivery</a></li>
+            <li><a href="#">Contact Us</a></li>
           </ul>
         </nav>
         <div id="footer-blurb">
@@ -472,6 +555,9 @@
           51 White Street, New York, NY &nbsp;10013
         </div>
       </footer>
+      <div id="cart-bar-flyout">
+        <div id="cart-bar-flyout-link" class="orange-grade">Checkout<div id="cart-bar-flyout-link-arrow" class="sprite"></div></div>
+      </div>
     </div>
     <div id="sign-in_up-lightbox" class="signup-lightbox-content lightbox-content has-tabs">
     	<ul>
@@ -520,9 +606,6 @@
     	    <input type="submit" value="Sign-up" />
     	  </form>
     	</div>
-    </div>
-    <div id="cart-bar-flyout">
-      <div id="cart-bar-flyout-link" class="orange-grade">Checkout<div id="cart-bar-flyout-link-arrow" class="sprite"></div></div>
     </div>
   </body>
 </html>

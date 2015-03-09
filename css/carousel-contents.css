@@ -1,9 +1,9 @@
-#slide-1 {
+/*#slide-1 {
   background-image:url('../images/backgrounds/slide-1.png');
 }
 #slide-2 {
   background-image:url('../images/backgrounds/slide-1.png');
-}
+}*/
 #slide-1-intro-content {
   background-color: rgba(0,0,0,.4);
   position: absolute;
@@ -17,6 +17,9 @@
   padding: 25px 20px;
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
+}
+#slide-1-intro-content a {
+  color: #ffffff;
 }
 #slide-1-intro-title {
   font-family: Amatic SC;
@@ -110,4 +113,49 @@
 }
 .slick-slide .is-cart-item .product-description {
   /*font-weight:normal;*/
+}
+
+/* Cart items for inner slideshow */
+#inner-slide-1 .is-page-item {
+  display:inline-block;
+  height: 170px;
+  width:235px;
+  font-weight:900;
+  border:0px none;
+}
+#inner-slide-1 .is-page-item > * {
+  line-height:initial;
+}
+#inner-slide-1 .cart-item-image-path {
+  margin: auto 0;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  background-color: #ffffff;
+  float: left;
+  text-align: center;
+}
+#inner-slide-1 .cart-item-image-path img {
+  display: inline;
+  max-height:80px;
+  max-width:80px;
+}
+#inner-slide-1 .cart-item-name,
+#inner-slide-1 .cart-item-descript,
+#inner-slide-1 .cart-item-full-price {
+  width: 135px;
+  margin-left: 85px;
+  margin-bottom:4px;
+}
+#inner-slide-1 .cart-item-qtytext {
+  color:#ffffff;
+}
+#inner-slide-1 .cart-item-qtyctl {
+  margin-left: 85px;
+}
+#inner-slide-1-content .is-page-item .cart-item-quantity-add {
+  background-position:-70px -60px;
+}
+#inner-slide-1-content .is-page-item .cart-item-wish {
+  background-position: -170px -60px;
 }

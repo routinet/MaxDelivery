@@ -1,11 +1,6 @@
 $(function () {
-  var outer = $('.outer-carousel'),
-      carousel = $('.carousel');
-  outer.on('init', function (e, slick, dir) {
-    // just for testing
-    slick.$slides.map(function (index) {
-      //$(this).append(index);
-    });
-  });
-  carousel.slick({dots:false, arrows:false});
+  var ocarousel = $('.outer-carousel'),
+      icarousel = $('.inner-carousel');
+  ocarousel.slick({dots:true, arrows:true});
+  icarousel.slick({dots:false, arrows:false});
 });

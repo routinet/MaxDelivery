@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home Page, Plain</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href='//fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css' />
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.4.0/slick.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/slick-theme-custom.css" />
+    <link rel="stylesheet" href="/css/jquery-ui.css" />
+    <link rel="stylesheet" href="/css/nivo-lightbox.css" />
+    <link rel="stylesheet" href="/css/nivo-lightbox-theme-delivery.css" />
+    <link rel="stylesheet" href="/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/css/carousel-contents.css" type="text/css" />
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.0/slick.min.js"></script>
+    <script type="text/javascript" src="/js/nivo-lightbox.js"></script>
+    <script type="text/javascript" src="/js/carousel.js"></script>
+    <script type="text/javascript" src="/js/DJQ.js"></script>
+    <script type="text/javascript" src="/js/CartPlugin.js"></script>
+    <!-- begin custom session script - server side scripts run before page init -->
+    <script type="text/javascript">MaxCart.flyout_state=false;run_control_init='.is-page-item';</script>
+    <!-- end custom session script -->
+    <script type="text/javascript" src="/js/main.js"></script>
+  </head>
+  <body class="is-logged-in">
+    <div id="top-container">
+      <header id="header">
+        <nav id="header-cs-menu">
+          <div id="account-navigation-menu-wrapper" class="cs-menu-button feature-log-in flyout-menu">
+            <ul id="account-navigation-menu" class="flyout-panel">
+              <li id="account-menu-my-account">My Account</li>
+              <li id="account-menu-my-orders">My Orders</li>
+              <li id="account-menu-my-favorites">My Favorites</li>
+              <li id="account-menu-refer">Refer a Friend</li>
+              <li id="account-menu-fastshop">Fast Shop</li>
+              <li id="account-menu-clear-cart">Clear Cart (debug)</li>
+              <li id="account-menu-logout"><a href="home-page-plain.html">Logout</a></li>
+            </ul>
+            <a href="#" id="cs-menu-my-account">Hello <span id="cs-menu-my-account-name">User</span></a>
+          </div>
+          <a href="#sign-in_up-lightbox" data-lightbox-type="inline" id="cs-menu-sign-up"
+            class="has-lightbox cs-menu-button cs-menu-account-button feature-no-log-in">Sign Up</a>
+          <a href="#sign-in_up-lightbox" data-lightbox-type="inline" id="cs-menu-sign-in"
+            class="has-lightbox cs-menu-button cs-menu-account-button feature-no-log-in">Sign In</a>
+          <div class="cs-menu-button cs-menu-help-button" id="cs-menu-chat-help">
+            <a href="#"><div class="chat-help-icon sprite"></div> Chat Help</a>
+          </div>
+          <div class="cs-menu-button cs-menu-help-button flyout-menu" id="cs-menu-help">
+            <a href="#"><div class="help-chevron-down sprite"></div> Help</a>
+            <ul class="flyout-panel">
+              <li><a href="#" class="help-menu-item">Overview</a></li>
+              <li><a href="#" class="help-menu-item">How it Works</a></li>
+              <li><a href="#" class="help-menu-item">Free Delivery</a></li>
+              <li><a href="#" class="help-menu-item">FAQs</a></li>
+              <li><a href="#" class="help-menu-item">About Us</a></li>
+              <li><a href="#" class="help-menu-item">Refer Your Friends, Get $25</a></li>
+              <li><a href="#" class="help-menu-item">Change Zip Code</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div id="header-logo"><img src="/images/maxdelivery-logo.png" alt="MaxDelivery Logo" /></div>
+        <div id="header-delivery-notice">
+          <div id="header-delivery-text">
+            <div id="delivered-within">Fresh Food<span>delivered within</span></div>
+            <div id="delivered-minutes">minutes</div>
+          </div>
+          <div id="header-next-delivery">
+            Next<br />Delivery:<hr /><span>9am-10am</span>
+          </div>
+        </div>
+        <div id="header-quick-search">
+          <input type="text" id="quick-search-term" class="search-autosuggest" name="quick-search-term" placeholder="What are you looking for?"
+          /><div id="quick-search-icon-wrapper" class="orange-grade"><div class="sprite"></div></div>
+        </div>
+      </header>
+      <section id="main-navigation-bar">
+        <div id="main-navigation-cart-bar" class="feature-log-in">
+          <div id="cart-checkout-button-wrapper" class="cart-bar-item">
+            <div id="cart-bar-checkout-button" class="orange-grade cart-checkout-button">
+              <span id="cart-bar-cart-total-items" class="cart-total-items sprite">0</span>
+              <span id="cart-bar-cart-total-amt" class="cart-total-amt">0.00</span>
+              <span id="cart-bar-slide-button" class="sprite"></span>
+            </div>
+          </div>
+          <a href="#lightbox-reorder" data-lightbox-type="inline" id="cart-reorder-button-wrapper" class="has-lightbox cart-bar-item">
+            <div class="cart-bar-reorder-button sprite"></div>
+          </a>
+          <a href="#wishlist-lightbox" data-lightbox-type="inline" id="wishlist-button-wrapper" class="has=lightbox cart-bar-item">
+            <div class="cart-bar-wishlist-button sprite"></div>
+          </a>
+        </div>
+        <nav id="main-navigation-menu">
+          <ul>
+            <li id="main-nav-supermarket" class="flyout-menu">
+              <a class="main-navigation-item-text">Supermarket</a>
+              <ul class="category-items flyout-panel">
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <div class="lift-shadow">
+                    <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
+                  </div>
+                  <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <div class="lift-shadow">
+                    <img src="/images/items/supermarket/drinks.png" alt="Drinks" />
+                  </div>
+                  <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <div class="lift-shadow">
+                    <img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" />
+                  </div>
+                  <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <div class="lift-shadow">
+                    <img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" />
+                  </div>
+                  <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <div class="lift-shadow">
+                    <img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" />
+                  </div>
+                  <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <div class="lift-shadow">
+                    <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
+                  </div>
+                  <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <div class="lift-shadow">
+                    <img src="/images/items/supermarket/drinks.png" alt="Drinks" />
+                  </div>
+                  <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <div class="lift-shadow">
+                    <img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" />
+                  </div>
+                  <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <div class="lift-shadow">
+                    <img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" />
+                  </div>
+                  <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <div class="lift-shadow">
+                    <img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" />
+                  </div>
+                  <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <div class="lift-shadow">
+                    <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
+                  </div>
+                  <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                </li>
+              </ul>
+            </li>
+            <li id="main-nav-bestny"><a class="main-navigation-item-text">Best of NY</a></li>
+            <li id="main-nav-organic"><a class="main-navigation-item-text">Organic</a></li>
+            <li id="main-nav-drugstore"><a class="main-navigation-item-text">Drug Store</a></li>
+            <li id="main-nav-household"><a class="main-navigation-item-text">Household</a></li>
+            <li id="main-nav-salesnew"><a class="main-navigation-item-text">Sales &amp; New</a></li>
+            <li id="main-nav-forwork"><a class="main-navigation-item-text">For Work</a></li>
+          </ul>
+        </nav>
+        <div id="main-navigation-service-check" class="feature-no-log-in">
+          <form name="service-check" id="service-check-form" method="post" action="#">
+            <label for="service-check-zip">Check if we service<br />your address</label>
+            <input type="text" placeholder="Enter ZIP" size="12" /><img src="/images/zip-location.png" alt="Search" />
+          </form>
+        </div>
+      </section>
+      <main id="main-content">
+      </main>
+      <footer id="footer">
+        <nav id="footer-nav">
+          <ul>
+            <li>Our new UrbanFetch brand</li>
+            <li>FAQs</li>
+            <li>Privacy Policy</li>
+            <li>DVD Rental Agreement</li>
+            <li>Terms and Conditions of Use</li>
+            <li>Work for Max Delivery</li>
+            <li>Contact Us</li>
+          </ul>
+        </nav>
+        <div id="footer-blurb">
+          <p>Same Day NYC Grocery Delivery - On Sale</p>
+          <p>1-Hour same day Delivery supermarket, drugstore &amp; DVD service
+            in New York City for all your everyday needs. Organic Produce Fruits
+            and Vegetables, Beer &amp; Wine, Groceries, Household Goods, Drugstore
+            items delivered same day.  On Sale
+          </p>
+        </div>
+        <div id="attribution">
+          &copy; 2004-2014 MaxDelivery, LLC &nbsp; All Rights Reserved.<br />
+          51 White Street, New York, NY &nbsp;10013
+        </div>
+      </footer>
+    </div>
+    <div id="sign-in_up-lightbox" class="signup-lightbox-content lightbox-content has-tabs">
+    	<ul>
+    		<li><a href="#sign-in-tab">Sign In</a></li><li><a href="#sign-up-tab">Sign Up</a></li>
+    	</ul>
+    	<div id="sign-in-tab">
+    	  <form class="account-form clearfix" action="home-page-login.html" method="post">
+    	    <input name="requestType" type="hidden" value="account-login" />
+    	    <input name="username" placeholder="Email address" type="text" value="" />
+    	    <input name="password" placeholder="Password" type="password" value="" />
+    	    <div class="aside-left" id="sign-in-form-controls">
+    	      <input name="remember" type="checkbox" id="sign-in-remember" />
+    	      <label for="sign-in-remember">Remember login</label>
+    	      <input type="submit" value="Sign-in" />
+    	    </div>
+    	    <div class="aside-right" id="sign-in-links">
+    	      <a href="#" class="forgot-pass-link">Forgot password</a>
+    	      <div id="sign-in-new-customer">New Customers
+      	      <a href="#" class="sign-up-here-link">sign-up here</a>
+       	    </div>
+     	    </div>
+    	  </form>
+    	</div>
+    	<div id="sign-up-tab">
+    	  <form class="account-form clearfix" action="home-page-login.html" method="post">
+    	    <input name="requestType" type="hidden" value="account-create" />
+    	    <input name="username" placeholder="Email address" type="text" value="" />
+    	    <input name="password" placeholder="Choose a password (6-15 letters/numbers)" type="password" value="" />
+    	    <input name="vpassword" placeholder="Verify password (retype password as above)" type="password" value="" />
+  	      <input name="newsletter" type="checkbox" id="sign-up-subscribe" />
+   	      <label for="sign-up-subscribe">Receive our newsletter and take advantage of exclusive
+   	        sales available only on email.</label>
+   	      <select name="how_heard"><option>How did you hear about us?</option></select>
+    	    <input name="firstname" placeholder="Last Name" type="text" value="" />
+    	    <input name="lastname" placeholder="First Name" type="text" value="" />
+    	    <input name="address" placeholder="Address" type="text" value="" />
+    	    <div class="form-field-note">(currently, we service Manhattan, below 34th Street on the West Side, and
+    	      26th Street on the East Side. </div>
+    	    <input name="address2" placeholder="Address 2/Apt#" type="text" value="" />
+    	    <input name="city" placeholder="City" type="text" value="New York City" />
+    	    <input name="state" placeholder="State" type="text" value="New York" />
+    	    <input name="zip" placeholder="Zip" type="text" value="" />
+    	    <input name="phone" placeholder="Telephone" type="text" value="" />
+    	    <div class="form-field-note">(to be used in the event of a delivery issue only)</div>
+    	    <input name="code" placeholder="Coupon Code" type="text" value="" />
+    	    <input type="submit" value="Sign-up" />
+    	  </form>
+    	</div>
+    </div>
+    <div id="cart-bar-flyout">
+      <div id="cart-bar-flyout-link" class="orange-grade">Checkout<div id="cart-bar-flyout-link-arrow" class="sprite"></div></div>
+    </div>
+  </body>
+</html>

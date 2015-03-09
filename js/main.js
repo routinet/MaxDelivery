@@ -3,7 +3,7 @@
    if this is commented, but should be uncommented for production
    */
 //jQuery.noConflict();
-
+is_control_init='.is-page-item';
 (function ($,undefined) {
 
   /* onReady necessities */
@@ -22,7 +22,7 @@
           nt='View'; cb='slideUp'; bgp=''; dir='removeClass';
           //$(this).removeClass('is-open');
         } else {
-          nt="Collapse"; cb='slideDown'; bgp='-181px'; dir='addClass';
+          nt="Collapse"; cb='slideDown'; bgp='-360px'; dir='addClass';
           /* OBSOLETE - for accordian style auto-close */
           //$('#category-tabs .category-section-title.is-open').trigger('click');
         }
@@ -74,7 +74,8 @@
     /* Hook on the quantity selector, show the update icon */
     $('body').on('focusin focusout', '.cart-item-qtysel', function(e){
       var dir = e.type=='focusin' ? 'addClass' : 'removeClass';
-      $(e.target).closest('.cart-item-qtyctl')[dir]('is-editing');
+      $(e.target).select().closest('.cart-item-qtyctl')[dir]('is-editing');
+
     });
 
     /* Hook on in-page cart icons, show the quantity textbox as update icon */
@@ -133,11 +134,13 @@
      ********************************* */
 
     /* populate the page items with controls */
-    $('.is-page-item').each(function(k,v){
-      var ctl = $(v).maxCart({fields:['image','name','description','fullprice','pagectl']});
-      ctl.data('maxCart').populate();
-      ctl[(ctl.data('maxCart').data.quantity > 0)?'addClass':'removeClass']('is-selected');
-    });
+    if (is_control_init) {
+      $(is_control_init).each(function(k,v){
+        var ctl = $(v).maxCart({fields:['image','name','description','fullprice','pagectl']});
+        ctl.data('maxCart').populate();
+        ctl[(ctl.data('maxCart').data.quantity > 0)?'addClass':'removeClass']('is-selected');
+      });
+    }
 
     /* add the auto-suggest box
        Even though DJQ has handlers for this, it is coded inline because of
