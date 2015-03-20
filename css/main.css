@@ -68,6 +68,10 @@ img {
   background-image: url('../images/sprites.png');
   background-repeat: no-repeat;
 }
+.vertical-text {
+	transform: rotate(90deg);
+	transform-origin: left top 0;
+}
 
 /* jQuery ui-tabs corrections */
 .ui-widget-content,
@@ -490,7 +494,7 @@ Need to deal with this in the delay hook
   box-shadow: -4px 0 5px -3px rgba(0,0,0,.5);
   z-index:1;
   /* fix for strange "disappearing content" issue */
-  -webkit-backface-visibility: hidden;
+  /*-webkit-backface-visibility: hidden;*/
 }
 #cart-bar-flyout .cart-list-item {
   position: relative;
@@ -882,6 +886,7 @@ Need to deal with this in the delay hook
   vertical-align: top;
   font-size: 10.5pt;
   max-width:221px;
+  text-align:center;
 }
 .category-item:hover {
   -webkit-box-shadow: 0px 2px 4px 2px rgba(0,0,0,0.20);
@@ -1090,6 +1095,7 @@ Need to deal with this in the delay hook
 .is-page-item .cart-item-quantity-del {
   background-position:0px -60px;
   top:19px;
+  left:0;
   display:none;
 }
 .is-page-item.is-selected .cart-item-quantity-del {
@@ -1392,3 +1398,293 @@ Need to deal with this in the delay hook
   background-position: -32px 0px;
 }
 
+/* breadcrumbs */
+.breadcrumb {
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+  font-size:0;
+}
+.breadcrumb-item {
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  font-size: 14px;
+}
+.breadcrumb-item a {
+  color: #ffffff;
+  display: inline-block;
+  vertical-align: top;
+  font-weight:bold;
+  padding:0 5px 0 0;
+}
+.breadcrumb-item:before {
+  background-image: url('../images/sprites.png');
+  background-repeat: no-repeat;
+  content: ' ';
+  font-size: 0px;
+  height: 60px;
+  width: 12px;
+  background-color: transparent;
+  display: inline-block;
+  margin-right:10px;
+}
+.breadcrumb-item:first-child:before {
+  background:transparent none;
+  margin-right:0px;
+}
+.breadcrumb .breadcrumb-item:last-child {
+  background-color:#ffffff;
+  font-family:Amatic SC, sans-serif;
+  font-size:48px;
+}
+
+/* specific breadcrumb colors */
+.supermarket-breadcrumb .breadcrumb-item {
+  background-color: #736256;
+  color: #ffffff;
+}
+.supermarket-breadcrumb .breadcrumb-item:before {
+  background-position:-300px -150px;
+}
+.supermarket-breadcrumb .breadcrumb-item:last-child a {
+  color:#736256;
+}
+
+/* category page featured section
+   Note the conditional classes for display
+   */
+#category-highlight {
+  background-image: url('../images/backgrounds/bg-subfeature.png');
+  padding:20px 0;
+  font-size:0;
+  position:relative;
+}
+#category-highlight .highlight-big-box,
+#category-highlight .highlight-rows {
+  display:none;
+  background-color:transparent;
+  height:100%;
+}
+#category-highlight .highlight-big-box {
+  float:left;
+}
+#category-highlight.has-big-box .highlight-big-box {
+  display:block;
+}
+#category-highlight.has-single-row .highlight-rows,
+#category-highlight.has-double-row .highlight-rows {
+  display:block;
+}
+.highlight-big-box-item {
+  width:390px;
+  height:471px;
+  position:relative;
+  margin-right:10px;
+  display:inline-block;
+  font-size:9px;
+}
+.highlight-big-box .highlight-content {
+  height:100%;
+  width:320px;
+  display:inline-block;
+  background-color:#ffffff;
+}
+.highlight-rows {
+  height:100%;
+  display:inline-block;
+}
+.has-single-row .highlight-row-item {
+  height:471px;
+}
+.has-double-row .highlight-row-item {
+  height:235px;
+  margin-bottom:1px;
+}
+.highlight-title-bar {
+  width:70px;
+  height:100%;
+  float:left;
+}
+.has-double-row .highlight-rows .highlight-title-bar {
+  width:35px;
+}
+.highlight-content-header {
+  font-size: 24px;
+  text-align: center;
+  background: #ffffff;
+  padding: 8px;
+  overflow: hidden;
+}
+.highlight-content {
+  background-color:#ffffff;
+  overflow-x:auto;
+  overflow-y:hidden;
+  white-space:nowrap;
+  font-size: 0;
+}
+.has-single-row .highlight-row-item .highlight-content {
+  height:421px;
+}
+.has-double-row .highlight-row-item .highlight-content {
+  height:185px;
+}
+.highlight-row-item .is-page-item {
+  height:165px;
+}
+.highlight-row-item .is-page-item .cart-item-name,
+.highlight-row-item .is-page-item .cart-item-descript,
+.highlight-row-item .is-page-item .cart-item-full-price {
+  margin-bottom: 4px;
+}
+#highlight-just-added .highlight-title-bar {
+  background-image:url('../images/just-added-title-bar.png');
+}
+.has-single-row #highlight-featured-now .highlight-title-bar {
+  background-image:url('../images/featured-now-title-bar-full.png');
+}
+.has-double-row #highlight-featured-now .highlight-title-bar {
+  background-image:url('../images/featured-now-title-bar-half.png');
+}
+.has-double-row #highlight-on-sale .highlight-title-bar {
+  background-image:url('../images/on-sale-title-bar-half.png');
+}
+
+/* highlight products custom style */
+#category-highlight .is-page-item {
+  text-align:left;
+  white-space:initial;
+  margin-left:-1px;
+}
+.highlight-big-box-item .is-page-item {
+  width: 320px;
+  height: 471px;
+  max-width:320px;
+  font-size:2em;
+  padding: 10px 30px 30px;
+}
+.highlight-big-box-item .cart-item-image-path {
+  width:160px;
+  height:160px;
+}
+.highlight-big-box-item .cart-item-qtytext {
+  top: 20px;
+}
+.has-single-row .highlight-row-item .is-page-item {
+  height: 381px;
+}
+.has-double-row .highlight-row-item .is-page-item {
+  width: 245px;
+  position: relative;
+  max-width: initial;
+}
+.has-double-row .highlight-row-item .cart-item-image-path {
+  float: left;
+  height: 190px;
+  width: 80px;
+  line-height: 80px;
+}
+.has-double-row .highlight-row-item .cart-item-qtyctl {
+  margin-left: 65px;
+}
+.highlight-row-item .cart-item-image-path {
+  margin-right: 7px;
+}
+
+/* category page subnavigation */
+#category-subnav {
+  text-align:center;
+}
+
+/* subcategory page */
+#subcategory-nav {
+  padding:30px 10px;
+}
+
+/* subcategory filter bar */
+.subcategory-filter {
+  background-color: #909090;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* subcategory group product listings */
+.subcategory-group {
+  position:relative;
+  padding:30px 0 20px;
+  background-color:#ffffff;
+}
+.subcategory-group:hover {
+  -webkit-box-shadow: 0px 3px 9px 0px rgba(0,0,0,.5);
+  -moz-box-shadow: 0px 3px 9px 0px rgba(0,0,0,.5);
+  box-shadow: 0px 3px 9px 0px rgba(0,0,0,.5);
+}
+.subcategory-group-title {
+  color: #f7941e;
+  font-family: Amatic SC, sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.2em;
+}
+.subcategory-view-all {
+  position: relative;
+  display: inline-block;
+  font-family: Lato, sans-serif;
+  color: #f7941e;
+  font-size: 15pt;
+  height: 2.7em;
+  vertical-align: middle;
+  margin: 0 0 0 1em;
+  border-left: 1px dotted #777777;
+  padding: 0 0 0 1em;
+}
+.subcategory-group .subcategory-items {
+  font-size: 0px;
+  height: 405px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.subcategory-group .is-page-item {
+  width: 230px;
+  height: 385px;
+  max-width: initial;
+  font-size: 16px;
+  padding: 10px 20px 20px;
+  text-align: left;
+  white-space:initial;
+  margin-left: -1px;
+}
+.subcategory-group .cart-item-image-path {
+  width:160px;
+  height:160px;
+}
+.subcategory-group .cart-item-qtytext {
+  top: 20px;
+}
+.subcategory-group .cart-item-qtyctl {
+  margin-left: 85px;
+}
+.subcategory-group .cart-item-descript {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+.subcategory-group .cart-item-full-price {
+  font-size: 12px;
+}
+
+/* today on sale subcategory page */
+#section-sales-new.subcategory-page {
+  padding: 15px 15px 0;
+}
+#section-sales-new.subcategory-page:before {
+  content: "Today On Sale";
+  display: block;
+  font-family: Amatic SC, sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+}
