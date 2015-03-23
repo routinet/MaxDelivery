@@ -296,9 +296,181 @@
           </div>
         </section>
         <section id="subcategory-nav">
-          <div class="subcategory-filter">
-            <div>Browse by</div>
-            <div>&lt;IMG&gt; Browse by</div>
+          <div id="subcategory-filter">
+            <form name="filter_form" action="#" method="POST">
+              <div class="subcategory-filter-label">Browse by</div>
+              <div class="subcategory-filter-menu-item" data-targetmenu="Brands">
+                <div class="menu-item-chevron sprite"></div>Brands
+              </div>
+              <div class="subcategory-filter-menu-item filter-menu-last-item">
+                <div class="menu-item-chevron sprite"></div>Attributes
+              </div>
+              <div class="filter-menu-flyout" data-menuname="Brands">
+                <div class="filter-menu-flyout-controls">
+                  <div class="filter-menu-flyout-close sprite"></div>
+                  <a class="filter-menu-flyout-clear" href="#">Clear All</a>
+                  <input type="submit" class="orange-grade filter-menu-flyout-apply" value="Apply" />
+                </div>
+                <div class="filter-menu-groups">
+                  <div class="filter-menu-group best-of-nyc">
+                    <div class="filter-menu-group-title">Best of NYC</div>
+                    <div class="filter-menu-group-items">
+                      <div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bakery (20)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bread Bakery (25)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Doughnut Plant (31)</div>
+                		</div>
+                	</div>
+                  <div class="filter-menu-group">
+                    <div class="filter-menu-group-title">A</div>
+                    <div class="filter-menu-group-items">
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ahlaska (2)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Alaga (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ancient Harvest (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ancient Harvest (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Andrews McMeel (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Andrews McMeel (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Argo (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Argo (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Argo (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Arrowhead Mills (12)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Arrowhead Mills (12)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Arrowhead Mills (12)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Artisana (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Artisana (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Artisana (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Avery Trade (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Avery Trade (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Avery Trade (3)</div>
+                		</div>
+                	</div>
+                  <div class="filter-menu-group">
+                    <div class="filter-menu-group-title">B</div>
+                    <div class="filter-menu-group-items">
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                      <div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bakery (20)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bread Bakery (25)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bancient Harvest (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Basbah (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BenBella Books (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BenBella Books (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Better Than Milk (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Better Than Milk (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Big Tree Farms (2)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Big Tree Farms (2)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bob's Red Mill (118)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bob's Red Mill (118)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Butternut Mountain Farm (4)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Butternut Mountain Farm (4)</div>
+                		</div>
+                	</div>
+                  <div class="filter-menu-group">
+                    <div class="filter-menu-group-title">C</div>
+                    <div class="filter-menu-group-items">
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                      <div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bakery (20)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bread Bakery (25)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bancient Harvest (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Basbah (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BenBella Books (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BenBella Books (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Better Than Milk (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Better Than Milk (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Big Tree Farms (2)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Big Tree Farms (2)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bob's Red Mill (118)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bob's Red Mill (118)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Butternut Mountain Farm (4)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Butternut Mountain Farm (4)</div>
+                		</div>
+                	</div>
+                  <div class="filter-menu-group">
+                    <div class="filter-menu-group-title">D</div>
+                    <div class="filter-menu-group-items">
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                      <div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bakery (20)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bread Bakery (25)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bancient Harvest (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Basbah (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BenBella Books (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BenBella Books (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Better Than Milk (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Better Than Milk (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Big Tree Farms (2)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Big Tree Farms (2)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bob's Red Mill (118)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bob's Red Mill (118)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Butternut Mountain Farm (4)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Butternut Mountain Farm (4)</div>
+                		</div>
+                	</div>
+                  <div class="filter-menu-group">
+                    <div class="filter-menu-group-title">E</div>
+                    <div class="filter-menu-group-items">
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                      <div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bakery (20)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bread Bakery (25)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bancient Harvest (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Basbah (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BenBella Books (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BenBella Books (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Better Than Milk (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Better Than Milk (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Big Tree Farms (2)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Big Tree Farms (2)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bob's Red Mill (118)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bob's Red Mill (118)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Butternut Mountain Farm (4)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Butternut Mountain Farm (4)</div>
+                		</div>
+                	</div>
+                  <div class="filter-menu-group">
+                    <div class="filter-menu-group-title">F</div>
+                    <div class="filter-menu-group-items">
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BabyCakes NYC (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Ballantine Books (1)</div>
+                      <div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bakery (20)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Balthazar Bread Bakery (25)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bancient Harvest (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Basbah (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BenBella Books (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />BenBella Books (3)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Better Than Milk (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Better Than Milk (1)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Big Tree Farms (2)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Big Tree Farms (2)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bob's Red Mill (118)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Bob's Red Mill (118)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Butternut Mountain Farm (4)</div>
+                			<div class="filter-menu-group-item"><input type="checkbox" name="filter_brand" value="1" />Butternut Mountain Farm (4)</div>
+                		</div>
+                	</div>
+                </div>
+              </div>
+            </form>
           </div>
           <div class="subcategory-group">
             <div class="subcategory-group-title">

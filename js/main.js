@@ -121,11 +121,36 @@ is_control_init='.is-page-item';
       alert('Your cart has been cleared');
     });
 
+    /* Add hook for expanding sub-category filter bar menus */
+    $('body').on('click','.subcategory-filter-menu-item', function(e){
+      var elem = $(e.target),
+          tm = elem.data('targetmenu') || '',
+          ftm = elem.siblings('.filter-menu-flyout[data-menuname="'+tm+'"]'),
+          chn = elem.hasClass('is-active') ? 'removeClass' : 'addClass'
+          ;
+      elem[chn]('is-active');
+      ftm[chn]('is-active');
+    });
+
+    /* Add hook for filter bar menu close button */
+    $('body').on('click','.filter-menu-flyout-close', function(e){
+      $('.filter-menu-flyout').removeClass('is-active');
+      $('.subcategory-filter-menu-item').removeClass('is-active');
+    });
+
     /* Add hook for deleting a single item from the cart */
     $('body').on('click','.cart-item-remove-button', function(e){
       DJQ.Cart.deleteItem($(this));
       $(e.target).closest('.cart-list-item').remove();
       MaxCart.updateIcon();
+    });
+
+    /* Add hook for filter bar menu clear link */
+    $('body').on('click','.filter-menu-flyout-clear', function(e){
+      e.preventDefault();
+      $(e.target).closest('.filter-menu-flyout')
+                 .find('input[type="checkbox"]')
+                 .prop('checked',0);
     });
 
 
