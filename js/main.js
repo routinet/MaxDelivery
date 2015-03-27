@@ -3,7 +3,7 @@
    if this is commented, but should be uncommented for production
    */
 //jQuery.noConflict();
-is_control_init='.is-page-item';
+
 (function ($,undefined) {
 
   /* onReady necessities */
@@ -159,11 +159,23 @@ is_control_init='.is-page-item';
      ********************************* */
 
     /* populate the page items with controls */
-    if (is_control_init) {
-      $(is_control_init).each(function(k,v){
-        var ctl = $(v).maxCart({fields:['image','name','description','fullprice','pagectl']});
-        ctl.data('maxCart').populate();
-        ctl[(ctl.data('maxCart').data.quantity > 0)?'addClass':'removeClass']('is-selected');
+    if (run_control_init) {
+      if (!$.isArray(run_control_init)) { run_control_init = [String(run_control_init)]; }
+      run_control_init.forEach(function(v,k){
+        var vv = window.MaxCart.views[v];
+        if (vv) {
+          cs = vv.selector || '';
+          f = vv.fields || [];
+          var ctl = $(cs);
+          if (ctl.length) {
+            ctl.maxCart({fields:f});
+            ctl.each(function(ok,oi) {
+              var ooi = $(oi);
+              ooi.data('maxCart').populate(true);
+              ooi[(ooi.data('maxCart').data.quantity > 0)?'addClass':'removeClass']('is-selected');
+            });
+          }
+        }
       });
     }
 
@@ -198,6 +210,9 @@ is_control_init='.is-page-item';
     if (MaxCart.flyout_state) {
       $('#cart-checkout-button-wrapper').click();
     }
+
+    /* Add product page image carousel */
+    $('#product-presentation .product-images').tiksluscarousel({nav:'thumbnails',autoPlay:false,progressBar:false,navIcons:false,controls:false});
 
   });
 })(jQuery);

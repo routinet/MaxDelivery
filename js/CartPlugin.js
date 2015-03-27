@@ -18,6 +18,22 @@
   }
 
   _MaxCart.prototype = {
+    /* View definitions, keyed to CSS selector formatted for javascript */
+    views: {
+      is_page_item: {
+        selector:'.is-page-item',
+        fields:['image','name','description','fullprice','pagectl']
+      },
+      is_cart_item: {
+        selector:'.is-cart-item',
+        fields:['cartctl','quantity','cartdel','image','name','description','subtotal']
+      },
+      product_presentation: {
+        selector:'#product-presentation .is-page-item',
+        fields:['name','fullprice','weight','pagectl']
+      },
+    },
+
     /* Initializes the cart data */
     init: function() {
       this.clear();
@@ -272,7 +288,7 @@
     /* Internal function, resolves data from parent element if data is not passed in */
     _resolveData: function() {
       this.data = this.data || {};
-      var datafields = ['id','prodcode','name','price','quantity','priceunit','description','imgpath'],
+      var datafields = ['id','prodcode','name','price','quantity','priceunit','description','imgpath','weight'],
           ret = this.data || {},
           $this = this;
       this._updateValue();
@@ -295,9 +311,13 @@
       this.$el.data('quantity', this.data.quantity);
     },
 
-    /* Triggers a population of the control */
-    populate: function() {
+    /* Triggers a population of the control
+
+       c = boolean indicating if the element should be cleared prior to populating
+       */
+    populate: function(c) {
       var $this=this;
+      if (c) { $this.$el.empty(); }
       this.options.fields.forEach(function(v,k) {
         $this.$el.append($this._callView(v));
       });
@@ -430,6 +450,11 @@
         return $(this._ie).addClass('cart-item-priceunit').html(this.data.priceunit);
       },
 
+      /* generate the weight element */
+      _generate_weight: function() {
+        return $(this._ie).addClass('cart-item-weight').html(this.data.weight);
+      },
+
     }
 
   };
@@ -445,7 +470,7 @@
       if(!$.data(this, 'maxCart')){
         $.data(this, 'maxCart', new CartItem(this, options, data));
       } else {
-        $(this).data('maxCart').data = data;
+        if (data) { $(this).data('maxCart').data = data; }
         $(this).data('maxCart').init(options);
       }
     });

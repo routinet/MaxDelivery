@@ -1560,7 +1560,7 @@ Need to deal with this in the delay hook
   width: 320px;
   height: 471px;
   max-width:320px;
-  font-size:2em;
+  font-size:18px;
   padding: 10px 30px 30px;
 }
 .highlight-big-box-item .cart-item-image-path {
@@ -1605,11 +1605,9 @@ Need to deal with this in the delay hook
 #subcategory-filter {
   background-color: #909090;
   color: white;
-  padding: 0 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   line-height: 2em;
-  height: 2em;
   font-size: 20px;
   position: relative;
   z-index: 1;
@@ -1728,6 +1726,30 @@ Need to deal with this in the delay hook
   margin: 0 auto;
   width: 150px;
 }
+.active-filter-bar {
+  background-color: #909090;
+  color: #000000;
+  padding: 0 10px;
+  border-top: 1px solid #ffffff;
+  line-height: 30px;
+  height: 30px;
+  font-size: 14px;
+  position: relative;
+  z-index:-1;
+}
+.clear-active-filters {
+  padding: 0 15px 0 7px;
+  border-right: 1px dotted #ffffff;
+  display: inline-block;
+}
+.active-filter-item {
+  display: inline-block;
+  padding: 0 15px;
+  border-right: 1px dotted #ffffff;
+}
+.active-filter-item:last-child {
+  border-right: 0px none;
+}
 
 /* subcategory group product listings */
 .subcategory-group {
@@ -1785,7 +1807,7 @@ Need to deal with this in the delay hook
   top: 20px;
 }
 .subcategory-group .cart-item-qtyctl {
-  margin-left: 85px;
+  margin-left: 60px;
 }
 .subcategory-group .cart-item-descript {
   font-weight: 400;
@@ -1807,3 +1829,175 @@ Need to deal with this in the delay hook
   font-size: 48px;
   font-weight: 900;
 }
+
+/* single product page */
+#product-presentation .left-column {
+  width: 31%;
+  float: left;
+}
+#product-presentation .right-column {
+  width: 66%;
+  float: right;
+  padding-bottom:30px;
+}
+#product-presentation .thumbnails_wrapper {
+  background-color:transparent;
+}
+#product-presentation .thumbnails_wrapper .thumbnails {
+  margin:0 auto;
+}
+#product-presentation .thumbnails_wrapper .thumbnails li {
+  border:1px solid #777777;
+}
+#product-presentation .product-big-description h2 {
+  font-weight: 900;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #c2b59b;
+}
+#product-presentation .product-big-description p {
+  font-weight: 700;
+  margin-bottom:10px;
+}
+#product-presentation .product-big-description li {
+  font-weight: 700;
+}
+#product-presentation .is-page-item {
+  color: #000000;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 1.2em;
+  width: 100%;
+  height:initial;
+  padding: 10px 10px 15px;
+  position: relative;
+  border:0px none;
+}
+#product-presentation .is-page-item .cart-item-image-path,
+#product-presentation .is-page-item .cart-item-descript {
+  display:none;
+}
+#product-presentation .is-page-item .cart-item-name {
+  font-size: 36px;
+  line-height: 1.2em;
+}
+#product-presentation .is-page-item .cart-item-full-price {
+  font-size: 24px;
+  padding: 30px 0;
+  border-top: 1px solid #c2b59b;
+  border-bottom: 1px solid #c2b59b;
+}
+#product-presentation .is-page-item .cart-item-full-price:before {
+  content:'Price: ';
+}
+#product-presentation .is-page-item .cart-item-weight:before {
+  content:'Weight: ';
+}
+#product-presentation .is-page-item .cart-item-qtyctl {
+  position: absolute;
+  display: block;
+  height: 60px;
+  width: 150px;
+  right: 50px;
+  bottom: 80px;
+}
+#product-presentation .cart-item-qtytext {
+  font-size: 14px;
+  top: 11px;
+}
+#product-presentation input.cart-item-qtysel {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+/* nutrition facts table */
+.nutritionTable {
+  border: 1px solid #000000;
+  width: 275px;
+  margin:60px auto 30px;
+}
+.nutritionTable td {
+  padding: 1px 10px;
+}
+.nutritionTable .nutritionHeading {
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 1px 1px #222;
+}
+.nutritionTable .nutritionSubHeading {
+  font-size: 14px;
+  border-bottom: 7px solid #000000;
+  padding-bottom: 4px;
+}
+.nutritionTable .amtPerServ {
+  font-size: 11px;
+  font-weight: bold;
+  border-bottom: 1px solid #000000;
+  padding: 4px 6px;
+}
+.nutritionTable .nutHeading {
+  font-size: 14px;
+  text-align: left;
+}
+.nutHead {
+  font-weight: bold;
+}
+.nutritionTable .nutValue {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: right;
+}
+.nutritionTable .pctDaily {
+  font-size: 11px;
+  font-weight: bold;
+  border-top: 3px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding: 4px 6px;
+}
+.nutVitamins {
+  display: block;
+  border-top: 7px solid #000000;
+  width: 100%;
+  padding: 5px 0;
+  margin-top: 3px;
+}
+.nutVitamins .vitaminEntry {
+  display: inline-block;
+  width: 110px;
+  font-size: 13px;
+}
+.nutVitamins .vitaminEntry .vitaminName {
+  display: inline-block;
+  width: 80px;
+  text-align: left;
+}
+.nutVitamins .vitaminEntry .vitaminVal {
+  display: inline-block;
+  width: 25px;
+  text-align: right;
+}
+
+/* Product Page "Also Bought" */
+#also-bought {
+  background-color: #ffffff;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  text-align:left;
+  white-space:nowrap;
+  overflow-x:auto;
+  overflow-y:hidden;
+  text-align: center;
+  padding: 20px 30px;
+  width:90%;
+}
+#also-bought > * {
+  white-space:initial;
+  margin-left:-1px;
+  text-align:left;
+}
+#also-bought .product-thumbnail-wrapper {
+  margin-top: 15px;
+  float: left;
+  margin-left: 0;
+}
+
