@@ -153,6 +153,71 @@
                  .prop('checked',0);
     });
 
+    /* Add hook for checkout page location selector */
+    $('body').on('click','.checkout-location-item', function(e){
+      var t = $(this),
+          is_new = t.has('.checkout-add-location-icon').length,
+          tf = t.closest('#checkout-shipping-address'),
+          ts = t.closest('form').find('select[name="checkout_location_type"]').val(t.data('id'));
+      // ignore clicks from icons for new addresses
+      if (t.hasClass('new-location-type')) {
+        t.parent()
+         .children('.checkout-location-item.new-location-type')
+         .removeClass('selected');
+      } else {
+        t.parent()
+         .children('.checkout-location-item')
+         .removeClass('selected');
+        tf[is_new ? 'addClass' : 'removeClass']('is-new-address');
+      }
+      t.addClass('selected');
+      /* populate the form values */
+      tf.find('input[name*="checkout_"]').each(function(k,v){
+        var $v=$(v),
+            tname=$v.attr('name'),
+            tdata=tname.replace('checkout_','data-');
+        $v.val(t.attr(tdata) || '');
+      });
+    });
+
+    /* Add hook for checkout page credit card selector */
+    $('body').on('click','.saved-card-entry', function(e){
+      var t = $(this),
+          is_new = t.hasClass('add-new-card'),
+          tf = t.closest('#checkout-billing-info'),
+          ts = t.closest('form').find('select[name="checkout_cctype"]').val(t.data('id'));
+      if (t.hasClass('new-cctype')) {
+        t.parent()
+         .children('.saved-card-entry.new-cctype')
+         .removeClass('selected');
+      } else {
+        t.parent()
+         .children('.saved-card-entry')
+         .removeClass('selected');
+        tf[is_new ? 'addClass' : 'removeClass']('is-new-cctype');
+      }
+      t.addClass('selected');
+      /* populate the form values */
+      tf.find('input[name*="billing_"],select[name*="billing_"]').each(function(k,v){
+        var $v=$(v),
+            tname=$v.attr('name'),
+            tdata=tname.replace('billing_','data-');
+        $v.val(t.attr(tdata) || '');
+      });
+    });
+
+    /* Add hook for billing address selector */
+    $('body').on('change','select[name="checkout_saved_bill_address"]', function(e){
+      var t = $(this),
+          v = t.val();
+      t.closest('#checkout-billing-info')[Number(v) ? 'removeClass' : 'addClass']('is-new-bill-address');
+    });
+
+    /* Add hook for delivery instructions accordian */
+    $('body').on('click','.has-expandable', function(e){
+      var t = $(this);
+      t[t.hasClass('expanded') ? 'removeClass' : 'addClass']('expanded');
+    });
 
     /* *********************************
      * Page initialization

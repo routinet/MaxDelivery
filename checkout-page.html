@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkout Page, Plain</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href='//fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css' />
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.4.0/slick.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/slick-theme-custom.css" />
+    <link rel="stylesheet" href="/css/jquery-ui.css" />
+    <link rel="stylesheet" href="/css/nivo-lightbox.css" />
+    <link rel="stylesheet" href="/css/nivo-lightbox-theme-delivery.css" />
+    <link rel="stylesheet" href="/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/css/carousel-contents.css" type="text/css" />
+    <link rel="stylesheet" href="/css/tiksluscarousel.css" type="text/css" />
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.0/slick.min.js"></script>
+    <script type="text/javascript" src="/js/nivo-lightbox.js"></script>
+    <script type="text/javascript" src="/js/carousel.js"></script>
+    <script type="text/javascript" src="/js/tiksluscarousel.js"></script>
+    <script type="text/javascript" src="/js/DJQ.js"></script>
+    <script type="text/javascript" src="/js/CartPlugin.js"></script>
+    <!-- begin custom session script - server side scripts run before page init -->
+    <script type="text/javascript">MaxCart.flyout_state=false;run_control_init=['is_page_item','product_presentation'];</script>
+    <!-- end custom session script -->
+    <script type="text/javascript" src="/js/main.js"></script>
+  </head>
+  <body class="is-logged-in">
+    <div id="top-container">
+      <header id="header">
+        <nav id="header-cs-menu">
+          <div id="account-navigation-menu-wrapper" class="cs-menu-button feature-log-in flyout-menu">
+            <ul id="account-navigation-menu" class="flyout-panel">
+              <li id="account-menu-my-account"><a href="#">My Account</a></li>
+              <li id="account-menu-my-orders"><a href="#">My Orders</a></li>
+              <li id="account-menu-my-favorites"><a href="#">My Favorites</a></li>
+              <li id="account-menu-refer"><a href="#">Refer a Friend</a></li>
+              <li id="account-menu-fastshop"><a href="#">Fast Shop</a></li>
+              <li id="account-menu-clear-cart"><a href="#">Clear Cart (debug)</a></li>
+              <li id="account-menu-logout"><a href="home-page-plain.html">Logout</a></li>
+            </ul>
+            <a href="#" id="cs-menu-my-account">Hello <span id="cs-menu-my-account-name">User</span></a>
+          </div>
+          <a href="#sign-in_up-lightbox" data-lightbox-type="inline" id="cs-menu-sign-up"
+            class="has-lightbox cs-menu-button cs-menu-account-button feature-no-log-in">Sign Up</a>
+          <a href="#sign-in_up-lightbox" data-lightbox-type="inline" id="cs-menu-sign-in"
+            class="has-lightbox cs-menu-button cs-menu-account-button feature-no-log-in">Sign In</a>
+          <div class="cs-menu-button cs-menu-help-button" id="cs-menu-chat-help">
+            <a href="#"><div class="chat-help-icon sprite"></div> Chat Help</a>
+          </div>
+          <div class="cs-menu-button cs-menu-help-button flyout-menu" id="cs-menu-help">
+            <a href="#"><div class="help-chevron-down sprite"></div> Help</a>
+            <ul class="flyout-panel">
+              <li><a href="#" class="help-menu-item">Overview</a></li>
+              <li><a href="#" class="help-menu-item">How it Works</a></li>
+              <li><a href="#" class="help-menu-item">Free Delivery</a></li>
+              <li><a href="#" class="help-menu-item">FAQs</a></li>
+              <li><a href="#" class="help-menu-item">About Us</a></li>
+              <li><a href="#" class="help-menu-item">Refer Your Friends, Get $25</a></li>
+              <li><a href="#" class="help-menu-item">Change Zip Code</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div id="header-logo"><img src="/images/maxdelivery-logo.png" alt="MaxDelivery Logo" /></div>
+        <div id="header-delivery-notice">
+          <div id="header-delivery-text">
+            <div id="delivered-within">Fresh Food<span>delivered within</span></div>
+            <div id="delivered-minutes">minutes</div>
+          </div>
+          <div id="header-next-delivery">
+            Next<br />Delivery:<hr /><span>9am-10am</span>
+          </div>
+        </div>
+        <div id="header-quick-search">
+          <input type="text" id="quick-search-term" class="search-autosuggest" name="quick-search-term" placeholder="What are you looking for?"
+          /><div id="quick-search-icon-wrapper" class="orange-grade"><div class="sprite"></div></div>
+        </div>
+      </header>
+      <section id="main-navigation-bar">
+        <div id="main-navigation-cart-bar" class="feature-log-in">
+          <div id="cart-checkout-button-wrapper" class="cart-bar-item">
+            <div id="cart-bar-checkout-button" class="orange-grade cart-checkout-button">
+              <span id="cart-bar-cart-total-items" class="cart-total-items sprite">0</span>
+              <span id="cart-bar-cart-total-amt" class="cart-total-amt">0.00</span>
+              <span id="cart-bar-slide-button" class="sprite"></span>
+            </div>
+          </div>
+          <a href="#lightbox-reorder" data-lightbox-type="inline" id="cart-reorder-button-wrapper" class="has-lightbox cart-bar-item">
+            <div class="cart-bar-reorder-button sprite"></div>
+          </a>
+          <a href="#wishlist-lightbox" data-lightbox-type="inline" id="wishlist-button-wrapper" class="has=lightbox cart-bar-item">
+            <div class="cart-bar-wishlist-button sprite"></div>
+          </a>
+        </div>
+        <nav id="main-navigation-menu">
+          <ul>
+            <li id="main-nav-supermarket" class="flyout-menu">
+              <a href="#" class="main-navigation-item-text">Supermarket</a>
+              <ul class="category-items flyout-panel">
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                  </a>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/drinks.png" alt="Drinks" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                  </a>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                  </a>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                  </a>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                  </a>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                  </a>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/drinks.png" alt="Drinks" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Drinks</div>
+                  </a>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/eggs-dairy.png" alt="Eggs and Dairy" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Eggs &amp; Dairy</div>
+                  </a>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/fresh-fish.png" alt="Fresh Fish" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Fresh Fish</div>
+                  </a>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/fresh-meat.png" alt="Fresh Meat" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Fresh Meat</div>
+                  </a>
+                </li>
+                <li data-prodcode="prod1" class="category-item supermarket-item">
+                  <a href="#">
+                    <div class="lift-shadow">
+                      <img src="/images/items/supermarket/bread-bakery.png" alt="Bread and Bakery" />
+                    </div>
+                    <div data-prodcode="prod1" class="category-item-caption">Bread/Bakery</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li id="main-nav-bestny"><a href="#" class="main-navigation-item-text">Best of NY</a></li>
+            <li id="main-nav-organic"><a href="#" class="main-navigation-item-text">Organic</a></li>
+            <li id="main-nav-drugstore"><a href="#" class="main-navigation-item-text">Drug Store</a></li>
+            <li id="main-nav-household"><a href="#" class="main-navigation-item-text">Household</a></li>
+            <li id="main-nav-salesnew"><a href="#" class="main-navigation-item-text">Sales &amp; New</a></li>
+            <li id="main-nav-forwork"><a href="#" class="main-navigation-item-text">For Work</a></li>
+          </ul>
+        </nav>
+        <div id="main-navigation-service-check" class="feature-no-log-in">
+          <form name="service-check" id="service-check-form" method="post" action="#">
+            <label for="service-check-zip">Check if we service<br />your address</label>
+            <input type="text" placeholder="Enter ZIP" size="12" /><img src="/images/zip-location.png" alt="Search" />
+          </form>
+        </div>
+      </section>
+      <main id="main-content">
+        <div class="brown-bar-header">Order Checkout</div>
+        <form name="order-checkout-form" id="order-checkout-form" class="clearfix">
+          <div id="checkout-payment-details">
+            <div id="checkout-shipping-address">
+              <div class="checkout-section-header">Delivery Details</div>
+              <table>
+                <thead></thead>
+                <tbody>
+                  <tr>
+                    <td width="40%" class="checkout-form-label">Delivery Time Window</td>
+                    <td class="checkout-form-input">
+                      <select name="checkout_delivery_window">
+                        <option value="18:30">6:30pm - 7:30pm</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checkout-form-label">Saved Locations</td>
+                    <td>
+                      <select name="checkout_location_type" style="display:none;">
+                        <option value="NR">Residential</option>
+                        <option value="NB">Business</option>
+                        <option value="1">90 Duane St.</option>
+                        <option value="2">51 White St.</option>
+                        <option value="3">123 Address</option>
+                        <option value="4">123 Address</option>
+                        <option value="5">123 Address</option>
+                        <option value="6">123 Address</option>
+                        <option value="7">123 Address</option>
+                        <option value="8">123 Address</option>
+                      </select>
+                      <div class="checkout-location-item saved-location-type"
+                           data-id="1" data-street_number="90 Duane St." data-apt_number="37" data-zip_code="12211" data-phone="555-1212">
+                        <div class="checkout-residential-icon checkout-location-icon sprite"></div>
+                        <div class="checkout-location-label">90 Duane St.</div>
+                      </div>
+                      <div class="checkout-location-item saved-location-type"
+                           data-id="2" data-street_number="51 White St." data-apt_number="1/2" data-zip_code="12345" data-phone="888-1212">
+                        <div class="checkout-business-icon checkout-location-icon sprite"></div>
+                        <div class="checkout-location-label">51 White St.</div>
+                      </div>
+                      <div class="checkout-location-item saved-location-type"
+                           data-id="3" data-street_number="123 Address" >
+                        <div class="checkout-residential-icon checkout-location-icon sprite"></div>
+                        <div class="checkout-location-label">123 Address</div>
+                      </div>
+                      <div class="checkout-location-item saved-location-type"
+                           data-id="4" data-street_number="123 Address" >
+                        <div class="checkout-business-icon checkout-location-icon sprite"></div>
+                        <div class="checkout-location-label">123 Address</div>
+                      </div>
+                      <div class="checkout-location-item saved-location-type"
+                           data-id="5" data-street_number="123 Address" >
+                        <div class="checkout-residential-icon checkout-location-icon sprite"></div>
+                        <div class="checkout-location-label">123 Address</div>
+                      </div>
+                      <div class="checkout-location-item saved-location-type"
+                           data-id="6" data-street_number="123 Address" >
+                        <div class="checkout-business-icon checkout-location-icon sprite"></div>
+                        <div class="checkout-location-label">123 Address</div>
+                      </div>
+                      <div class="checkout-location-item saved-location-type"
+                           data-id="7" data-street_number="123 Address" >
+                        <div class="checkout-residential-icon checkout-location-icon sprite"></div>
+                        <div class="checkout-location-label">123 Address</div>
+                      </div>
+                      <div class="checkout-location-item saved-location-type"
+                           data-id="8" data-street_number="123 Address" >
+                        <div class="checkout-business-icon checkout-location-icon sprite"></div>
+                        <div class="checkout-location-label">123 Address</div>
+                      </div>
+                      <div class="checkout-location-item saved-location-type">
+                        <div class="checkout-add-location-icon checkout-location-icon sprite"></div>
+                        <div class="checkout-location-label">New Location</div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="for-new-location">
+                    <td class="checkout-form-label">Location Type</td>
+                    <td>
+                      <div class="checkout-location-item new-location-type" data-id="NR">
+                        <div class="checkout-residential-icon checkout-location-icon sprite"></div>
+                        <div class="checkout-location-label">Residential</div>
+                      </div>
+                      <div class="checkout-location-item new-location-type" data-id="NB">
+                        <div class="checkout-business-icon checkout-location-icon sprite"></div>
+                        <div class="checkout-location-label">Business</div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="for-new-location">
+                    <td class="checkout-form-label">Address</td>
+                    <td>
+                      <input type="text" name="checkout_street_number" placeholder="Street Address" />
+                    </td>
+                  </tr>
+                  <tr class="for-new-location">
+                    <td class="checkout-form-label">&nbsp;</td>
+                    <td>
+                      <input type="text" name="checkout_apt_number" placeholder="Apt # (optional)" class="half-size" />
+                      <input type="text" name="checkout_zip_code" placeholder="Zip Code" class="half-size" />
+                    </td>
+                  </tr>
+                  <tr class="for-new-location">
+                    <td class="checkout-form-label">Phone</td>
+                    <td>
+                      <input type="text" name="checkout_phone" placeholder="Phone number so we can SMS order status" />
+                    </td>
+                  </tr>
+                  <tr class="has-expandable">
+                    <td class="checkout-form-label">Delivery Instructions</td>
+                    <td>
+                      <div id="checkout-instructions-container" class="expandable">
+                        <input type="checkbox" name="leave_with_doorman" id="leave_with_doorman" />
+                        <label for="leave_with_doorman">Leave With My Doorman, or ...</label>
+                        <textarea id="checkout-instructions" name="checkout_instructions" placeholder="... Other Delivery Instructions"></textarea>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="checkout-billing-info">
+              <div class="checkout-section-header">Payment Details</div>
+              <table>
+                <thead></thead>
+                <tbody>
+                  <tr>
+                    <td class="checkout-form-label" width="40%">Your Credit Card</td>
+                    <td>
+                      <select name="checkout_cctype" style="display:none;">
+                        <option value="NV">VISA</option>
+                        <option value="NM">MasterCard</option>
+                        <option value="NA">AMEX</option>
+                        <option value="ND">Discover</option>
+                        <option value="NDE">Diner's Express</option>
+                        <option value="1">1234</option>
+                        <option value="2">5678</option>
+                        <option value="3">1357</option>
+                        <option value="4">2468</option>
+                        <option value="5">6666</option>
+                      </select>
+                      <div class="saved-card-entry saved-visa-card"
+                        data-id="1" data-first_name="Hubert" data-last_name="Humphries" data-card_number="45" data-expire_month="11" data-expire_year="2020">
+                        <div class="saved-card-icon sprite"></div>1234
+                      </div>
+                      <div class="saved-card-entry saved-mc-card">
+                        <div class="saved-card-icon sprite"></div>5678
+                      </div>
+                      <div class="saved-card-entry saved-amex-card">
+                        <div class="saved-card-icon sprite"></div>1357
+                      </div>
+                      <div class="saved-card-entry saved-disc-card">
+                        <div class="saved-card-icon sprite"></div>2468
+                      </div>
+                      <div class="saved-card-entry saved-dinex-card">
+                        <div class="saved-card-icon sprite"></div>6666
+                      </div>
+                      <div class="saved-card-entry add-new-card">
+                        <div class="saved-card-icon sprite"></div>New Card
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="for-new-cctype">
+                    <td class="checkout-form-label">Cardholder Name</td>
+                    <td><input type="text" placeholder="First Name" name="billing_first_name" /></td>
+                  </tr>
+                  <tr class="for-new-cctype">
+                    <td class="checkout-form-label"> </td>
+                    <td><input type="text" placeholder="Last Name" name="billing_last_name" /></td>
+                  </tr>
+                  <tr class="for-new-cctype">
+                    <td class="checkout-form-label">Credit Card</td>
+                    <td><input type="text" placeholder="Card #" name="billing_card_number" /></td>
+                  </tr>
+                  <tr class="for-new-cctype">
+                    <td class="checkout-form-label">Expiration</td>
+                    <td>
+                      <select name="billing_expire_month">
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                      <select name="billing_expire_year">
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checkout-form-label">Security Code<br /><a href="#" class="security-help-link">What is this?</a></td>
+                    <td><input type="text" name="billing_cvv_code" placeholder="Security Code" class="half-size" /></td>
+                  </tr>
+                  <tr>
+                    <td class="checkout-form-label"> </td>
+                    <td>Billing Address:<br />
+                      <select name="checkout_saved_bill_address">
+                        <option value="-1">Select Billing Address</option>
+                        <option value="0">Enter new address</option>
+                        <option value="1">1428 Elm Street</option>
+                        <option value="2">1313 Mockingbird Lane</option>
+                        <option value="3">221B Baker Street</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr class="for-new-billaddr">
+                    <td> </td>
+                    <td>Billing Street Address<br /><input type="text" name="billing_street_number" placeholder="Street Address" /></td>
+                  </tr>
+                  <tr class="for-new-billaddr">
+                    <td> </td>
+                    <td>City<br /><input type="text" name="billing_city" placeholder="City" /></td>
+                  </tr>
+                  <tr class="for-new-billaddr">
+                    <td> </td>
+                    <td>
+                      <div style="display:inline-block;margin-right:20px;">
+                        State<br />
+                        <select name="billing_state">
+                          <option value="NY">NY</option>
+                        </select>
+                      </div>
+                      <div style="display:inline-block">
+                        Zip Code<br /><input type="text" name="billing_zip_code" placeholder="Zip Code" class="half-size"/>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div id="checkout-summary">
+            <div class="checkout-section-header">Order Checkout</div>
+            <table>
+              <thead></thead>
+              <tbody>
+                <tr>
+                  <td colspan="2" style="text-align:center">
+                    <h3>Select Type of Bag</h3>
+                  </td>
+                </tr>
+                <tr class="has-expandable">
+                  <td width="50%" class="checkout-form-label">
+                    Subtotal: $
+                    <div class="expandable subtotal-chart">
+                      <div class="subtotal-chart-row">Subtotal: $</div>
+                      <div class="subtotal-chart-row">Delivery: $</div>
+                      <div class="subtotal-chart-row">Tax: $</div>
+                    </div>
+                  </td>
+                  <td>
+                    290.70
+                    <div class="expandable subtotal-chart">
+                      <div class="subtotal-chart-row">280.80</div>
+                      <div class="subtotal-chart-row">4.95</div>
+                      <div class="subtotal-chart-row">4.95</div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="checkout-form-label">
+                    Delivery Person Tip: $<br /><a href="#">Do I need to ip?</a>
+                  </td>
+                  <td><input type="text" name="delivery_tip" value="4.95" /></td>
+                </tr>
+                <tr>
+                  <td class="checkout-form-label">
+                    <input type="text" name="coupon_code" placeholder="Coupon Code" />
+                  </td>
+                  <td>
+                    <input type="submit" name="coupon_code_submit" value="Apply" class="orange-grade" />
+                  </td>
+                </tr>
+                <tr class="checkout-coupon-entry">
+                  <td class="checkout-form-label">Coupon 1: $</td>
+                  <td>( 5.00 )</td>
+                </tr>
+                <tr class="checkout-coupon-entry">
+                  <td class="checkout-form-label">Coupon 2: $</td>
+                  <td>( 5.00 )</td>
+                </tr>
+                <tr>
+                  <td class="checkout-form-label"><h2>Total: $</h2></td>
+                  <td><h2>280.70</h2></td>
+                </tr>
+                <tr><td colspan="2"><input type="submit" class="orange-grade" name="checkout_form_submit" value="Submit Order" /></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </main>
+      <footer id="footer">
+        <nav id="footer-nav">
+          <ul>
+            <li><a href="#">Our new UrbanFetch brand</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">DVD Rental Agreement</a></li>
+            <li><a href="#">Terms and Conditions of Use</a></li>
+            <li><a href="#">Work for Max Delivery</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </nav>
+        <div id="footer-blurb">
+          <p>Same Day NYC Grocery Delivery - On Sale</p>
+          <p>1-Hour same day Delivery supermarket, drugstore &amp; DVD service
+            in New York City for all your everyday needs. Organic Produce Fruits
+            and Vegetables, Beer &amp; Wine, Groceries, Household Goods, Drugstore
+            items delivered same day.  On Sale
+          </p>
+        </div>
+        <div id="attribution">
+          &copy; 2004-2014 MaxDelivery, LLC &nbsp; All Rights Reserved.<br />
+          51 White Street, New York, NY &nbsp;10013
+        </div>
+      </footer>
+      <div id="cart-bar-flyout">
+        <div id="cart-bar-flyout-link" class="orange-grade">Checkout<div id="cart-bar-flyout-link-arrow" class="sprite"></div></div>
+      </div>
+    </div>
+  </body>
+</html>

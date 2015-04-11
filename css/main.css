@@ -21,9 +21,21 @@ img {
 .aside-right {
   float:right;
 }
+.brown-bar-header {
+  background-color: #9a8268;
+  font-size: 48px;
+  font-family: Amatic SC,sans-serif;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
 .caption-overlay {
   position:absolute;
   width:100%;
+}
+.green {
+  color:#39b549;
 }
 .inline {
   display:inline-block;
@@ -48,6 +60,9 @@ img {
   -moz-box-shadow: 0 6px 10px rgba(0,0,0,.4);
   box-shadow: 0 6px 10px rgba(0,0,0,.4);
 }
+.orange {
+  color:#f7921e;
+}
 .orange-grade {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…IgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
   background: -moz-linear-gradient(top, rgba(251,173,58,1) 0%, rgba(251,173,58,0.98) 21%, rgba(242,95,37,0.9) 100%);
@@ -57,6 +72,15 @@ img {
   background: -ms-linear-gradient(top, rgba(251,173,58,1) 0%,rgba(251,173,58,0.98) 21%,rgba(242,95,37,0.9) 100%);
   background: linear-gradient(to bottom, rgba(251,173,58,1) 0%,rgba(251,173,58,0.98) 21%,rgba(242,95,37,0.9) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbad3a', endColorstr='#e6f25f25',GradientType=0 );
+  border-radius: .5em;
+  vertical-align: middle;
+  line-height: 54px;
+  height:54px;
+  padding: 0 10px;
+  text-align: left;
+  position: relative;
+  display:block;
+  width:100%;
 }
 .overlay-bottom {
   bottom:0;
@@ -71,6 +95,11 @@ img {
 .vertical-text {
 	transform: rotate(90deg);
 	transform-origin: left top 0;
+}
+.vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* jQuery ui-tabs corrections */
@@ -429,15 +458,8 @@ Need to deal with this in the delay hook
   margin-right: 15px;
 }
 .cart-checkout-button {
-  border-radius: .5em;
   display: inline-block;
-  vertical-align: middle;
-  line-height: 54px;
-  height:54px;
   margin-top: -2px;
-  padding: 0 10px;
-  text-align: left;
-  position: relative;
   -webkit-box-shadow: 0px 3px 9px -1px rgba(0,0,0,.6);
   -moz-box-shadow: 0px 3px 9px -1px rgba(0,0,0,.6);
   box-shadow: 0px 3px 9px -1px rgba(0,0,0,.6);
@@ -2001,3 +2023,318 @@ Need to deal with this in the delay hook
   margin-left: 0;
 }
 
+/* Checkout Page */
+#order-checkout-form {
+  width:960px;
+  padding:10px;
+  margin:0 auto 30px;
+}
+#order-checkout-form > div {
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
+  margin: 0 5px;
+  padding: 10px 0px;
+}
+#order-checkout-form #checkout-payment-details {
+  float:left;
+  width:620px;
+}
+#order-checkout-form #checkout-summary {
+  float:right;
+  width:300px;
+}
+.checkout-section-header {
+  color:#f7921e;
+  font-weight:bold;
+  font-size:48px;
+  text-align:center;
+  width:100%;
+  font-family: Amatic SC, sans-serif;
+  border-bottom: 1px solid #c8bda6;
+  margin-bottom: 20px;
+}
+#order-checkout-form td {
+  font-weight: bold;
+  padding: 5px 15px;
+}
+#order-checkout-form td.checkout-form-label {
+  text-align: right;
+}
+.expandable {
+  height:0px;
+  padding:0;
+  overflow:hidden;
+}
+.has-expandable.expanded .expandable { /*#checkout-instructions-container {*/
+  padding: initial;
+  height: initial;
+  border: 0px none;
+}
+tr.has-expandable td.checkout-form-label {
+  vertical-align:top;
+}
+tr.has-expandable td.checkout-form-label:before {
+  content: '';
+  width:10px;
+  height:10px;
+  display:inline-block;
+  background-position:-260px -130px;
+  background-image:url('../images/sprites.png');
+  background-repeat:no-repeat;
+  margin: 0 5px 0 0;
+}
+tr.has-expandable.expanded td.checkout-form-label:before {
+  background-position:-270px -130px;
+  margin-top: 8px;
+}
+
+/* Checkout Page Payment Details and Shipping Info */
+#checkout-payment-details select,
+#checkout-payment-details input[type="text"] {
+  width: 300px;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+#checkout-payment-details select.half-size,
+#checkout-payment-details input.half-size {
+  width: 144px;
+  margin-right:10px;
+}
+#checkout-payment-details select.half-size:last-child,
+#checkout-payment-details input.half-size:last-child {
+  margin-right:0px;
+}
+#checkout-instructions-container {
+  border-top:2px solid black;
+  font-weight:normal;
+}
+#checkout-instructions {
+  width:300px;
+  height:100px;
+  padding:3px 7px;
+}
+.checkout-location-item {
+  display:inline-block;
+  width:90px;
+  text-align:center;
+  color:#c8bda6;
+  cursor:pointer;
+  margin-bottom:15px;
+}
+.checkout-location-item.new-location-type {
+  display:none;
+}
+.is-new-address .checkout-location-item.new-location-type {
+  display:inline-block;
+}
+.checkout-location-item.selected {
+  color:#39b549;
+}
+.checkout-add-location-icon {
+  background-position:-420px -0px;
+}
+.checkout-business-icon {
+  background-position:-420px -60px;
+}
+.checkout-residential-icon {
+  background-position:-420px -121px;
+}
+.checkout-location-icon {
+  width:60px;
+  height:60px;
+  margin:0 auto 5px;
+}
+.checkout-location-item.selected .checkout-location-icon {
+  background-position-x:-480px;
+}
+#checkout-instructions-container #leave_with_doorman {
+  vertical-align: text-bottom;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+#checkout-shipping-address tr.for-new-location {
+  display:none;
+}
+#checkout-shipping-address.is-new-address tr.for-new-location {
+  display:table-row;
+}
+
+/* Checkout Page Order Summary */
+#checkout-summary td {
+  font-size: 12px;
+  font-weight: 900;
+  text-align:right;
+  padding: 5px 10px;
+}
+#checkout-summary .orange-grade {
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+}
+#checkout-summary h2 {
+  font-weight: 900;
+  font-size: 24px;
+}
+#checkout-summary h3 {
+  font-size: 16px;
+  font-weight: 900;
+}
+#checkout-summary input {
+  width: 100%;
+  height: 54px;
+  padding: 0 15px;
+  font-size: 14px;
+}
+.subtotal-chart {
+  font-weight:500;
+}
+
+/* Checkout Page Billing Info */
+.saved-card-entry {
+  position: relative;
+  border: 2px solid #cccccc;
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: .6em;
+  background-color: #f1f1f1;
+  margin: 5px;
+}
+.saved-card-entry.add-new-card {
+  border: 0px none;
+  background: none;
+  padding-top: 65px;
+  vertical-align: top;
+  text-align: center;
+  margin-bottom:20px;
+}
+.saved-card-icon {
+  position:absolute;
+  width:34px;
+  right:5px;
+  bottom:5px;
+}
+.saved-card-entry.add-new-card .saved-card-icon {
+  width:60px;
+  height:60px;
+  top:0;
+  left:20px;
+  background-position:-420px 0;
+}
+.saved-visa-card .saved-card-icon {
+  background-position:-200px -230px;
+  height:10px;
+}
+.saved-mc-card .saved-card-icon {
+  background-position:-240px -230px;
+  height:20px;
+}
+.saved-amex-card .saved-card-icon {
+  background-position:-280px -230px;
+  height:34px;
+}
+.saved-disc-card .saved-card-icon {
+  background-position:-323px -230px;
+  height:6px;
+}
+.saved-dinex-card .saved-card-icon {
+  background-position:-370px -230px;
+  height:23px;
+}
+.saved-card-entry.selected {
+  background-color:#39b549;
+}
+.saved-card-entry.add-new-card.selected {
+  background-color:transparent;
+}
+.saved-card-entry.add-new-card.selected .saved-card-icon {
+  background-position-x: -480px;
+}
+#checkout-billing-info tr.for-new-cctype {
+  display:none;
+}
+#checkout-billing-info.is-new-cctype tr.for-new-cctype {
+  display:table-row;
+}
+#checkout-billing-info select {
+  width: initial;
+}
+.security-help-link {
+  color: #f7921e;
+}
+#checkout-billing-info tr.for-new-billaddr {
+  display:none;
+}
+#checkout-billing-info.is-new-bill-address tr.for-new-billaddr {
+  display:table-row;
+}
+
+/* Order Status Page */
+#order-status-content {
+  position:relative;
+  font-size:20px;
+  text-align:center;
+}
+#order-status-accent-image {
+  float:right;
+}
+#order-status-content h1 {
+  font-size:48px;
+  font-weight:900;
+  font-family:Amatic SC, sans-serif;
+}
+#order-status-tracker {
+  margin:30px auto 10px;
+}
+#order-status-tracker-title {
+  font-weight:900;
+  margin-bottom:10px;
+}
+#order-status-tracker-breadcrumbs {
+  font-size: 0;
+  height:170px;
+}
+.order-status-breadcrumb-item {
+  font-size: 18px;
+  height: 170px;
+  width: 135px;
+  display: inline-block;
+  vertical-align: top;
+  background-color:#e6e6e6;
+  position:relative;
+  padding-left:30px;
+  text-align: left;
+  line-height: 1.2em;
+  border:1px solid #ffffff;
+}
+.order-status-breadcrumb-item:after {
+  position:absolute;
+  right:-16px;
+  top:-1px;
+  background-image:url('../images/sprites.png');
+  height:170px;
+  width:17px;
+  background-position:-560px 0;
+  content:'';
+  font-size:0;
+  z-index:1;
+}
+.order-status-step-completed {
+  color:#ffffff;
+  background: #8cc63f; /* Old browsers */
+  background: -moz-linear-gradient(top, #8cc63f 0%, #009245 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8cc63f), color-stop(100%,#009245)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #8cc63f 0%,#009245 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #8cc63f 0%,#009245 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #8cc63f 0%,#009245 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #8cc63f 0%,#009245 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8cc63f', endColorstr='#009245',GradientType=0 ); /* IE6-9 */
+}
+.order-status-breadcrumb-item.order-status-step-completed:after {
+  background-position:-540px 0 ;
+}
