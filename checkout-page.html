@@ -25,9 +25,10 @@
     <script type="text/javascript" src="/js/DJQ.js"></script>
     <script type="text/javascript" src="/js/CartPlugin.js"></script>
     <!-- begin custom session script - server side scripts run before page init -->
-    <script type="text/javascript">MaxCart.flyout_state=false;run_control_init=['is_page_item','product_presentation'];</script>
+    <script type="text/javascript">MaxCart.flyout_state=false;</script>
     <!-- end custom session script -->
     <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/checkout.js"></script>
   </head>
   <body class="is-logged-in">
     <div id="top-container">
@@ -464,6 +465,8 @@
                 <tr>
                   <td colspan="2" style="text-align:center">
                     <h3>Select Type of Bag</h3>
+                    <div class="checkout-bag-selector checkout-paper-bag sprite"></div>
+                    <div class="checkout-bag-selector checkout-reusable-bag sprite"></div>
                   </td>
                 </tr>
                 <tr class="has-expandable">
@@ -508,7 +511,7 @@
                 </tr>
                 <tr>
                   <td class="checkout-form-label"><h2>Total: $</h2></td>
-                  <td><h2>280.70</h2></td>
+                  <td><h2 class="checkout-order-total">280.70</h2></td>
                 </tr>
                 <tr><td colspan="2"><input type="submit" class="orange-grade" name="checkout_form_submit" value="Submit Order" /></td></tr>
               </tbody>

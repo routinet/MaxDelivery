@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Order Status Page</title>
+    <title>Top Level Best of NYC Page, Plain</title>
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href='//fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css' />
@@ -28,7 +28,6 @@
     <script type="text/javascript">MaxCart.flyout_state=false;</script>
     <!-- end custom session script -->
     <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/order-status.js"></script>
   </head>
   <body class="is-logged-in">
     <div id="top-container">
@@ -207,23 +206,180 @@
           </form>
         </div>
       </section>
-      <main id="main-content" class="clearfix">
-        <div class="brown-bar-header">Thank You for Your Order</div>
-        <div id="order-status-content">
-          <div id="order-status-accent-image"><img src="/images/order-status-bike-bag.png" alt="Accent Image" /></div>
-          <h1 class="orange">Your Order #<span id="order-status-number">1234567</span> was successfully placed</h1>
-          <div>You should receive a confirmation email shortly containing your order details</div>
-          <div id="order-status-tracker">
-            <div id="order-status-tracker-title">Maxdelivery order tracker</div>
-            <div id="order-status-tracker-breadcrumbs">
-              <div class="order-status-breadcrumb-item order-status-step-completed"><div class="vertical-center">Order placed</div></div>
-              <div class="order-status-breadcrumb-item order-status-step-completed"><div class="vertical-center">Luis is picking your order</div></div>
-              <div class="order-status-breadcrumb-item order-status-step-pending"><div class="vertical-center">Luis is double-checking your order for quality</div></div>
-              <div class="order-status-breadcrumb-item order-status-step-pending"><div class="vertical-center">Your order is waiting to be sent out</div></div>
-              <div class="order-status-breadcrumb-item order-status-step-pending"><div class="vertical-center">John is bringing your order to you</div></div>
+      <main id="main-content" class="bkg-best-of-nyc">
+        <section id="category-breadcrumbs" class="breadcrumb">
+          <div class="breadcrumb-item"><a href="#">Best of NYC</a></div>
+        </section>
+        <!-- change class to has-double-row for two-row layout -->
+        <section id="category-highlight" class="has-single-row has-big-box clearfix">
+          <div class="highlight-big-box">
+            <div id="highlight-just-added" class="highlight-big-box-item">
+              <div class="highlight-title-bar"></div>
+              <div class="highlight-content">
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+              </div>
             </div>
-          <h1 class="green" style="font-size:64px;">See you shortly!</h1>
-        </div>
+          </div>
+          <div class="highlight-rows">
+            <div id="highlight-featured-now" class="highlight-row-item">
+              <div class="highlight-title-bar"></div>
+              <div class="highlight-content-header"> Introducing D'Artagnan Premium Meats</div>
+              <div class="highlight-content">
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+              </div>
+            </div><!-- uncomment the following section for two-row layout --><!--
+            <div id="highlight-on-sale" class="highlight-row-item">
+              <div class="highlight-title-bar"></div>
+              <div class="highlight-content-header"> Introducing D'Artagnan Premium Meats</div>
+              <div class="highlight-content">
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+                <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                     data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                     data-imgpath="sample-product.png"
+                     class="category-item reorder-item is-page-item">
+                </div>
+              </div>
+            </div> --><!-- end second row -->
+          </div>
+        </section>
+        <section id="best-of-nyc-feature">
+          <div class="feature-item">
+            <div class="feature-title">
+              <div class="feature-image"><img src="/images/features/balthazar-bakery.png" alt="Balthazar Bakery" /></div>
+              <div class="feature-name">Balthazar Bakery</div>
+            </div>
+            <div class="feature-text">
+              Since 1997, Balthazar Bakery has created breads and pastries for customers who want to enjoy a taste of
+              Balthazar at home or at work. The bakery's philosophy is simple: we use fine ingredients and traditional
+              methods to produce exceptional baked goods.
+              <div class="yelp-rating"><img src="/images/yelp-stars-logo.png" alt="Yelp Rating" /></div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">
+              <div class="feature-image"><img src="/images/features/cassinelli-pasta.png" alt="Cassinelli Fresh Pasta" /></div>
+              <div class="feature-name">Cassinelli Fresh Pasta</div>
+            </div>
+            <div class="feature-text">
+              Fresh Pasta from New York's Best Shop.  From their factory located just across the river in Astoria Co-owners
+              Nella Costella and Antonio Bonfigli, both from Italy, endlessly work their dough to make their pasta.
+              <div class="yelp-rating"><img src="/images/yelp-stars-logo.png" alt="Yelp Rating" /></div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">
+              <div class="feature-image"><img src="/images/features/dartagnan-meats.png" alt="D'Artagnan Premium Meats" /></div>
+              <div class="feature-name">D'Artagnan Premium Meats</div>
+            </div>
+            <div class="feature-text">
+              Since our founding in 1985, we have remained dedicated to putting only the finest meats on the tables of
+              American gastronomes.  At the vanguard of the farm-to-table movement, we are the leading purveyor of foie
+              gras, game meat, organic poultry in...
+              <div class="yelp-rating"><img src="/images/yelp-stars-logo.png" alt="Yelp Rating" /></div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">
+              <div class="feature-image"><img src="/images/features/doughnut-plant.png" alt="Doughnut Plant" /></div>
+              <div class="feature-name">Doughnut Plant</div>
+            </div>
+            <div class="feature-text">
+              Making doughnuts by hand with the highest quality all natural ingredients since 1994.  MADE FRESH DAILY.<br /><br />
+              Doughnut Plant's passion is providing our customers with the best doughnuts in the world...
+              <div class="yelp-rating"><img src="/images/yelp-stars-logo.png" alt="Yelp Rating" /></div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">
+              <div class="feature-image"><img src="/images/features/eileens-cheesecakes.png" alt="Eileen's Special Cheesecakes" /></div>
+              <div class="feature-name">Eileen's Special Cheesecakes</div>
+            </div>
+            <div class="feature-text">
+              Eileen's Special CHeesecake opened for business in December, 1975 and has been delighting New Yorkers for 35 years
+              from their store on Cleveland Place.  Eileen has beated Bobby Flay in this Throwdown and been featured on many
+              &quot;Best Of&quot; ...
+              <div class="yelp-rating"><img src="/images/yelp-stars-logo.png" alt="Yelp Rating" /></div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">
+              <div class="feature-image"><img src="/images/features/ferrara-bakery.png" alt="Ferrara Bakery" /></div>
+              <div class="feature-name">Ferrara Bakery</div>
+            </div>
+            <div class="feature-text">
+              For four generations, the Ferrara family has been delighting Little Italy with its outsanding
+              Italian/French desserts.  Cannoli, stogliatella, gelati, and more have been made right here since 1892.
+              <div class="yelp-rating"><img src="/images/yelp-stars-logo.png" alt="Yelp Rating" /></div>
+            </div>
+          </div>
+        </section>
       </main>
       <footer id="footer">
         <nav id="footer-nav">

@@ -18,22 +18,6 @@
   }
 
   _MaxCart.prototype = {
-    /* View definitions, keyed to CSS selector formatted for javascript */
-    views: {
-      is_page_item: {
-        selector:'.is-page-item',
-        fields:['image','name','description','fullprice','pagectl']
-      },
-      is_cart_item: {
-        selector:'.is-cart-item',
-        fields:['cartctl','quantity','cartdel','image','name','description','subtotal']
-      },
-      product_presentation: {
-        selector:'#product-presentation .is-page-item',
-        fields:['name','fullprice','weight','pagectl']
-      },
-    },
-
     /* Initializes the cart data */
     init: function() {
       this.clear();
@@ -135,7 +119,7 @@
     fields: ['cartctl','quantity','cartdel','image','name','description','subtotal'],
   }
 
-  function CartFlyOut(element, options) {
+  CartFlyOut = function(element, options) {
     this.el = element;
     this.$el = $(this.el);
     this.options = {};
@@ -230,6 +214,8 @@
    ******************************************** */
 
 
+
+
   /* ********************************************
    * Begin CartItem element extension
    ******************************************** */
@@ -255,7 +241,7 @@
     fields: ['image','name','description','fullprice','quantity','subtotal'],
   }
 
-  function CartItem(element, options, data){
+  CartItem = function(element, options, data){
     this.el = element;
     this.$el = $(this.el);
     this.data = data ? data : this._resolveData();
@@ -285,10 +271,29 @@
       return $.proxy(this.views['_generate_'+n],this);
     },
 
+    /* A recursive function to render a named datapoint, or an array of named
+       datapoints.
+
+       n = a string or array of strings for datapoint names
+       */
+    _renderPoint: function(n) {
+      var seq = $.isArray(n),
+          ret = seq
+                ? $('<div class="product-view-subcontainer" />')
+                : this._callView(n);
+      if (seq) {
+        var $this = this;
+        n.forEach(function(v,k) {
+          ret.append($this._renderPoint(v));
+        });
+      }
+      return ret;
+    },
+
     /* Internal function, resolves data from parent element if data is not passed in */
     _resolveData: function() {
       this.data = this.data || {};
-      var datafields = ['id','prodcode','name','price','quantity','priceunit','description','imgpath','weight'],
+      var datafields = ['id','prodcode','name','price','quantity','priceunit','description','imgpath','weight','subtotal'],
           ret = this.data || {},
           $this = this;
       this._updateValue();
@@ -316,11 +321,11 @@
        c = boolean indicating if the element should be cleared prior to populating
        */
     populate: function(c) {
-      var $this=this;
-      if (c) { $this.$el.empty(); }
-      this.options.fields.forEach(function(v,k) {
+      if (c) { this.$el.empty(); }
+      /*this.options.fields.forEach(function(v,k) {
         $this.$el.append($this._callView(v));
-      });
+      });*/
+      this.$el.append(this._renderPoint(this.options.fields).children());
     },
 
     /* finds the closest parent with an id attribute and returns the id

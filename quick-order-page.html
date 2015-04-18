@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Order Status Page</title>
+    <title>Quick Order Page, Plain</title>
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href='//fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css' />
@@ -28,7 +28,6 @@
     <script type="text/javascript">MaxCart.flyout_state=false;</script>
     <!-- end custom session script -->
     <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/order-status.js"></script>
   </head>
   <body class="is-logged-in">
     <div id="top-container">
@@ -208,21 +207,121 @@
         </div>
       </section>
       <main id="main-content" class="clearfix">
-        <div class="brown-bar-header">Thank You for Your Order</div>
-        <div id="order-status-content">
-          <div id="order-status-accent-image"><img src="/images/order-status-bike-bag.png" alt="Accent Image" /></div>
-          <h1 class="orange">Your Order #<span id="order-status-number">1234567</span> was successfully placed</h1>
-          <div>You should receive a confirmation email shortly containing your order details</div>
-          <div id="order-status-tracker">
-            <div id="order-status-tracker-title">Maxdelivery order tracker</div>
-            <div id="order-status-tracker-breadcrumbs">
-              <div class="order-status-breadcrumb-item order-status-step-completed"><div class="vertical-center">Order placed</div></div>
-              <div class="order-status-breadcrumb-item order-status-step-completed"><div class="vertical-center">Luis is picking your order</div></div>
-              <div class="order-status-breadcrumb-item order-status-step-pending"><div class="vertical-center">Luis is double-checking your order for quality</div></div>
-              <div class="order-status-breadcrumb-item order-status-step-pending"><div class="vertical-center">Your order is waiting to be sent out</div></div>
-              <div class="order-status-breadcrumb-item order-status-step-pending"><div class="vertical-center">John is bringing your order to you</div></div>
-            </div>
-          <h1 class="green" style="font-size:64px;">See you shortly!</h1>
+        <div id="previous-order-container">
+          <div id="previous-order-list">
+            <h1>Previous Orders</h1>
+            <table>
+              <thead>
+                <tr>
+                  <td class="previous-order-summary">Orders</td>
+                  <td class="previous-order-total">Total</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="previous-order-summary">
+                    <span class="order-number">Order #1234567</span>
+                    <span class="order-date">Thursday, March 11, 2015</span>
+                  </td>
+                  <td class="previous-order-total">18.59</td>
+                </tr>
+                <tr>
+                  <td class="previous-order-summary">
+                    <span class="order-number">Order #1234567</span>
+                    <span class="order-date">Thursday, March 11, 2015</span>
+                  </td>
+                  <td class="previous-order-total">18.59</td>
+                </tr>
+                <tr>
+                  <td class="previous-order-summary">
+                    <span class="order-number">Order #1234567</span>
+                    <span class="order-date">Thursday, March 11, 2015</span>
+                  </td>
+                  <td class="previous-order-total">18.59</td>
+                </tr>
+                <tr>
+                  <td class="previous-order-summary">
+                    <span class="order-number">Order #1234567</span>
+                    <span class="order-date">Thursday, March 11, 2015</span>
+                  </td>
+                  <td class="previous-order-total">18.59</td>
+                </tr>
+                <tr>
+                  <td class="previous-order-summary">
+                    <span class="order-number">Order #1234567</span>
+                    <span class="order-date">Thursday, March 11, 2015</span>
+                  </td>
+                  <td class="previous-order-total">18.59</td>
+                </tr>
+                <tr>
+                  <td class="previous-order-summary">
+                    <span class="order-number">Order #1234567</span>
+                    <span class="order-date">Thursday, March 11, 2015</span>
+                  </td>
+                  <td class="previous-order-total">18.59</td>
+                </tr>
+                <tr>
+                  <td class="previous-order-summary">
+                    <span class="order-number">Order #1234567</span>
+                    <span class="order-date">Thursday, March 11, 2015</span>
+                  </td>
+                  <td class="previous-order-total">18.59</td>
+                </tr>
+                <tr>
+                  <td class="previous-order-summary">
+                    <span class="order-number">Order #1234567</span>
+                    <span class="order-date">Thursday, March 11, 2015</span>
+                  </td>
+                  <td class="previous-order-total">18.59</td>
+                </tr>
+                <tr>
+                  <td class="previous-order-summary">
+                    <span class="order-number">Order #1234567</span>
+                    <span class="order-date">Thursday, March 11, 2015</span>
+                  </td>
+                  <td class="previous-order-total">18.59</td>
+                </tr>
+                <tr>
+                  <td class="previous-order-summary">
+                    <span class="order-number">Order #1234567</span>
+                    <span class="order-date">Thursday, March 11, 2015</span>
+                  </td>
+                  <td class="previous-order-total">18.59</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="previous-order-detail">
+            <h1>
+              <span class="order-number">Order #1234567</span>
+              <span class="order-date">Thursday, March 11, 2015</span>
+            </h1>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png" data-quantity="3" data-subtotal="30"
+                   class="is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="sample-product.png"
+                   class="is-page-item">
+              </div>
+          </div>
         </div>
       </main>
       <footer id="footer">

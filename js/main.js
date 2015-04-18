@@ -128,14 +128,14 @@
           ftm = elem.siblings('.filter-menu-flyout[data-menuname="'+tm+'"]'),
           chn = elem.hasClass('is-active') ? 'removeClass' : 'addClass'
           ;
+      $('.filter-menu-flyout,.subcategory-filter-menu-item').removeClass('is-active');
       elem[chn]('is-active');
       ftm[chn]('is-active');
     });
 
     /* Add hook for filter bar menu close button */
     $('body').on('click','.filter-menu-flyout-close', function(e){
-      $('.filter-menu-flyout').removeClass('is-active');
-      $('.subcategory-filter-menu-item').removeClass('is-active');
+      $('.filter-menu-flyout,.subcategory-filter-menu-item').removeClass('is-active');
     });
 
     /* Add hook for deleting a single item from the cart */
@@ -224,25 +224,14 @@
      ********************************* */
 
     /* populate the page items with controls */
-    if (run_control_init) {
-      if (!$.isArray(run_control_init)) { run_control_init = [String(run_control_init)]; }
-      run_control_init.forEach(function(v,k){
-        var vv = window.MaxCart.views[v];
-        if (vv) {
-          cs = vv.selector || '';
-          f = vv.fields || [];
-          var ctl = $(cs);
-          if (ctl.length) {
-            ctl.maxCart({fields:f});
-            ctl.each(function(ok,oi) {
-              var ooi = $(oi);
-              ooi.data('maxCart').populate(true);
-              ooi[(ooi.data('maxCart').data.quantity > 0)?'addClass':'removeClass']('is-selected');
-            });
-          }
-        }
-      });
-    }
+    var init_items = [ ['page_items','.is-page-item'],
+                       ['cart_items','.is-cart-item'],
+                       ['product_presentation','#product_presentation .is_page_item'],
+                       ['quick_order','#previous-order-detail .is-page-item'],
+                     ];
+    init_items.forEach(function(v,k) {
+      var t = new DJQ.PageItems(v[0],v[1]).render();
+    });
 
     /* add the auto-suggest box
        Even though DJQ has handlers for this, it is coded inline because of

@@ -154,6 +154,14 @@ switch($method) {
   case 'flyout-state':
     $result['state'] = (bool)array_ifexists('flyout_state',$_POST,false);
     break;
+  /* for updating the steps on the order status page */
+  case 'orderstatus':
+    $on = (int)array_ifexists('orderNum',$_POST,0);
+    $cs = (int)array_ifexists('currentStep',$_POST,0);
+    if (!$on) { $cs=0; }
+    if ($cs < 0 || $cs > 4) { $cs=0; }
+    $result['step']=$cs;
+    break;
   /* auto-suggest word list based on $_POST['fragment'] */
   case 'wordlist':
     $w = $db->real_escape_string(array_ifexists('fragment',$_POST,''));

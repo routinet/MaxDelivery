@@ -212,4 +212,93 @@ var DJQ = DJQ || {};
     D.doAjax('wordlist',o);
   }
 
+  /* ********************************************
+   * Begin PageItems element extension
+   ******************************************** */
+
+  D.PageItems = function(v,s) {
+    this.selector = s || DJQ.PageItems._defaultSelector;
+    this.view = v || DJQ.PageItems._defaultView;
+  }
+
+  var DP = D.PageItems;
+
+  /* The default view name and selector */
+  DP._defaultView = 'page-item';
+  DP._defaultSelector = '.is-page-item';
+
+  /* View definitions, keyed to CSS selector formatted for javascript */
+  DP.views = {
+               page_items: ['image','name','description','fullprice','pagectl'],
+               cart_items: ['cartctl','quantity','cartdel','image','name','description','subtotal'],
+               product_presentation: ['name','fullprice','weight','pagectl'],
+               quick_order: ['image',['name','description','fullprice'],'quantity','subtotal','pagectl'],
+             };
+
+  DP.prototype = {
+    /* Resolve and return the CSS selector used to target elements for this collection.
+      Will return the first found out of the passed selector, this.selector, or this._defaultSelector.
+
+       s = a CSS selector of items to render
+       */
+    _resolveSelector: function(s) {
+      return s || this.selector || DJQ.PageItems._defaultSelector;
+    },
+
+    /* Resolve and return the view to be used for rendering.  Will return the first found
+      out of the passed view name, the this.view, or this._defaultView.
+
+       v = name of the view to use (optional)
+       */
+    _resolveViewName: function(v) {
+      /*var vw = String(v),
+          ret = this.views[vw];
+      if (ret) {
+        this.view = vw;
+      } else {
+        ret = this.views[this.view] || this.views['page_items'];
+      }*/
+      //return ret;
+      return DJQ.PageItems.views[String(v)]
+      || DJQ.PageItems.views[this.view]
+      || DJQ.PageItems.views['page_items'];
+    },
+
+    /* Initializes the object with a view name and CSS selector.
+
+       v = the name of the view
+       s = a CSS selector of items to render
+       */
+    init: function(v,s) {
+      this.selector = this._resolveSelector(s);
+      this.view = this._resolveViewName(v);
+    },
+
+    /* Will render all items with the provided view and selector.  If view or selector are not
+       passed, the current properties will determine the view and selector used.
+
+       v = the name of the view
+       s = a CSS selector of items to render
+       */
+    render: function(v,s) {
+      var $this=this,
+          fld = $this._resolveViewName(v),
+          sel = $this._resolveSelector(s),
+          ctl = $(sel);
+      if (ctl.length) {
+        ctl.maxCart({fields:fld});
+        ctl.each(function(ok,oi) {
+          var ooi = $(oi);
+          ooi.data('maxCart').populate(true);
+          ooi[(ooi.data('maxCart').data.quantity > 0)?'addClass':'removeClass']('is-selected');
+        });
+      }
+    },
+  }
+
+  /* ********************************************
+   * End PageItems element extension
+   ******************************************** */
+
+
 })(jQuery,window);

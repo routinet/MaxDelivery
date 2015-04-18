@@ -21,6 +21,10 @@ img {
 .aside-right {
   float:right;
 }
+.bkg-best-of-nyc {
+  background-image: url('../images/backgrounds/bg-best-of-nyc.png');
+  color:#ffffff;
+}
 .brown-bar-header {
   background-color: #9a8268;
   font-size: 48px;
@@ -100,6 +104,7 @@ img {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 }
 
 /* jQuery ui-tabs corrections */
@@ -1424,20 +1429,23 @@ Need to deal with this in the delay hook
 .breadcrumb {
   padding: 0;
   margin: 0;
-  background-color: #ffffff;
-  font-size:0;
+  background-color: transparent;
+  font-size: 0;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0px 2px 9px -1px rgba(0,0,0,.6);
 }
 .breadcrumb-item {
   display: inline-block;
   height: 60px;
   line-height: 60px;
   font-size: 14px;
+  background-color:transparent;
 }
 .breadcrumb-item a {
   color: #ffffff;
   display: inline-block;
   vertical-align: top;
-  font-weight:bold;
   padding:0 5px 0 0;
 }
 .breadcrumb-item:before {
@@ -1456,9 +1464,9 @@ Need to deal with this in the delay hook
   margin-right:0px;
 }
 .breadcrumb .breadcrumb-item:last-child {
-  background-color:#ffffff;
+  background-color:transparent;
   font-family:Amatic SC, sans-serif;
-  font-size:48px;
+  font-size:40px;
 }
 
 /* specific breadcrumb colors */
@@ -1472,6 +1480,14 @@ Need to deal with this in the delay hook
 .supermarket-breadcrumb .breadcrumb-item:last-child a {
   color:#736256;
 }
+.best-of-nyc-breadcrumb .breadcrumb-item {
+  background-image: url('../images/backgrounds/bg-best-of-nyc.png');
+  color:#ffffff;
+}
+.best-of-nyc-breadcrumb .breadcrumb-item a {
+  color:#ffffff;
+}
+
 
 /* category page featured section
    Note the conditional classes for display
@@ -1630,7 +1646,7 @@ Need to deal with this in the delay hook
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   line-height: 2em;
-  font-size: 20px;
+  font-size: 18px;
   position: relative;
   z-index: 1;
 }
@@ -1639,14 +1655,14 @@ Need to deal with this in the delay hook
 }
 .subcategory-filter-label {
   font-weight: 300;
-  border-right: 2px solid #ffffff;
+  border-right: 1px solid #ffffff;
   padding: 0 20px 0 15px;
   display: inline-block;
 }
 .subcategory-filter-menu-item {
   font-weight: 400;
   position:relative;
-  border-right: 2px solid #ffffff;
+  border-right: 1px solid #ffffff;
   padding: 0 20px 0 15px;
   display: inline-block;
 }
@@ -1667,12 +1683,13 @@ Need to deal with this in the delay hook
 }
 .filter-menu-flyout {
   position: absolute;
-  top: 39px;
+  top: 36px;
   left: 0;
   background-color: #f7e8d2;
   height: 300px;
   width: 100%;
   display:none;
+  z-index:1;
 }
 .filter-menu-flyout.is-active {
   display:block;
@@ -1717,7 +1734,9 @@ Need to deal with this in the delay hook
   float: right;
   height: 100%;
   margin-left: 20px;
-  width: 150px;
+  width: 175px;
+  position: relative;
+  padding: 0 10px;
 }
 .filter-menu-flyout-close {
   background-position: -30px -100px;
@@ -1734,10 +1753,12 @@ Need to deal with this in the delay hook
   border: 0px none;
   border-radius: 10px;
   padding: 0 20px 5px;
-  position: absolute;
-  bottom: 15px;
+  position: relative;
+  bottom: -235px;
   font-size: 24px;
-  right: 25px;
+  right: 50%;
+  text-align: center;
+  transform: translateX(50%);
 }
 .filter-menu-flyout-clear {
   color: black;
@@ -1774,20 +1795,23 @@ Need to deal with this in the delay hook
 }
 
 /* subcategory group product listings */
-.subcategory-group {
+.subcategory-groups {
   position:relative;
   padding:30px 0 20px;
   background-color:#ffffff;
-}
-.subcategory-group:hover {
   -webkit-box-shadow: 0px 3px 9px 0px rgba(0,0,0,.5);
   -moz-box-shadow: 0px 3px 9px 0px rgba(0,0,0,.5);
   box-shadow: 0px 3px 9px 0px rgba(0,0,0,.5);
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+.subcategory-group {
+  padding:30px 0 20px;
 }
 .subcategory-group-title {
-  color: #f7941e;
+  color: #f7931e;
   font-family: Amatic SC, sans-serif;
-  font-size: 64px;
+  font-size: 50px;
   font-weight: 900;
   text-align: center;
   line-height: 1.2em;
@@ -1796,13 +1820,14 @@ Need to deal with this in the delay hook
   position: relative;
   display: inline-block;
   font-family: Lato, sans-serif;
-  color: #f7941e;
-  font-size: 15pt;
+  color: #f7931e;
+  font-size: 14px;
   height: 2.7em;
   vertical-align: middle;
   margin: 0 0 0 1em;
   border-left: 1px dotted #777777;
   padding: 0 0 0 1em;
+  font-weight: 500;
 }
 .subcategory-group .subcategory-items {
   font-size: 0px;
@@ -2191,6 +2216,27 @@ tr.has-expandable.expanded td.checkout-form-label:before {
 .subtotal-chart {
   font-weight:500;
 }
+.checkout-bag-selector {
+  width: 80px;
+  height: 100px;
+  display: inline-block;
+  margin: 0 5px;
+  border: 5px solid #c7b299;
+  border-radius: 14px;
+  background-repeat: no-repeat;
+  padding: 5px 15px;
+  background-origin: content-box;
+  box-sizing: content-box;
+}
+.checkout-bag-selector.selected {
+  border-color:#009245;
+}
+.checkout-bag-selector.checkout-paper-bag {
+  background-image:url('../images/ph-paper-bag.png');
+}
+.checkout-bag-selector.checkout-reusable-bag {
+  background-image:url('../images/ph-reusable-bag.png');
+}
 
 /* Checkout Page Billing Info */
 .saved-card-entry {
@@ -2337,4 +2383,181 @@ tr.has-expandable.expanded td.checkout-form-label:before {
 }
 .order-status-breadcrumb-item.order-status-step-completed:after {
   background-position:-540px 0 ;
+}
+
+/* Best of NYC Features */
+#best-of-nyc-feature {
+  padding: 20px 10px;
+  text-align:center;
+}
+#best-of-nyc-feature .feature-item {
+  width: 470px;
+  padding: 10px;
+  font-size: 0;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  text-align:center;
+}
+#best-of-nyc-feature .feature-title {
+  width: 216px;
+  display: inline-block;
+  text-align: center;
+}
+#best-of-nyc-feature .feature-name {
+  font-family: Amatic SC, sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+#best-of-nyc-feature .feature-text {
+  font-size: 13px;
+  display: inline-block;
+  width: 234px;
+  height: 216px;
+  padding: 15px;
+  text-align: left;
+  vertical-align: top;
+  background-color: #663d32;
+  color: #ffffff;
+  position:relative;
+}
+#best-of-nyc-feature .yelp-rating {
+  margin-top: 10px;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#best-of-nyc-feature .feature-item:hover {
+  background-color:#ffffff;
+}
+#best-of-nyc-feature .feature-item:hover .feature-name {
+  color:#ff9d83;
+}
+#best-of-nyc-feature .feature-item:hover .feature-text {
+  background-color:transparent;
+  color:#000000;
+}
+
+/* Quick Order page */
+#previous-order-container {
+  width:960px;
+  padding:15px 10px;
+  margin:0 auto;
+}
+#previous-order-container h1 {
+  font-family: Amatic SC;
+  font-size: 48px;
+  font-weight: 700;
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 1px solid #c2b59b;
+  color: #f7931e;
+}
+#previous-order-list {
+  float: left;
+  width: 300px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.3);
+  min-height: 500px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+#previous-order-detail {
+  float: right;
+  width: 620px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.3);
+  min-height: 500px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  padding-bottom:25px;
+}
+#previous-order-list table {
+  margin: 0 auto 15px;
+  width: 260px;
+  font-size: 12px;
+}
+#previous-order-list thead td {
+  border-bottom:2px solid #c9cacb;
+  padding:0 5px 5px;
+}
+#previous-order-list thead .previous-order-total {
+  text-align:right;
+}
+#previous-order-list tbody td {
+  border-bottom:1px solid #c2b59b;
+  padding: 10px 5px 5px;
+}
+#previous-order-list tbody tr:hover {
+  background-color: #c2b59b;
+}
+#previous-order-list tbody .order-number {
+  font-weight: 900;
+  display: block;
+  line-height: 1em;
+}
+#previous-order-list tbody .previous-order-total {
+  font-weight: 900;
+  text-align:right;
+}
+#previous-order-list tbody .previous-order-total:before {
+  content: '$ ';
+}
+#previous-order-detail h1 .order-date {
+  font-size: 24px;
+}
+
+/* quick order page product view */
+#previous-order-detail .is-page-item {
+  width: auto;
+  line-height: initial;
+  padding: 10px;
+  height: initial;
+  margin: 0 30px;
+}
+#previous-order-detail .is-page-item > div {
+  display:inline-block;
+  vertical-align:middle;
+  line-height: initial;
+  height: auto;
+  width: auto;
+}
+#previous-order-detail .is-page-item .cart-item-qtyctl {
+  height: 50px;
+  width: 85px;
+  margin: 0 0px 10px 15px;
+  overflow: hidden;
+}
+#previous-order-detail .is-page-item .cart-item-image-path {
+  width:64px;
+}
+#previous-order-detail .is-page-item .cart-item-image-path img {
+  max-width: 64px;
+  max-height: 64px;
+}
+#previous-order-detail .is-page-item .product-view-subcontainer {
+  width:280px;
+  padding:0px 5px;
+}
+#previous-order-detail .is-page-item .cart-item-quantity {
+  width:34px;
+}
+#previous-order-detail .is-page-item .cart-item-subtotal {
+  width:55px;
+  text-align:right;
+}
+#previous-order-detail .is-page-item .cart-item-subtotal:before {
+  content:'$ ';
+}
+#previous-order-detail .is-page-item .product-view-subcontainer > div {
+  margin:0;
+}
+#previous-order-detail .is-page-item .cart-item-qtytext {
+  color:#000000;
+  margin: 0 15px;
+}
+#previous-order-detail .is-page-item .cart-item-qtyctl .cart-item-qtytext {
+  margin: 0;
 }
