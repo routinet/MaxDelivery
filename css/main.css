@@ -1793,6 +1793,13 @@ Need to deal with this in the delay hook
 .active-filter-item:last-child {
   border-right: 0px none;
 }
+.active-filter-remove-icon {
+  width:16px;
+  height:16px;
+  background-position:-90px -100px;
+  display:inline-block;
+  vertical-align: text-bottom;
+}
 
 /* subcategory group product listings */
 .subcategory-groups {
