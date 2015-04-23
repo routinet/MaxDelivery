@@ -88,8 +88,11 @@
     },
 
     /* update the cart/checkout button with correct totals */
-    updateIcon: function() {
+    updateIcon: function(r) {
       var o = { data:$.param({requestType:'cart-totals'}), complete:$.proxy(this.handlerUpdateIcon,this) };
+      if (r && r.responseJSON.new_list) {
+        $('#cart-bar-flyout').maxCartFlyOut().data('maxCartFlyOut').populate();
+      }
       DJQ.doAjax('carticon',o);
     },
 
@@ -116,7 +119,7 @@
 
   /* see CartItem object for explanation of properties */
   var _CartFlyoutDefaultOptions = {
-    fields: ['cartctl','quantity','cartdel','image','name','description','subtotal'],
+    fields: ['cartctl','quantity','cartdel','image',['name','description'],'subtotal','discounts'],
   }
 
   CartFlyOut = function(element, options) {
@@ -179,7 +182,6 @@
        */
     _createWrapper: function(pre) {
       this.clear();
-      pre = pre==undefined ? true : Boolean(pre);
       var m = (pre==undefined ? true : Boolean(pre)) ? 'prepend' : 'append',
           wrap = $('<div/>').addClass('cart-item-list-wrapper')
                             .append( $('<div class="cart-item-list-entries"/>') )
@@ -191,7 +193,8 @@
     /* Internal function, adds items to the flyout
        This should be pushed as a callback to MaxCart.getContents for proper
        automation.  It can be called independently as long as MaxCart.data
-       has been populated.
+       has been populated.  If no items are available in the response (checked
+       via length propert), then the empty cart elements are displayed.
        */
     _addItems: function() {
       var $this = this,
@@ -199,12 +202,25 @@
       ;
       if (!$el.length) { el = this._createWrapper(); }
       var $list = $el.children('.cart-item-list-entries');
-      MaxCart.data.items.forEach(function(v,k){
-        var $item = $this._createItemWrapper();
-        $item.maxCart({ fields:$this.options.fields }, v);
-        $item.data('maxCart').populate();
-        $list.append($item);
-      });
+      if (MaxCart.data.items.length) {
+        MaxCart.data.items.forEach(function(v,k){
+          var $item = $this._createItemWrapper();
+          $item.maxCart({ fields:$this.options.fields }, v);
+          $item.data('maxCart').populate();
+          $list.append($item);
+        });
+        $('#cart-bar-flyout-link').show();
+        $list.removeClass('is-empty-cart');
+      } else {
+        $list.append([
+          $('<div class="empty-cart-icon"/>').append('<img src="/images/empty-cart.png" alt="Cart is Empty!" />'),
+          $('<div class="empty-cart-see-previous empty-cart-button"/>').append('<a href="#" class="orange-grade">See Previous Cart</a>'),
+          $('<div class="empty-cart-add-last-order empty-cart-button"/>').append('<a href="#" class="orange-grade">Add all from last order</a>'),
+          $('<div class="empty-cart-see-favorites empty-cart-button"/>').append('<a href="#" class="orange-grade">Go to Favorites</a>'),
+        ]);
+        $list.addClass('is-empty-cart');
+        $('#cart-bar-flyout-link').hide();
+      }
     },
 
   }
@@ -271,6 +287,17 @@
       return $.proxy(this.views['_generate_'+n],this);
     },
 
+    /* Internal function, handles returning AJAX response for deleting an item
+
+       r = a jQuery response object
+       */
+    _handler_delete: function(r) {
+      var tgt = $('#cart-bar-flyout').maxCartFlyOut();
+      this.$el.remove();
+      window.MaxCart.updateIcon();
+      tgt.data('maxCartFlyOut').populate();
+    },
+
     /* A recursive function to render a named datapoint, or an array of named
        datapoints.
 
@@ -293,7 +320,8 @@
     /* Internal function, resolves data from parent element if data is not passed in */
     _resolveData: function() {
       this.data = this.data || {};
-      var datafields = ['id','prodcode','name','price','quantity','priceunit','description','imgpath','weight','subtotal'],
+      var datafields = ['id','prodcode','name','price','quantity','priceunit','description',
+                        'imgpath','weight','subtotal','discounts','rolltype','rolltext'],
           ret = this.data || {},
           $this = this;
       this._updateValue();
@@ -316,15 +344,23 @@
       this.$el.data('quantity', this.data.quantity);
     },
 
+    /* Deletes product from the cart
+       e = the delete button that triggered the event
+       */
+    delete: function() {
+      var cartid = Number(this.data.id).toFixed(0),
+          o = { data:$.param({requestType:'cart-delete-item', cartID:cartid}),
+                complete: $.proxy(this._handler_delete, this)
+              }
+      DJQ.doAjax('deleteitem',o);
+    },
+
     /* Triggers a population of the control
 
        c = boolean indicating if the element should be cleared prior to populating
        */
     populate: function(c) {
       if (c) { this.$el.empty(); }
-      /*this.options.fields.forEach(function(v,k) {
-        $this.$el.append($this._callView(v));
-      });*/
       this.$el.append(this._renderPoint(this.options.fields).children());
     },
 
@@ -379,12 +415,50 @@
 
       /* generate the remove button element */
       _generate_cartdel: function() {
-        return $(this._ie).addClass('cart-item-remove').html('<div class="cart-item-remove-button sprite"></div>');
+        var b = $('<div class="cart-item-remove-button sprite"></div>').on('click',$.proxy(this.delete,this));
+        return $(this._ie).addClass('cart-item-remove').append(b);
       },
 
       /* generate the description element */
       _generate_description: function() {
         return $(this._ie).addClass('cart-item-descript').html(this.data.description);
+      },
+
+      /* generate a single discount item.  This function should not be called directly from
+         the normal _callView() loop.  It requires the text.
+
+         t = the discount item, array(txt:'text', amt:amount)
+         */
+      _generate_discount: function(t) {
+        var tt = t.text ? String(t.text) : '',
+            ta = Number(t.amt) || 0,
+            tc = t.class || '',
+            ret = null;
+        if (tt && ta) {
+          var txt = $(this._ie).addClass('cart-item-discount-text').html(tt),
+              amt = $(this._ie).addClass('cart-item-discount-amt').html(ta.toFixed(2)),
+              acl = '';
+          ret = $(this._ie).addClass('cart-item-discount').append(txt).append(amt);
+          switch (tc) {
+            case 'saleitem': acl='sale-item-tag-icon'; break;
+            case 'coupon'  : acl='coupon-item-tag-icon'; break;
+            default        : acl='generic-discount-icon'; break;
+          }
+          ret.prepend($(this._ie).addClass(acl).addClass('sprite'));
+        }
+        return ret;
+      },
+
+      /* generate all discount items */
+      _generate_discounts: function() {
+        var ret = $(this._ie).addClass('cart-item-discounts'),
+            $this = this;
+        if ($.isArray(this.data.discounts)) {
+          this.data.discounts.forEach(function(v,k) {
+            ret.append($.proxy($this.views._generate_discount,$this,v));
+          });
+        }
+        return ret;
       },
 
       /* generate the combined name+description elements and wrapper */
@@ -442,6 +516,28 @@
       /* generate the quantity element */
       _generate_quantity: function() {
         return $(this._ie).addClass('cart-item-qtytext').html((Number(this.data.quantity) || 0).toFixed(0));
+      },
+
+      /* generate rollover elements */
+      _generate_rollover: function() {
+        var cls = '', ret = null, icon = null, txt = null;
+        switch(this.data.rolltype) {
+          case 'saleitem':
+            cls = 'sale-item';
+            break;
+          case 'newitem':
+            cls = 'new-item';
+            break;
+          default:
+            cls = '';
+            break;
+        }
+        if (cls) {
+          icon = $('<div class="sprite"/>').addClass(cls+'-tag-icon');
+          txt  = $('<div/>').addClass(cls+'-rollover-text').html(this.data.rolltext);
+          ret  = $('<div class="rollover-container"/>').append(icon).append(txt);
+        }
+        return ret;
       },
 
       /* generate the subtotal element */

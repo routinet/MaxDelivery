@@ -38,6 +38,29 @@ img {
   position:absolute;
   width:100%;
 }
+.coupon-item-tag-icon {
+  background-color:transparent;
+  background-image:none !important;
+  height: 33px;
+  width: 22px;
+  position: absolute;
+}
+.empty-cart-button {
+  margin: -1px auto 0;
+  border: 1px solid #d5ccba;
+  border-collapse: collapse;
+  padding: 20px 40px;
+  border-left: 0px none;
+  border-right: 0px none;
+}
+.empty-cart-button a.orange-grade {
+  color:#ffffff;
+  font-size:16pt;
+  text-align:center;
+}
+.empty-cart-icon {
+  margin: 60px auto;
+}
 .green {
   color:#39b549;
 }
@@ -53,6 +76,23 @@ img {
 /* need non-auto z-index because the overlay covers auto-suggest boxes */
 .nivo-lightbox-overlay {
   z-index: 1;
+}
+.new-item-rollover-text,
+.sale-item-rollover-text {
+  position: absolute;
+  display: none;
+  color: #ffffff;
+  background-color: rgba(33,33,33,.7);
+  text-align: center;
+  padding: 15px;
+  z-index: 1;
+}
+.new-item-tag-icon {
+  background-position: -272px -150px;
+  height: 33px;
+  width: 22px;
+  position: absolute;
+  z-index:2
 }
 .not-logged-in .feature-log-in {
   display:none;
@@ -88,6 +128,13 @@ img {
 }
 .overlay-bottom {
   bottom:0;
+}
+.sale-item-tag-icon {
+  background-position: -242px -150px;
+  height: 33px;
+  width: 22px;
+  position: absolute;
+  z-index:2;
 }
 .show-cart-tab-wrapper table {
   width:100%;
@@ -509,7 +556,7 @@ Need to deal with this in the delay hook
   display:none;
   position: fixed;
   right: 0;
-  width: 320px;
+  width: 390px;
   background-color: #ffffff;
   border: 0px none;
   border-top: 10px solid #f15a24;
@@ -533,6 +580,9 @@ Need to deal with this in the delay hook
   overflow-y: scroll;
   overflow-x: auto;
   background-color:#ffffff;
+}
+#cart-bar-flyout .cart-item-list-entries.is-empty-cart {
+  text-align:center;
 }
 #cart-bar-flyout .cart-item-qtyctl,
 #cart-bar-flyout .cart-item-qtytext {
@@ -570,10 +620,16 @@ Need to deal with this in the delay hook
   display:none;
 }
 #cart-bar-flyout .cart-item-name,
-#cart-bar-flyout .cart-item-descript,
-#cart-bar-flyout .cart-item-price {
-  margin-top:5px;
-  margin-right:50px;
+#cart-bar-flyout .cart-item-descript {
+  margin: 5px 50px 0 121px;
+  width: 160px;
+}
+#cart-bar-flyout .cart-item-subtotal {
+  width: 40px;
+  position: absolute;
+  right: 45px;
+  top: 35px;
+  text-align:right;
 }
 #cart-bar-flyout .cart-item-descript {
   font-weight:normal;
@@ -606,6 +662,46 @@ Need to deal with this in the delay hook
 }
 #cart-bar-flyout .cart-item-quantity-upd.sprite {
   margin-top: -27px;
+}
+#cart-bar-flyout .cart-item-discounts {
+  clear: both;
+  font-weight: 500;
+  color: #ff0000;
+}
+#cart-bar-flyout .cart-item-discount {
+  clear: both;
+  line-height:33px;
+  margin:5px 0;
+}
+#cart-bar-flyout .sale-item-tag-icon {
+  float:left;
+  margin: 0 13px 0 10px;
+  position:initial;
+}
+#cart-bar-flyout .coupon-item-tag-icon,
+#cart-bar-flyout .generic-discount-icon {
+  float: left;
+  margin: 0 13px 0 10px;
+  position: initial;
+}
+
+#cart-bar-flyout .cart-item-discount-text,
+#cart-bar-flyout .cart-item-discount-amt {
+  display:inline-block;
+}
+#cart-bar-flyout .cart-item-discount-text {
+  line-height: initial;
+  width: 230px;
+}
+#cart-bar-flyout .cart-item-discount-amt {
+  float:right;
+  margin-right: 45px;
+}
+#cart-bar-flyout .cart-item-discount-amt:before {
+  content:'($';
+}
+#cart-bar-flyout .cart-item-discount-amt:after {
+  content:')';
 }
 
 /* Cart item controls, generally */
@@ -1575,6 +1671,22 @@ Need to deal with this in the delay hook
 .highlight-row-item .is-page-item .cart-item-full-price {
   margin-bottom: 4px;
 }
+.highlight-row-item .sale-item-tag-icon,
+.highlight-row-item .new-item-tag-icon {
+  top: 25px;
+  left: 20px;
+}
+.highlight-row-item .new-item-rollover-text,
+.highlight-row-item .sale-item-rollover-text {
+  left: 10px;
+  top: 10px;
+  width: 223px;
+  height: 80px;
+}
+.highlight-row-item .is-page-item:hover .new-item-rollover-text,
+.highlight-row-item .is-page-item:hover .sale-item-rollover-text {
+  display:block;
+}
 #highlight-just-added .highlight-title-bar {
   background-image:url('../images/just-added-title-bar.png');
 }
@@ -1871,7 +1983,22 @@ Need to deal with this in the delay hook
 .subcategory-group .cart-item-full-price {
   font-size: 12px;
 }
-
+.subcategory-group .sale-item-tag-icon,
+.subcategory-group .new-item-tag-icon {
+  top: 15px;
+  left: 15px;
+}
+.subcategory-group .new-item-rollover-text,
+.subcategory-group .sale-item-rollover-text {
+  left: 10px;
+  top: 10px;
+  width: 208px;
+  height: 160px;
+}
+.subcategory-group .is-page-item:hover .new-item-rollover-text,
+.subcategory-group .is-page-item:hover .sale-item-rollover-text {
+  display:block;
+}
 /* today on sale subcategory page */
 #section-sales-new.subcategory-page {
   padding: 15px 15px 0;
@@ -2517,54 +2644,54 @@ tr.has-expandable.expanded td.checkout-form-label:before {
 }
 
 /* quick order page product view */
-#previous-order-detail .is-page-item {
+#previous-order-detail-product-list .is-page-item {
   width: auto;
   line-height: initial;
   padding: 10px;
   height: initial;
   margin: 0 30px;
 }
-#previous-order-detail .is-page-item > div {
+#previous-order-detail-product-list .is-page-item > div {
   display:inline-block;
   vertical-align:middle;
   line-height: initial;
   height: auto;
   width: auto;
 }
-#previous-order-detail .is-page-item .cart-item-qtyctl {
-  height: 50px;
+#previous-order-detail-product-list .is-page-item .cart-item-qtyctl {
+  height: 55px;
   width: 85px;
   margin: 0 0px 10px 15px;
   overflow: hidden;
 }
-#previous-order-detail .is-page-item .cart-item-image-path {
+#previous-order-detail-product-list .is-page-item .cart-item-image-path {
   width:64px;
 }
-#previous-order-detail .is-page-item .cart-item-image-path img {
+#previous-order-detail-product-list .is-page-item .cart-item-image-path img {
   max-width: 64px;
   max-height: 64px;
 }
-#previous-order-detail .is-page-item .product-view-subcontainer {
+#previous-order-detail-product-list .is-page-item .product-view-subcontainer {
   width:280px;
   padding:0px 5px;
 }
-#previous-order-detail .is-page-item .cart-item-quantity {
+#previous-order-detail-product-list .is-page-item .cart-item-quantity {
   width:34px;
 }
-#previous-order-detail .is-page-item .cart-item-subtotal {
+#previous-order-detail-product-list .is-page-item .cart-item-subtotal {
   width:55px;
   text-align:right;
 }
-#previous-order-detail .is-page-item .cart-item-subtotal:before {
+#previous-order-detail-product-list .is-page-item .cart-item-subtotal:before {
   content:'$ ';
 }
-#previous-order-detail .is-page-item .product-view-subcontainer > div {
+#previous-order-detail-product-list .is-page-item .product-view-subcontainer > div {
   margin:0;
 }
-#previous-order-detail .is-page-item .cart-item-qtytext {
+#previous-order-detail-product-list .is-page-item .cart-item-qtytext {
   color:#000000;
   margin: 0 15px;
 }
-#previous-order-detail .is-page-item .cart-item-qtyctl .cart-item-qtytext {
+#previous-order-detail-product-list .is-page-item .cart-item-qtyctl .cart-item-qtytext {
   margin: 0;
 }

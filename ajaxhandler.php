@@ -28,6 +28,7 @@ function get_cart_contents() {
   $q = "SELECT id, code, name, price, priceunit, qty, descript, img FROM cart_items;";
   $tr=array('items'=>array(), 'item_count'=>0, 'subtotal'=>0,
             'delivery'=>$deliver_per_cart, 'tax'=>0, 'total'=>0);
+  $included_discounts = 0;
   if ($r = $db->query($q)) {
     while ($rr = $r->fetch_assoc()) {
       $xferkeys = array('id'=>'id','code'=>'code','name'=>'name','price'=>'price',
@@ -36,6 +37,12 @@ function get_cart_contents() {
       $newitem = array();
       foreach($xferkeys as $k=>$v) {
         $newitem[$v] = $rr[$k];
+      }
+      if ($included_discounts < 2) {
+        $included_discounts++;
+        $newitem['discounts'] = array(array('text'=>'Discount text number 1! $2.00 off', 'amt'=>2, 'class'=>'saleitem'),
+                                      array('text'=>'Discount applied on SanPeligrino', 'amt'=>5, 'class'=>'coupon'),
+                                      );
       }
       $newitem['subtotal']=($rr['qty']*$rr['price']);
       $tr['subtotal']+=$newitem['subtotal'];
@@ -87,11 +94,13 @@ switch($method) {
     $tid = (int)$db->real_escape_string(array_ifexists('id',$itemdata));
     $qty = (int)$db->real_escape_string(array_ifexists('quantity',$itemdata));
     $src = $db->real_escape_string(array_ifexists('source',$itemdata));
+    $new_list = 0;
     if (!$tid) {
       $q = "SELECT id FROM cart_items WHERE code='$code' AND source='$src';";
       if ($r = $db->query($q)) {
         $rr=$r->fetch_assoc();
         $tid = (int)$db->real_escape_string($rr['id']);
+        if ($tid) { $new_list = 1; }
       }
     }
     $q = '';
@@ -99,12 +108,11 @@ switch($method) {
       $q = $qty
            ? "UPDATE cart_items SET qty=$qty,source='$src' WHERE id=$tid;"
            : "DELETE FROM cart_items WHERE id=$tid;";
-    } else {
-      if ($code && $qty) {
-        $q = "INSERT INTO cart_items (code,name,descript,price,qty,img,priceunit,source) " .
-             "SELECT '$code','Ottomanelli Certified Black Angus','Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak', " .
-             "'18.59',$qty,'sample-product.png','ea','$src';";
-      }
+    } elseif ($code && $qty) {
+      $new_list = 1;
+      $q = "INSERT INTO cart_items (code,name,descript,price,qty,img,priceunit,source) " .
+           "SELECT '$code','Ottomanelli Certified Black Angus','Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak', " .
+           "'18.59',$qty,'sample-product.png','ea','$src';";
     }
     if ($q) {
       $r = $db->query($q);
@@ -114,6 +122,7 @@ switch($method) {
       $result['rows']=0;
       $result['query']='no query';
     }
+    $result['new_list'] = $new_list;
     break;
   /* for clearing the cart */
   case 'cart-clear':
@@ -123,6 +132,7 @@ switch($method) {
   /* for all cart items & totals, and product suggestions */
   case 'cart-content':
     $result['cart'] = get_cart_contents();
+    $result['new_list'] = 0;
     break;
   case 'cart-delete-item':
     $cartid = $db->real_escape_string((int)array_ifexists('cartID',$_POST));
@@ -134,6 +144,7 @@ switch($method) {
       $result['result']='ERROR';
       $result['msg']='Bad ID passed';
     }
+    $result['new_list'] = 1;
     break;
   /* for reorder products */
   case 'cart-reorder':

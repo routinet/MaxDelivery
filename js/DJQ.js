@@ -229,8 +229,8 @@ var DJQ = DJQ || {};
 
   /* View definitions, keyed to CSS selector formatted for javascript */
   DP.views = {
-               page_items: ['image','name','description','fullprice','pagectl'],
-               cart_items: ['cartctl','quantity','cartdel','image','name','description','subtotal'],
+               page_items: ['rollover','image','name','description','fullprice','pagectl'],
+               cart_items: ['cartctl','quantity','cartdel','image',['name','description'],'subtotal'],
                product_presentation: ['name','fullprice','weight','pagectl'],
                quick_order: ['image',['name','description','fullprice'],'quantity','subtotal','pagectl'],
              };

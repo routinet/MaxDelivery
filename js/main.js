@@ -104,12 +104,9 @@
     /* Add hook to update text version quantity when textbox changes */
     $('body').on('change','.cart-item-qtysel', function(e){
       var t = $(this).siblings('.cart-item-qtytext'),
-          c = $(this).val(),
-          cl = parseInt(c) ? 'addClass' : 'removeClass';
-      if (t.length) {
-        t.html(c);
-      }
-      $(this).closest('.is-page-item,.is-cart-item')[cl]('is-selected').data('maxCart').update();
+          c = Number($(this).val());
+      if (t.length) { t.html(c); }
+      $(this).closest('.is-page-item,.is-cart-item').data('maxCart').update();
     });
 
     /* Add hook for clearing the cart
@@ -136,13 +133,6 @@
     /* Add hook for filter bar menu close button */
     $('body').on('click','.filter-menu-flyout-close', function(e){
       $('.filter-menu-flyout,.subcategory-filter-menu-item').removeClass('is-active');
-    });
-
-    /* Add hook for deleting a single item from the cart */
-    $('body').on('click','.cart-item-remove-button', function(e){
-      DJQ.Cart.deleteItem($(this));
-      $(e.target).closest('.cart-list-item').remove();
-      MaxCart.updateIcon();
     });
 
     /* Add hook for filter bar menu clear link */
@@ -227,7 +217,7 @@
     var init_items = [ ['page_items','.is-page-item'],
                        ['cart_items','.is-cart-item'],
                        ['product_presentation','#product_presentation .is_page_item'],
-                       ['quick_order','#previous-order-detail .is-page-item'],
+                       ['quick_order','#previous-order-detail-product-list .is-page-item'],
                      ];
     init_items.forEach(function(v,k) {
       var t = new DJQ.PageItems(v[0],v[1]).render();
