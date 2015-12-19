@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mobile Home Page</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!-- fonts -->
+    <link href='//fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css' />
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css' />
+
+    <!-- Javascript frameworks -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <!-- <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+    <!-- <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script> -->
+    <script src="/js/init.jquery.mobile.js"></script>
+    <!-- <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script> -->
+    <!-- Need to use the changed local version of jquery.mobile.js for correct slide-in behavior -->
+    <script src="/js/jquery.mobile-1.4.5.js"></script>
+    <script src="/js/jquery.customSelect.min.js"></script>
+
+    <!-- Javascript custom helpers -->
+    <script type="text/javascript" src="/js/DJQ.js"></script>
+    <script type="text/javascript" src="/js/CartPlugin.js"></script>
+
+    <!-- Css frameworks -->
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" /> -->
+    <!-- <link rel="stylesheet" href="/css/jquery-ui.css" /> -->
+    <!-- <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> -->
+    <!-- Need to use the changed local version of jquery.mobile.css for correct slide-in behavior -->
+    <link rel="stylesheet" href="/css/jquery.mobile-1.4.5.css">
+
+    <!-- CSS custom -->
+    <link rel="stylesheet" href="/css/main.css" type="text/css" />
+
+    <!-- custom scripts run before page init -->
+    <script type="text/javascript">MaxCart.flyout_state=false;</script>
+
+    <!-- custom page init -->
+    <script type="text/javascript" src="/js/main.js"></script>
+
+  </head>
+  <body class="not-logged-in subcategory-page">
+    <div id="top-container" data-role="page" data-theme="none">
+      <section id="main-menu-flyout">
+        <div id="main-menu-flyout-header">
+          <img id="main-menu-flyout-logo" src="/images/logo.png" alt="Logo" />
+          <img id="main-menu-flyout-freshfood" src="/images/fresh-food.png" alt="Fresh Food" />
+        </div>
+        <div id="main-menu">
+          <div class="main-menu-flyout-tab" id="sign-in-tab" data-role="popup" data-corners="false" data-theme="none" data-shadow="false">
+            <h2 class="flyout-tab-header"><span class="flyout-tab-back-button"></span>Sign In</h2>
+            <form id="signin-form" name="signin_form" action="#" method="POST" data-enhance="false" class="flyout-form">
+              <input type="text" placeholder="User name" name="signin_username" id="signin-username" />
+              <input type="password" placeholder="Password" name="signin_password" id="signin-password" />
+              <label for="signin_remember">
+                <input type="checkbox" name="signin_remember" id="signin_remember" />
+                Remember login
+              </label>
+              <a href="#" id="signin_lost_password_link">Forgot Password</a>
+              <span>New Customers</span>
+              <a href="#" id="signin_signup_link">Sign-up here</a>
+              <input type="submit" name="signin_submit" id="signin-submit" value="Sign-in" />
+            </form>
+          </div>
+          <div class="main-menu-flyout-tab" id="sign-up-tab" data-role="popup" data-corners="false" data-theme="none" data-shadow="false">
+            <h2 class="flyout-tab-header"><span class="flyout-tab-back-button"></span>Sign Up</h2>
+            <form id="signup-form" name="signup_form" action="#" method="POST" data-enhance="false" class="flyout-form">
+              <input type="text" placeholder="Email address" name="signup_email" id="signup-email" />
+              <input type="password" placeholder="Password" name="signup_password" id="signup-password" />
+              <input type="password" placeholder="Verify Password" name="signup_password-v" id="signup-password-v" />
+              <label for="signup_remember">
+                <input type="checkbox" name="signup_remember" id="signup_remember" />
+                Remember login
+              </label>
+              <select name="signup_hear_about" id="signup-hear-about" class="isCustomSelect">
+                <option value="">How did you hear about us?</option>
+                <option value="1">Radio</option>
+                <option value="1">TV</option>
+                <option value="1">Newspaper</option>
+                <option value="1">Word of Mouth</option>
+                <option value="1">Voices in My Head</option>
+              </select>
+              <input type="text" placeholder="Last name" name="signup_last_name" id="signup-last-name" />
+              <input type="text" placeholder="First name" name="signup_first_name" id="signup-first-name" />
+              <input type="text" placeholder="Address" name="signup_address" id="signup-address" />
+              <p id="signup-address-warning">(currently, we service Manhattan, below 34th Street on the West Side,
+                and 26th Street on the East Side)</p>
+              <input type="text" placeholder="Address 2/Apt. #" name="signup_address2" id="signup-address2" />
+              <input type="text" placeholder="New York City" name="signup_city" id="signup-city" />
+              <input type="text" placeholder="New York" name="signup_state" id="signup-state" />
+              <input type="text" placeholder="Zip" name="signup_zip" id="signup-zip" />
+              <input type="text" placeholder="Phone" name="signup_phone" id="signup-phone" />
+              <p id="signup-phone-warning">(to be used only in the event of <br />a delivery issue)</p>
+              <input type="text" placeholder="Coupon code" name="signup_coupon" id="signup-coupon" />
+              <input type="submit" name="signup_submit" id="signup-submit" value="Sign-up" />
+            </form>
+          </div>
+          <div class="main-menu-flyout-tab" id="my-account-tab" data-role="popup" data-corners="false" data-theme="none" data-shadow="false">
+            <h2 class="flyout-tab-header"><span class="flyout-tab-back-button"></span>My Account</h2>
+            <div class="my-account-tab-menu">
+              <a href="#" class="my-account-link">Logout</a>
+              <a href="#" class="my-account-link">My Orders</a>
+              <a href="#" class="my-account-link">My Favorites</a>
+              <a href="#" class="my-account-link">My Account</a>
+              <a href="#" class="my-account-link">Refer a Friend</a>
+              <a href="#" class="my-account-link">Fast Shop</a>
+            </div>
+          </div>
+          <div class="menu-bar">
+            <a class="menu-item" href="#">Help</a>
+            <a class="menu-item login-signin" href="#sign-in-tab" data-rel="popup" data-transition="reverse slide" data-direction="reverse" data-position-to="window">Sign-in</a>
+            <a class="menu-item login-signup" href="#sign-up-tab" data-rel="popup" data-transition="reverse slide" data-direction="reverse" data-position-to="window">Sign-up</a>
+            <a class="menu-item login-username" href="#my-account-tab" data-rel="popup" data-transition="reverse slide" data-direction="reverse" data-position-to="window">Hello George</a>
+          </div>
+          <a class="menu-item" href="#">Homepage</a>
+          <a class="menu-item" href="#">Supermarket</a>
+          <a class="menu-item" href="#">Best of NY</a>
+          <a class="menu-item" href="#">Organic</a>
+          <a class="menu-item" href="#">Drug Store</a>
+          <a class="menu-item" href="#">Household</a>
+          <a class="menu-item" href="#">Sales &amp; New</a>
+          <a class="menu-item" href="#">For Work</a>
+          <a class="menu-item" href="#">Today on Sale</a>
+          <a class="menu-item debug-helper" id="toggle-login" href="#">Toggle Login</a>
+        </div>
+        <form id="address-search-form" name="address_search_form" method="POST" action="#" data-enhance="false">
+          <div id="address-search-label">Check if we service your address</div>
+          <div id="address-search-input">
+            <input data-enhance="false" id="address-search-zip" name="zip" placeholder="enter your zip code" value="" />
+            <input id="address-search-icon" type="image" value=" " />
+          </div>
+        </form>
+      </section>
+      <div id="content-container">
+        <section id="header">
+          <img class="main-menu-icon" src="/images/hamburger.png" alt="Main Menu" />
+          <img class="chat-icon" src="/images/chat.png" alt="Chat" />
+          <form id="header-search" name="header_search" action="#" method="POST" data-enhance="false">
+            <input type="text" id="header-search-input" name="search_text" value="" placeholder="Search . . ." />
+          </form>
+          <img class="cart-icon" src="/images/cart.png" alt="Cart" />
+        </section>
+        <main>
+          <section id="intro">
+            <div id="featured-lists">
+              <div id="featured-now" class="feature-box">
+                <div class="feature-box-header"></div>
+                <div class="feature-box-items">
+                  <div class="feature-box-items-intro">Introducing D'Artagnan Premium Meats</div>
+                  <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                       data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                       data-imgpath="placeholder.png" data-quantity="2"
+                       class="category-item feature-item is-page-item">
+                  </div>
+                  <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                       data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                       data-imgpath="placeholder.png" data-quantity="2"
+                       class="category-item feature-item is-page-item">
+                  </div>
+                  <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                       data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                       data-imgpath="placeholder.png" data-quantity="2"
+                       class="category-item feature-item is-page-item">
+                  </div>
+                  <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                       data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                       data-imgpath="placeholder.png" data-quantity="2"
+                       class="category-item feature-item is-page-item">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="section-filter-bar" class="subcategory-section">
+            <div class="filter-bar-header">Browse By</div>
+            <div class="filter-bar-selectors">
+              <a class="filter-bar-selection" id="filter-bar-brands" href="#filter-page-brands"
+                data-rel="popup" data-transition="slidedown" data-position-to="window">Brands</a>
+              <a class="filter-bar-selection" id="filter-bar-color">Color</a>
+              <a class="filter-bar-selection" id="filter-bar-other">Other</a>
+            </div>
+          </section>
+          <section id="filter-page-brands" class="filter-page" data-role="popup" data-corners="false" data-theme="none" data-shadow="false">
+            <div class="filter-page-header">
+              <div class="filter-page-title">Browse By Brands</div>
+              <div class="filter-page-close-button sprite"></div>
+            </div>
+            <div class="filter-page-content" data-enhance="false">
+              <input class="filter-option" id="filter-brand-1" type="checkbox" /><label for="filter-brand-1">Sed posuere</label>
+              <input class="filter-option" id="filter-brand-2" type="checkbox" /><label for="filter-brand-2">Consectetur</label>
+              <input class="filter-option" id="filter-brand-3" type="checkbox" /><label for="filter-brand-3">Est at lobortis</label>
+              <input class="filter-option" id="filter-brand-4" type="checkbox" /><label for="filter-brand-4">Nulla vitae elit</label>
+              <input class="filter-option" id="filter-brand-5" type="checkbox" /><label for="filter-brand-5">Libero</label>
+              <input class="filter-option" id="filter-brand-6" type="checkbox" /><label for="filter-brand-6">Pharetra augue</label>
+              <input class="filter-option" id="filter-brand-7" type="checkbox" /><label for="filter-brand-7">Duis mollis</label>
+              <input class="filter-option" id="filter-brand-8" type="checkbox" /><label for="filter-brand-8">Est non commodo</label>
+              <input class="filter-option" id="filter-brand-9" type="checkbox" /><label for="filter-brand-9">Luctus</label>
+              <input class="filter-option" id="filter-brand-10" type="checkbox" /><label for="filter-brand-10">Nisi erat</label>
+            </div>
+            <div class="filter-page-footer">
+              <a class="filter-page-submit-button">Apply filter</a>
+            </div>
+          </section>
+          <section id="section-bakery" class="subcategory-section">
+            <div class="subcategory-header">
+              <div class="subcategory-view-all">View All</div> Bakery/Bread
+            </div>
+            <div class="subcategory-items">
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+            </div>
+          </section>
+          <section id="section-drinks" class="subcategory-section">
+            <div class="subcategory-header">
+              <div class="subcategory-view-all">View All</div> Drinks
+            </div>
+            <div class="subcategory-items">
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+            </div>
+          </section>
+          <section id="section-eggsdairy" class="subcategory-section">
+            <div class="subcategory-header">
+              <div class="subcategory-view-all">View All</div> Eggs &amp; Dairy
+            </div>
+            <div class="subcategory-items">
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+            </div>
+          </section>
+          <section id="section-freshmeats" class="subcategory-section">
+            <div class="subcategory-header">
+              <div class="subcategory-view-all">View All</div> Fresh Meats
+            </div>
+            <div class="subcategory-items">
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+            </div>
+          </section>
+          <section id="section-freshfish" class="subcategory-section">
+            <div class="subcategory-header">
+              <div class="subcategory-view-all">View All</div> Fresh Fish
+            </div>
+            <div class="subcategory-items">
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                   data-imgpath="placeholder.png" data-quantity="2" class="category-item is-page-item">
+              </div>
+            </div>
+          </section>
+        </main>
+        <section id="footer">
+          <select id="footer-select" name="footer_select">
+            <option value="1">Our new UrbanFetch brand</option>
+          </select>
+          <p>
+            Same Day NYC Grocery Delivery - On Sale
+          </p>
+          <p>
+            1-Hour same day Delivery supermarket, drugstore &amp;
+            DVD service in New York City for all your everyday
+            needs. Organic Produce Fruits and Vegetables, Beer &amp;
+            Wine, Groceries, Household Goods, Drugstore items
+            delivered same day. On Sale
+          </p>
+          <p>
+            &copy; 2004-2014 MaxDelivery, LLC All Rights Reserved.<br />
+            51 White Street, New York, NY 10013
+          </p>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

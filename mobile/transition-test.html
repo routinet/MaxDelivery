@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Mobile Test Page</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <style>
+      a { display:block; }
+    </style>
+  </head>
+  <body>
+    <div data-role="page">
+      <div id="test-popup" data-role="popup">This is the popup</div>
+      <div id="mytest">
+        <a href="#test-popup" data-rel="popup" data-transition="slide">Slide</a>
+        <a href="#test-popup" data-rel="popup" data-transition="reverse slide">Reverse Slide</a>
+        <a href="#test-popup" data-rel="popup" data-transition="slide" data-direction="reverse">Slide w/data-direction=&quot;reverse&quot;</a>
+        <a href="#test-popup" data-rel="popup" data-transition="reverse slide" data-direction="reverse">Reverse Slide w/data-direction=&quot;reverse&quot;</a>
+      </div>
+    </div>
+  </body>
+</html>

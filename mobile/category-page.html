@@ -14,10 +14,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
     <!-- <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
     <!-- <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script> -->
-    <script src="/js/init.jquery.mobile.js"></script>
     <!-- <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script> -->
     <!-- Need to use the changed local version of jquery.mobile.js for correct slide-in behavior -->
     <script src="/js/jquery.mobile-1.4.5.js"></script>
+    <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
     <script src="/js/jquery.customSelect.min.js"></script>
 
     <!-- Javascript custom helpers -->
@@ -41,7 +41,7 @@
     <script type="text/javascript" src="/js/main.js"></script>
 
   </head>
-  <body class="not-logged-in home-page">
+  <body class="not-logged-in category-page">
     <div id="top-container" data-role="page" data-theme="none">
       <section id="main-menu-flyout">
         <div id="main-menu-flyout-header">
@@ -143,79 +143,55 @@
           <img class="cart-icon" src="/images/cart.png" alt="Cart" />
         </section>
         <main>
-          <section id="intro"><img src="/images/home-1.png" alt="Home" /></section>
-          <section id="section-reorder" class="category-section">
-            <div class="category-header">
-              <div class="category-view-all">View All</div>
-              <img src="/images/cart-reorder.png" alt="Reorder" /> Reorder
-            </div>
-            <div class="category-items">
-              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-                   data-imgpath="placeholder.png" data-quantity="2"
-                   class="category-item reorder-item is-page-item">
+          <section id="intro">
+            <div id="featured-lists">
+              <div id="featured-just-added" class="feature-box">
+                <div class="feature-box-header"></div>
+                <div class="feature-box-items">
+                  <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                       data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                       data-imgpath="placeholder.png" data-quantity="2"
+                       class="category-item feature-item is-page-item">
+                  </div>
+                </div>
               </div>
-              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-                   data-imgpath="placeholder.png" data-quantity="2"
-                   class="category-item reorder-item is-page-item">
-              </div>
-              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-                   data-imgpath="placeholder.png" data-quantity="2"
-                   class="category-item reorder-item is-page-item">
-              </div>
-              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-                   data-imgpath="placeholder.png" data-quantity="2"
-                   class="category-item reorder-item is-page-item">
-              </div>
-              <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-                   data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-                   data-imgpath="placeholder.png" data-quantity="2"
-                   class="category-item reorder-item is-page-item">
-              </div>
-            </div>
-          </section>
-          <section id="section-supermarket" class="category-section">
-            <div class="category-header">
-              <div class="category-view-all">View All</div> Supermarket
-            </div>
-            <div class="category-items">
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
+              <div id="featured-now" class="feature-box">
+                <div class="feature-box-header"></div>
+                <div class="feature-box-items">
+                  <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                       data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                       data-imgpath="placeholder.png" data-quantity="2"
+                       class="category-item feature-item is-page-item">
+                  </div>
+                  <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                       data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                       data-imgpath="placeholder.png" data-quantity="2"
+                       class="category-item feature-item is-page-item">
+                  </div>
+                  <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                       data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                       data-imgpath="placeholder.png" data-quantity="2"
+                       class="category-item feature-item is-page-item">
+                  </div>
+                  <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
+                       data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
+                       data-imgpath="placeholder.png" data-quantity="2"
+                       class="category-item feature-item is-page-item">
+                  </div>
+                </div>
               </div>
             </div>
           </section>
-          <section id="section-bestofnyc" class="category-section">
-            <div class="category-header">
-              <div class="category-view-all">View All</div> Best of NYC
+          <section id="section-bakery" class="subcategory-section">
+            <div class="subcategory-header">
+              <div class="subcategory-view-all">View All</div> Bakery/Bread
             </div>
-            <div class="category-items">
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
+            <div class="subcategory-items">
+              <div class="subcategory-promotional-item">
+                <div class="subcategory-promotional-image">
+                  <img src="/images/promo-blank.png" alt="Promo Blank" />
+                </div>
+                <div class="subcategory-promotional-text"></div>
               </div>
               <div class="category-item subcategory-link">
                 <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
@@ -239,14 +215,43 @@
               </div>
             </div>
           </section>
-          <section id="section-organic" class="category-section">
-            <div class="category-header">
-              <div class="category-view-all">View All</div> Organic
+          <section id="section-drinks" class="subcategory-section">
+            <div class="subcategory-header">
+              <div class="subcategory-view-all">View All</div> Drinks
             </div>
-            <div class="category-items">
+            <div class="subcategory-items">
               <div class="category-item subcategory-link">
                 <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
                 <div class="category-item-name">Egestas Cursis Etiam</div>
+              </div>
+              <div class="category-item subcategory-link">
+                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
+                <div class="category-item-name">Egestas Cursis Etiam</div>
+              </div>
+              <div class="category-item subcategory-link">
+                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
+                <div class="category-item-name">Egestas Cursis Etiam</div>
+              </div>
+              <div class="category-item subcategory-link">
+                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
+                <div class="category-item-name">Egestas Cursis Etiam</div>
+              </div>
+              <div class="category-item subcategory-link">
+                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
+                <div class="category-item-name">Egestas Cursis Etiam</div>
+              </div>
+            </div>
+          </section>
+          <section id="section-eggsdairy" class="subcategory-section">
+            <div class="subcategory-header">
+              <div class="subcategory-view-all">View All</div> Eggs &amp; Dairy
+            </div>
+            <div class="subcategory-items">
+              <div class="subcategory-promotional-item">
+                <div class="subcategory-promotional-image">
+                  <img src="/images/promo-blank.png" alt="Promo Blank" />
+                </div>
+                <div class="subcategory-promotional-text"></div>
               </div>
               <div class="category-item subcategory-link">
                 <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
@@ -270,15 +275,11 @@
               </div>
             </div>
           </section>
-          <section id="section-drugstore" class="category-section">
-            <div class="category-header">
-              <div class="category-view-all">View All</div> Drug Store
+          <section id="section-freshmeats" class="subcategory-section">
+            <div class="subcategory-header">
+              <div class="subcategory-view-all">View All</div> Fresh Meats
             </div>
-            <div class="category-items">
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
+            <div class="subcategory-items">
               <div class="category-item subcategory-link">
                 <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
                 <div class="category-item-name">Egestas Cursis Etiam</div>
@@ -301,76 +302,16 @@
               </div>
             </div>
           </section>
-          <section id="section-household" class="category-section">
-            <div class="category-header">
-              <div class="category-view-all">View All</div> Household
+          <section id="section-freshfish" class="subcategory-section">
+            <div class="subcategory-header">
+              <div class="subcategory-view-all">View All</div> Fresh Fish
             </div>
-            <div class="category-items">
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-            </div>
-          </section>
-          <section id="section-forwork" class="category-section">
-            <div class="category-header">
-              <div class="category-view-all">View All</div> For Work
-            </div>
-            <div class="category-items">
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
-              </div>
-            </div>
-          </section>
-          <section id="section-newsales" class="category-section">
-            <div class="category-header">
-              <div class="category-view-all">View All</div> New and Sales
-            </div>
-            <div class="category-items">
-              <div class="category-item subcategory-link">
-                <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>
-                <div class="category-item-name">Egestas Cursis Etiam</div>
+            <div class="subcategory-items">
+              <div class="subcategory-promotional-item">
+                <div class="subcategory-promotional-image">
+                  <img src="/images/promo-blank.png" alt="Promo Blank" />
+                </div>
+                <div class="subcategory-promotional-text"></div>
               </div>
               <div class="category-item subcategory-link">
                 <div class="category-item-image"><img src="/images/placeholder.png" alt="placeholder" /></div>

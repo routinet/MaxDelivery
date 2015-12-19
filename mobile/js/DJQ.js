@@ -234,6 +234,7 @@ var DJQ = DJQ || {};
                product_presentation: ['name','fullprice','weight','pagectl'],
                quick_order: ['image',['name','description','fullprice'],'quantity','subtotal','pagectl'],
                name_image: ['image','name'],
+               m_page_items: ['rollover','image','name','fullprice','pagectl'],
              };
 
   DP.prototype = {
