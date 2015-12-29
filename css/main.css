@@ -25,6 +25,15 @@ img {
   background-image: url('../images/backgrounds/bg-best-of-nyc.png');
   color:#ffffff;
 }
+.blurb-continued > .description-blurb:after {
+  content: '...';
+}
+.blurb-read-more {
+  display:none;
+}
+.blurb-continued > .blurb-read-more {
+  display:block;
+}
 .brown-bar-header {
   background-color: #9a8268;
   font-size: 48px;
@@ -222,6 +231,10 @@ img {
   position:relative;
   margin-top:150px;
   z-index:1;
+}
+#main-content.recipe-detail-page {
+  background-image:url('../images/backgrounds/wood-grain.png');
+  padding-bottom:1em;
 }
 #main-navigation-bar {
   background-image:url('../images/backgrounds/bg-main-menu.png');
@@ -1584,7 +1597,17 @@ Need to deal with this in the delay hook
 .best-of-nyc-breadcrumb .breadcrumb-item a {
   color:#ffffff;
 }
-
+.recipe-detail-breadcrumb .breadcrumb-item {
+  background-color: #c49a6c;
+  color:#ffffff;
+}
+.recipe-detail-breadcrumb .breadcrumb-item:before {
+  background-position:-391px -150px;
+}
+.recipe-detail-breadcrumb .breadcrumb-item:last-child a {
+  color:#736256;
+  font-weight:bold;
+}
 
 /* category page featured section
    Note the conditional classes for display
@@ -2695,4 +2718,362 @@ tr.has-expandable.expanded td.checkout-form-label:before {
 }
 #previous-order-detail-product-list .is-page-item .cart-item-qtyctl .cart-item-qtytext {
   margin: 0;
+}
+
+/* Recipe Detail Page */
+#recipe-presentation {
+  background-color: #ffffff;
+  margin: 25px 10px;
+  border-radius: 1em;
+  padding: 2em 1em;
+  position: relative;
+}
+#recipe-presentation .left-column {
+  margin-right:560px;
+}
+#recipe-presentation .right-column {
+  float:right;
+  width: 540px;
+}
+#recipe-presentation .recipe-presentation-title {
+  font-size: 2.25em;
+  font-weight: bold;
+}
+#recipe-presentation .recipe-presentation-description {
+  margin-bottom:15px;
+}
+#recipe-presentation .description-blurb {
+  font-size:1.7em;
+}
+#recipe-presentation .blurb-read-more {
+  font-size: 1.3em;
+  color: #FFA500;
+}
+#recipe-presentation .recipe-presentation-time {
+  font-size:1.2em;
+  color:#939393;
+  border-top: 1px solid #9b8579;
+  border-bottom: 1px solid #9b8579;
+  padding: 1em 0 1em .1em;
+  margin-bottom:.75em;
+}
+#recipe-presentation .recipe-presentation-time-item {
+  margin-right:1em;
+  padding-right:1em;
+  border-right:1px dotted #bbbbbb;
+  display:inline-block;
+  text-align:center;
+}
+#recipe-presentation .recipe-presentation-time-item:last-child {
+  border-right:0px none;
+  margin-right:0;
+  padding-right:0;
+}
+#recipe-presentation .time-item-value {
+  font-weight:bold;
+}
+
+/* Recipe Detail Social Rating Stars and Icons*/
+#recipe-presentation .recipe-presentation-social {
+  margin:10px 0;
+}
+.social-share-twitter {
+  background-position: -408px -184px;
+}
+.social-share-facebook {
+  background-position: -448px -184px;
+}
+.social-share-google {
+  background-position: -488px -184px;
+}
+.social-share-email {
+  background-position: -528px -184px;
+}
+
+#recipe-presentation .recipe-presentation-social-rating > div {
+  display:inline-block;
+  line-height:30px;
+  vertical-align:middle;
+}
+#recipe-presentation .recipe-presentation-social-rating-star {
+  background-position:-518px -234px;
+  width:32px;
+  height:30px;
+  display:inline-block;
+}
+#recipe-presentation .recipe-presentation-social-rating-1 .social-rating-star1,
+#recipe-presentation .recipe-presentation-social-rating-2 .social-rating-star1,
+#recipe-presentation .recipe-presentation-social-rating-2 .social-rating-star2,
+#recipe-presentation .recipe-presentation-social-rating-3 .social-rating-star1,
+#recipe-presentation .recipe-presentation-social-rating-3 .social-rating-star2,
+#recipe-presentation .recipe-presentation-social-rating-3 .social-rating-star3,
+#recipe-presentation .recipe-presentation-social-rating-4 .social-rating-star1,
+#recipe-presentation .recipe-presentation-social-rating-4 .social-rating-star2,
+#recipe-presentation .recipe-presentation-social-rating-4 .social-rating-star3,
+#recipe-presentation .recipe-presentation-social-rating-4 .social-rating-star4,
+#recipe-presentation .recipe-presentation-social-rating-5 .recipe-presentation-social-rating-star {
+  background-position:-478px -234px;
+}
+#recipe-presentation .recipe-presentation-social-rating-count:before {
+  content: '(';
+}
+#recipe-presentation .recipe-presentation-social-rating-count:after {
+  content: ')';
+}
+#recipe-presentation .recipe-presentation-social-icons {
+  float: right;
+  margin-right: 15px;
+  font-size: 0;
+  position:relative;
+}
+#recipe-presentation .recipe-presentation-social-icons > div {
+  display:inline-block;
+  margin-left:20px;
+}
+#recipe-presentation .recipe-presentation-social-icons > div.recipe-presentation-social-share-submenu {
+  line-height: 3rem;
+  font-size: 3rem;
+  font-weight: bold;
+  vertical-align: top;
+  white-space: nowrap;
+  padding: 0.5em 25px;
+  background-color: white;
+  box-shadow: 0px 0px 5px 2px rgba(0,0,0,.3);
+  position: absolute;
+  top: -300%;
+  left: -165px;
+  display: none;
+  margin: 0;
+  width: 365px;
+}
+#recipe-presentation .recipe-presentation-social-share-submenu > div {
+  width:40px;
+  height:40px;
+  display:inline-block;
+  vertical-align:middle;
+}
+#recipe-presentation .recipe-presentation-social-share {
+  background-position: -408px -234px;
+  width:20px;
+  height:30px;
+}
+#recipe-presentation .recipe-presentation-social-print {
+  background-position: -438px -232px;
+  width:32px;
+  height:30px;
+}
+#recipe-presentation .recipe-presentation-social-wish {
+  background-position: -170px -60px;
+  width:30px;
+  height:30px;
+  margin-left: 15px !important;
+}
+#recipe-presentation .recipe-presentation-social-sep {
+  border-right: 1px dotted #9b8579;
+  height:30px;
+}
+
+/* Recipe Detail Instructions */
+.recipe-presentation-instructions {
+  font-size: 1.25em;
+  padding-bottom:1em;
+  margin-bottom:1em;
+  border-bottom: 1px solid #9b8579;
+}
+.recipe-presentation-instructions:before {
+  content: 'Instructions:';
+  font-weight: bold;
+  margin-bottom: .5em;
+  display: block;
+}
+ol.recipe-instructions {
+  color: #999999;
+  font-size: 1.15em;
+  font-weight: bold;
+}
+ol.recipe-instructions li {
+  margin-bottom:1em;
+}
+ol.recipe-instructions li span {
+  color:#000000;
+  font-weight:normal;
+}
+.recipe-presentation-instructions .orange-grade {
+  color: #ffffff;
+  font-size: 1.15em;
+  text-align: center;
+  border: 0px;
+  max-width:600px;
+  margin:0 auto;
+}
+
+/* Recipe Detail Wine Pairings */
+.recipe-wine-recommended {
+  border-bottom: 1px solid #9b8579;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+.recommended-wine-list {
+  overflow-x:auto;
+  overflow-y:hidden;
+  font-size:0;
+  white-space:nowrap;
+}
+.recipe-wine-recommended:before {
+  content:'Recommended wine pairings:';
+  display:block;
+  font-weight: bold;
+  margin-bottom: .5em;
+  font-size:2rem;
+}
+.recipe-wine-recommended:after {
+  display:block;
+  content:'';
+  font-size:0;
+  margin-bottom:1rem;
+}
+.recipe-wine-recommended .recommended-product {
+  display:inline-block;
+  height:310px;
+}
+
+/* Recipe Detail Also Like section */
+.recipe-also-like {
+  padding-bottom:1em;
+}
+.recipe-also-like:before {
+  content:'You may also like:';
+  font-size:1.25em;
+  font-weight:bold;
+  margin-bottom:1em;
+  display:block;
+}
+.recipe-also-like .also-like-entry {
+  margin-bottom:1.25em;
+}
+.recipe-also-like .also-like-entry:after {
+  content:'';
+  display:block;
+  font-size:0;
+  clear:left;
+}
+.recipe-also-like .also-like-entry > img {
+  float:left;
+  margin:1em .75em 1em 0;
+}
+.recipe-also-like .also-like-entry-title {
+  font-size:1.25em;
+  font-weight:bold;
+  margin-bottom:.5em;
+}
+.recipe-also-like .also-like-entry-description {
+  font-size:1.15em;
+}
+/* Recipe Detail Image Carousel */
+#recipe-presentation .recipe-images {
+  max-width:520px;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid #9b8579;
+}
+#recipe-presentation .thumbnails_wrapper {
+  background-color:transparent;
+}
+#recipe-presentation .thumbnails_wrapper .thumbnails {
+  margin:0 auto;
+}
+
+/* Recipe Ingredient List */
+.recipe-ingredient-list {
+  padding:1.5em .75em 1.5em 0;
+}
+.recipe-ingredient-list:before {
+  content:'Ingredients:';
+  font-size:1.25em;
+  font-weight:bold;
+  margin-bottom:1em;
+  display:block;
+}
+.recipe-ingredient-list .orange-grade {
+  color: #ffffff;
+  font-size: 1.5em;
+  text-align: center;
+  border: 0px;
+  max-width:98%;
+  margin:1.5em auto;
+}
+.ingredient-list-entry {
+  font-size: 1.5em;
+  border: 1px solid #9b8579;
+  padding: 1em .5em;
+}
+
+/* Recipe User Reviews */
+.recipe-user-reviews {
+  padding-bottom:1.5em;
+}
+.recipe-user-reviews:before {
+  content:'User Reviews:';
+  font-size:1.25em;
+  font-weight:bold;
+  margin:1em 0;
+  display:block;
+}
+.recipe-user-reviews .user-review-category {
+  margin:.5em 0;
+}
+.recipe-user-reviews .user-review-category > div {
+  display:inline-block;
+  line-height: 32px;
+  height:32px;
+  vertical-align: top;
+}
+.review-stars-percentage-full {
+  background-color:#fbb040;
+  height:32px;
+}
+.reviews-stars-label {
+  text-align: right;
+  width: 180px;
+}
+.review-stars-percentage {
+  background-color:#dddddd;
+  width: 315px;
+}
+.review-stars-count {
+  font-size: 1.5em;
+  margin-left: .25em;
+}
+
+/* Tooltip Callouts */
+.tooltip-callout-bottom:after {
+  border-top: 10px solid #000;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-bottom: 0;
+  content:' ';
+  font-size:1px;
+  position:absolute;
+}
+.tooltip-callout-bottom:before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  left: 50%;
+  bottom: -35px;
+  border: 10px solid transparent;
+  border-top: 25px solid rgb(193,193,193);
+  border-top: 25px solid rgba(193,193,193,0.4);
+  z-index: 2;
+}
+.tooltip-callout-bottom:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 51%;
+  bottom: -28px;
+  border: 8px solid transparent;
+  border-top: 20px solid #ffffff;
+  z-index: 3;
 }

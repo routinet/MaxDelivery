@@ -14,6 +14,14 @@
      * Hooks and events
      ********************************* */
 
+    /* Hook for social icons submenu */
+    $('body').on('click', '.recipe-presentation-social-share', function(e){
+      $(this).parent().find('.recipe-presentation-social-share-submenu').show();
+    });
+    $('body').on('mouseout', '.recipe-presentation-social-share-submenu', function(e){
+      $(this).parent().find('.recipe-presentation-social-share-submenu').hide();
+    });
+
     /* Hook for category tabs click & slide, with UI changes */
     $('body').on('click','#category-tabs .category-section-title',function(e){
       if (!$(this).hasClass('no-collapse')) {
@@ -218,6 +226,7 @@
                        ['cart_items','.is-cart-item'],
                        ['product_presentation','#product_presentation .is_page_item'],
                        ['quick_order','#previous-order-detail-product-list .is-page-item'],
+                       ['recipe_items','#recipe-presentation .recipe-ingredient-list .is-page-item'],
                      ];
     init_items.forEach(function(v,k) {
       var t = new DJQ.PageItems(v[0],v[1]).render();
@@ -257,6 +266,9 @@
 
     /* Add product page image carousel */
     $('#product-presentation .product-images').tiksluscarousel({nav:'thumbnails',autoPlay:false,progressBar:false,navIcons:false,controls:false});
+
+    /* Add recipe page image carousel */
+    $('#recipe-presentation .recipe-images').tiksluscarousel({nav:'thumbnails',autoPlay:false,progressBar:false,navIcons:false,controls:false});
 
   });
 })(jQuery);

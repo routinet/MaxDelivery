@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Product Page, Plain</title>
+    <title>Recipe Detail Page, Plain</title>
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href='//fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css' />
@@ -29,7 +29,7 @@
     <!-- end custom session script -->
     <script type="text/javascript" src="/js/main.js"></script>
   </head>
-  <body class="not-logged-in">
+  <body class="is-logged-in">
     <div id="top-container">
       <header id="header">
         <nav id="header-cs-menu">
@@ -206,177 +206,249 @@
           </form>
         </div>
       </section>
-      <main id="main-content">
-        <section id="category-breadcrumbs" class="breadcrumb supermarket-breadcrumb">
-          <div class="breadcrumb-item"><a href="#">Supermarket</a></div>
-          <div class="breadcrumb-item"><a href="#">Fresh Meat</a></div>
-          <div class="breadcrumb-item"><a href="#">Chicken &amp; Turkey</a></div>
+      <main id="main-content" class="recipe-detail-page">
+        <section id="category-breadcrumbs" class="breadcrumb recipe-detail-breadcrumb">
+          <div class="breadcrumb-item"><a href="#">Recipes</a></div>
+          <div class="breadcrumb-item"><a href="#">Dinner</a></div>
+          <div class="breadcrumb-item"><a href="#">Grandma's Chicken Chardon</a></div>
         </section>
-        <section id="product-presentation" class="clearfix">
-          <div class="left-column">
-            <div class="product-images">
+        <section id="recipe-presentation" class="clearfix">
+          <div class="right-column">
+            <div class="recipe-images">
               <ul>
             		<li><img src="/images/products/pic1.png"></li>
             		<li><img src="/images/products/pic2.png"></li>
               </ul>
             </div>
-            <div class="product-facts">
-              <table class="nutritionTable">
-                <thead />
-                <tbody>
-                  <tr><td colspan="2" class="nutritionHeading">Nutrition Facts</td></tr>
-                  <tr><td colspan="2" class="nutritionSubHeading">Serving Size: 255.0 g<br />Servings Per Container 1</td></tr>
-                  <tr><td colspan="2" class="amtPerServ">Amount Per Serving</td></tr>
-                  <tr>
-                    <td class="nutHeading nutHead">Calories</td>
-                    <td align="right" class="nutValue">400</td>
-                  </tr>
-                  <tr><td colspan="2" align="right" class="pctDaily">% Daily Value*</td></tr>
-                  <tr>
-                    <td class="nutHeading"><span class="nutHead">Total Fat </span><span class="nutVal">16 g</span></td>
-                    <td class="nutValue">25%</td>
-                  </tr>
-                  <tr>
-                    <td class="nutHeading"><span class="nutHead">Saturated Fat </span><span class="nutVal">10 g</span></td>
-                    <td class="nutValue">48%</td>
-                  </tr>
-                  <tr>
-                    <td class="nutHeading"><span class="nutHead">Cholesterol </span><span class="nutVal">40 mg</span></td>
-                    <td class="nutValue">13%</td>
-                  </tr>
-                  <tr>
-                    <td class="nutHeading"><span class="nutHead">Sodium </span><span class="nutVal">640 mg</span></td>
-                    <td class="nutValue">27%</td>
-                  </tr>
-                  <tr>
-                    <td class="nutHeading"><span class="nutHead">Carbohydrates </span><span class="nutVal">47 g</span></td>
-                    <td class="nutValue">16%</td>
-                  </tr>
-                  <tr>
-                    <td class="nutHeading" colspan="2"><span class="nutSubHead">Sugars </span><span class="nutVal">6 g</span></td>
-                  </tr>
-                  <tr>
-                    <td class="nutHeading"><span class="nutHead">Dietary Fiber </span><span class="nutVal">3 g</span></td>
-                    <td class="nutValue">12%</td>
-                  </tr>
-                  <tr>
-                    <td class="nutHeading"><span class="nutHead">Protein </span><span class="nutVal">16 g</span></td>
-                    <td class="nutValue"></td>
-                  </tr>
-                  <tr><td colspan="2">
-                    <div class="nutVitamins">
-                      <div class="vitaminEntry"><div class="vitaminName">Vitamin A</div><div class="vitaminVal">15%</div></div>
-                      <div class="vitaminEntry"><div class="vitaminName">Vitamin C</div><div class="vitaminVal">2%</div></div>
-                      <div class="vitaminEntry"><div class="vitaminName">Calcium</div><div class="vitaminVal">30%</div></div>
-                      <div class="vitaminEntry"><div class="vitaminName">Iron</div><div class="vitaminVal">10%</div></div>
-                    </div>
-                  </td></tr>
-                </tbody>
-              </table>
+            <div class="recipe-ingredient-list">
+              <input type="button" class="orange-grade" value="Add all ingredients to my cart" />
+              <div class="ingredient-list-entry">
+                8 skinless, boneless chicken breast halves
+              </div>
+              <div class="ingredient-list-entry">
+                1/2 cup grated Parmesan cheese
+              </div>
+              <div class="ingredient-list-entry">
+                1 pound sliced fresh mushrooms
+              </div>
+              <div class="ingredient-list-entry">
+                1 something obscured by mock up
+              </div>
+              <div class="ingredient-list-entry">
+                1 tablespoon fresh lemon juice
+              </div>
+              <div class="ingredient-list-entry">
+                1 teaspoon chopped fresh parsley
+              </div>
+              <div class="ingredient-list-entry">
+                1 egg
+              </div>
+              <div class="ingredient-list-entry">
+                salt and pepper to taste
+              </div>
+              <div class="ingredient-list-entry">
+                2 teaspoons garlic powder, divided
+              </div>
+              <div class="ingredient-list-entry">
+                1 cup bread crumbs
+              </div>
+              <input type="button" class="orange-grade" value="Add all ingredients to my cart" />
+            </div>
+            <div class="recipe-user-reviews recipe-presentation-social-rating-5">
+              <div class="five-star-reviews user-review-category">
+                <div class="reviews-stars-label">
+                  <div class="recipe-presentation-social-rating-star social-rating-star1 sprite"></div>
+                  <div class="recipe-presentation-social-rating-star social-rating-star2 sprite"></div>
+                  <div class="recipe-presentation-social-rating-star social-rating-star3 sprite"></div>
+                  <div class="recipe-presentation-social-rating-star social-rating-star4 sprite"></div>
+                  <div class="recipe-presentation-social-rating-star social-rating-star5 sprite"></div>
+                </div>
+                <div class="review-stars-percentage"><div class="review-stars-percentage-full" style="width:70%"></div></div>
+                <div class="review-stars-count">10</div>
+              </div>
+              <div class="four-star-reviews user-review-category">
+                <div class="reviews-stars-label">
+                  <div class="recipe-presentation-social-rating-star social-rating-star1 sprite"></div>
+                  <div class="recipe-presentation-social-rating-star social-rating-star2 sprite"></div>
+                  <div class="recipe-presentation-social-rating-star social-rating-star3 sprite"></div>
+                  <div class="recipe-presentation-social-rating-star social-rating-star4 sprite"></div>
+                </div>
+                <div class="review-stars-percentage"><div class="review-stars-percentage-full" style="width:70%"></div></div>
+                <div class="review-stars-count">10</div>
+              </div>
+              <div class="three-star-reviews user-review-category">
+                <div class="reviews-stars-label">
+                  <div class="recipe-presentation-social-rating-star social-rating-star1 sprite"></div>
+                  <div class="recipe-presentation-social-rating-star social-rating-star2 sprite"></div>
+                  <div class="recipe-presentation-social-rating-star social-rating-star3 sprite"></div>
+                </div>
+                <div class="review-stars-percentage"><div class="review-stars-percentage-full" style="width:70%"></div></div>
+                <div class="review-stars-count">10</div>
+              </div>
+              <div class="two-star-reviews user-review-category">
+                <div class="reviews-stars-label">
+                  <div class="recipe-presentation-social-rating-star social-rating-star1 sprite"></div>
+                  <div class="recipe-presentation-social-rating-star social-rating-star2 sprite"></div>
+                </div>
+                <div class="review-stars-percentage"><div class="review-stars-percentage-full" style="width:70%"></div></div>
+                <div class="review-stars-count">10</div>
+              </div>
+              <div class="one-star-reviews user-review-category">
+                <div class="reviews-stars-label">
+                  <div class="recipe-presentation-social-rating-star social-rating-star1 sprite"></div>
+                </div>
+                <div class="review-stars-percentage"><div class="review-stars-percentage-full" style="width:70%"></div></div>
+                <div class="review-stars-count">10</div>
+              </div>
             </div>
           </div>
-          <div class="right-column">
-            <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-                 data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-                 data-imgpath="sample-product.png" data-weight="3.5lb"
-                 class="product-entry is-page-item">
+          <div class="left-column">
+            <div class="recipe-presentation-title">Grandma's Chicken Chardon</div>
+            <div class="recipe-presentation-social">
+              <div class="recipe-presentation-social-icons">
+                <div class="recipe-presentation-social-share-submenu tooltip-callout-bottom">
+                  share via:
+                  <div class="social-share-twitter sprite"></div>
+                  <div class="social-share-facebook sprite"></div>
+                  <div class="social-share-google sprite"></div>
+                  <div class="social-share-email sprite"></div>
+                </div>
+                <div class="recipe-presentation-social-share sprite"></div>
+                <div class="recipe-presentation-social-print sprite"></div>
+                <div class="recipe-presentation-social-sep"></div>
+                <div class="recipe-presentation-social-wish sprite"></div>
+              </div>
+              <div class="recipe-presentation-social-rating recipe-presentation-social-rating-4">
+                <div class="recipe-presentation-social-rating-star social-rating-star1 sprite"></div>
+                <div class="recipe-presentation-social-rating-star social-rating-star2 sprite"></div>
+                <div class="recipe-presentation-social-rating-star social-rating-star3 sprite"></div>
+                <div class="recipe-presentation-social-rating-star social-rating-star4 sprite"></div>
+                <div class="recipe-presentation-social-rating-star social-rating-star5 sprite"></div>
+                <div class="recipe-presentation-social-rating-count">23</div>
+              </div>
             </div>
-            <div class="product-big-description">
-              <h2>Description</h2>
-              <p>Green Circle chicken is the latest introduction, exclusively from D'Artagnan. Every chicken that
-              bears the name is raised free-range on a diet of actual vegetables, is certiﬁed-humane and
-              air-chilled. Now that is chicken as it should be. </p>
-              <p>Featured on the front page of The New York Times and CNN, this unique chicken was inspired by
-              the common sense, waste-nothing philosophy of days past, when chickens lived on vegetable
-              scraps and roamed freely around farmyards and pastureland. </p>
-              <p>In that tradition, we raise our chickens on a diet of surplus vegetables and trimmings, we are talking
-              about actual vegetables here - collected from commercial kitchens and farmer's markets. By saving
-              these vegetables from their fate in a landﬁll and turning them into nutritious chicken feed, we raise
-              healthier birds and contribute to a better world. </p>
-              <p>Not only are they fed well, these chickens are certiﬁed humane, making them rare birds indeed.
-              They are air-chilled during processing, which means you get nothing but pure chicken ﬂavor, not
-              retained water. </p>
-              <p>Our holistic approach produces truly wholesome results. And that's why we call it a Green Circle
-              chicken. No waste = great taste. </p>
-              <h2>About The Farm </h2>
-              <p>D'Artagnan is dedicated to ﬁnding farmers that share our vision of a more humane way of rearing
-              livestock. We look at scale and sustainability; choosing only those farms that respect nature and
-              focus on the best animal welfare practices.</p>
-              <p>Our network of small Amish and Mennonite family farms in Pennsylvania raise the Green Circle
-              chickens the old fashioned way. They are environmentally responsible & sustainable and offer
-              farm-to-table trace ability. </p>
-              <p>The Green Circle chicken is a special bird for many reasons, but what sets it apart is the diet. The
-              chickens are fed clean surplus vegetables from markets- for instance, the bruised, cut or otherwise
-              unattractive vegetables - along with</p>
-              <h2>Ingredients:</h2>
-              <p>If you ever needed proof on the plate that a happy chicken is a tasty chicken, you?ll ﬁnd it here. Our
-              exclusive Green Circle chicken is raised with care by Amish and Mennonite farmers, and fed vege-
-              tables in our unique program. With its old-fashioned, robust ﬂavor and moist meat, this is chicken
-              the way it used, and ought, to be.</p>
-              <ul style="list-style:none">
-              	<li>Certiﬁed humane by Humane Animal Farm Care</li>
-              	<li>Raised free-range</li>
-              	<li>Surplus vegetable and wholesome grain feed, including corn and soy</li>
-              	<li>No antibiotics or hormones</li>
-              	<li>No animal by-products</li>
-              	<li>Air-chilled for no retained water & maximum ﬂavor</li>
-              	<li>Farm-to-table audit trail</li>
-              	<li>Sold in an uncooked state</li>
-              	<li>3 - 4 lb. average</li>
-              </ul>
+            <div class="recipe-presentation-description blurb-continued">
+              <div class="description-blurb">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rutrum
+                faucibus dolor auctor. Cras justo odio, dapibus ac facilisis in,
+                egestas eget
+              </div>
+              <div class="blurb-read-more">Read More</div>
             </div>
-          </div>
-        </section>
-        <section id="also-bought">
-          <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-               data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-               data-imgpath="sample-product.png"
-               class="category-item reorder-item is-page-item">
-          </div>
-          <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-               data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-               data-imgpath="sample-product.png"
-               class="category-item reorder-item is-page-item">
-          </div>
-          <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-               data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-               data-imgpath="sample-product.png"
-               class="category-item reorder-item is-page-item">
-          </div>
-          <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-               data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-               data-imgpath="sample-product.png"
-               class="category-item reorder-item is-page-item">
-          </div>
-          <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-               data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-               data-imgpath="sample-product.png"
-               class="category-item reorder-item is-page-item">
-          </div>
-          <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-               data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-               data-imgpath="sample-product.png"
-               class="category-item reorder-item is-page-item">
-          </div>
-          <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-               data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-               data-imgpath="sample-product.png"
-               class="category-item reorder-item is-page-item">
-          </div>
-          <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-               data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-               data-imgpath="sample-product.png"
-               class="category-item reorder-item is-page-item">
-          </div>
-          <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-               data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-               data-imgpath="sample-product.png"
-               class="category-item reorder-item is-page-item">
-          </div>
-          <div data-prodcode="prod1" data-name="Ottomanelli Certified Black Angus" data-price="18.59"
-               data-priceunit="ea" data-description="Filet Mignon Steak, Thick Cut, approx 8 oz, 1 steak"
-               data-imgpath="sample-product.png"
-               class="category-item reorder-item is-page-item">
+            <div class="recipe-presentation-time">
+              <div class="recipe-presentation-time-item recipe-presentation-time-prep">
+                <div class="time-item-label">Prep</div>
+                <div class="time-item-value">10min</div>
+              </div>
+              <div class="recipe-presentation-time-item recipe-presentation-time-cook">
+                <div class="time-item-label">Cook</div>
+                <div class="time-item-value">45min</div>
+              </div>
+              <div class="recipe-presentation-time-item recipe-presentation-time-ready">
+                <div class="time-item-label">Ready</div>
+                <div class="time-item-value">55min</div>
+              </div>
+            </div>
+            <div class="recipe-presentation-instructions">
+              <ol class="recipe-instructions">
+                <li><span>Preheat the oven to 375 degrees F (190 degrees C).</span></li>
+                <li><span>In a shallow bowl, beat the egg with salt, pepper and 1 teaspoon garlic
+                  powder. In a separate dish, mix bread crumbs with 1 teaspoon of garlic
+                  powder and Parmesan cheese. Set aside.</span>
+                </li>
+                <li><span>Mix together the melted butter and lemon juice. Pour about 2/3 of the
+                  butter mixture into the bottom of a 9x13 inch baking dish. Tilt pan to
+                  coat the bottom. Spread mushrooms in an even layer in the bottom of
+                  the dish. Dip each chicken breast into the egg mixture, then into the
+                  bread crumb mixture. Place on top of the mushrooms. Drizzle
+                  remaining butter over the chicken, and sprinkle with parsley.</span>
+                </li>
+                <li><span>Bake uncovered for 45 minutes in the preheated oven, until chicken is
+                  golden brown and juices run clear.</span>
+                </li>
+              </ol>
+              <input type="button" class="orange-grade" value="I made it, I ate it, now I'll rate it" />
+            </div>
+            <div class="recipe-wine-recommended">
+              <div class="recommended-wine-list">
+                <div data-prodcode="prod1" data-name="Ca' Lunghetta Pinot Grigio" data-price="10.00"
+                     data-priceunit="750 ml" data-description="Pinot Grigio 2013"
+                     data-imgpath="sample-product.png" data-weight="3.5lb"
+                     class="recommended-product is-page-item"></div>
+                <div data-prodcode="prod1" data-name="Ca' Lunghetta Pinot Grigio" data-price="10.00"
+                     data-priceunit="750 ml" data-description="Pinot Grigio 2013"
+                     data-imgpath="sample-product.png" data-weight="3.5lb"
+                     class="recommended-product is-page-item"></div>
+                <div data-prodcode="prod1" data-name="Ca' Lunghetta Pinot Grigio" data-price="10.00"
+                     data-priceunit="750 ml" data-description="Pinot Grigio 2013"
+                     data-imgpath="sample-product.png" data-weight="3.5lb"
+                     class="recommended-product is-page-item"></div>
+                <div data-prodcode="prod1" data-name="Ca' Lunghetta Pinot Grigio" data-price="10.00"
+                     data-priceunit="750 ml" data-description="Pinot Grigio 2013"
+                     data-imgpath="sample-product.png" data-weight="3.5lb"
+                     class="recommended-product is-page-item"></div>
+                <div data-prodcode="prod1" data-name="Ca' Lunghetta Pinot Grigio" data-price="10.00"
+                     data-priceunit="750 ml" data-description="Pinot Grigio 2013"
+                     data-imgpath="sample-product.png" data-weight="3.5lb"
+                     class="recommended-product is-page-item"></div>
+                <div data-prodcode="prod1" data-name="Ca' Lunghetta Pinot Grigio" data-price="10.00"
+                     data-priceunit="750 ml" data-description="Pinot Grigio 2013"
+                     data-imgpath="sample-product.png" data-weight="3.5lb"
+                     class="recommended-product is-page-item"></div>
+                <div data-prodcode="prod1" data-name="Ca' Lunghetta Pinot Grigio" data-price="10.00"
+                     data-priceunit="750 ml" data-description="Pinot Grigio 2013"
+                     data-imgpath="sample-product.png" data-weight="3.5lb"
+                     class="recommended-product is-page-item"></div>
+                <div data-prodcode="prod1" data-name="Ca' Lunghetta Pinot Grigio" data-price="10.00"
+                     data-priceunit="750 ml" data-description="Pinot Grigio 2013"
+                     data-imgpath="sample-product.png" data-weight="3.5lb"
+                     class="recommended-product is-page-item"></div>
+              </div>
+            </div>
+            <div class="recipe-also-like">
+              <div class="also-like-list">
+                <div class="also-like-entry">
+                  <img src="/images/sample-product.png" alt="sample image" />
+                  <div class="also-like-entry-title">Chef John's Chicken Under a Brick</div>
+                  <div class="also-like-entry-description">
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                    risus, porta ac consectetur ac, vestibulum at eros.
+                  </div>
+                </div>
+                <div class="also-like-entry">
+                  <img src="/images/sample-product.png" alt="sample image" />
+                  <div class="also-like-entry-title">Oven-Fried Chicken II</div>
+                  <div class="also-like-entry-description">
+                    Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia
+                    bibendum nulla sed consectetur.
+                  </div>
+                </div>
+                <div class="also-like-entry">
+                  <img src="/images/sample-product.png" alt="sample image" />
+                  <div class="also-like-entry-title">Chef John's Chicken Under a Brick</div>
+                  <div class="also-like-entry-description">
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                    risus, porta ac consectetur ac, vestibulum at eros.
+                  </div>
+                </div>
+                <div class="also-like-entry">
+                  <img src="/images/sample-product.png" alt="sample image" />
+                  <div class="also-like-entry-title">Oven-Fried Chicken II</div>
+                  <div class="also-like-entry-description">
+                    Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia
+                    bibendum nulla sed consectetur.
+                  </div>
+                </div>
+                <div class="also-like-entry">
+                  <img src="/images/sample-product.png" alt="sample image" />
+                  <div class="also-like-entry-title">Chef John's Chicken Under a Brick</div>
+                  <div class="also-like-entry-description">
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                    risus, porta ac consectetur ac, vestibulum at eros.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>
